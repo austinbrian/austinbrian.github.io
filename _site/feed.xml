@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-  <generator uri="http://jekyllrb.com" version="3.4.2">Jekyll</generator>
+  <generator uri="http://jekyllrb.com" version="3.4.3">Jekyll</generator>
   
   
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2017-03-17T20:52:22+00:00</updated>
+  <updated>2017-03-27T21:06:52-05:00</updated>
   <id>http://localhost:4000//</id>
 
   
-    <title type="html">whiteglass theme</title>
+    <title type="html">Data futures blog</title>
   
 
   
-    <subtitle>Minimal, responsive Jekyll theme for hackers.</subtitle>
+    <subtitle>Blog of the future.</subtitle>
   
 
   
     <author>
-        <name>Yous</name>
+        <name>Brian Austin</name>
       
       
     </author>
@@ -28,25 +28,92 @@
   
     <entry>
       
-      <title type="html">Welcome To Jekyll</title>
+      <title type="html">Who’s that Lady?</title>
       
-      <link href="http://localhost:4000/2017/01/05/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome To Jekyll" />
-      <published>2017-01-05T00:00:00+00:00</published>
-      <updated>2017-01-05T00:00:00+00:00</updated>
-      <id>http://localhost:4000/2017/01/05/welcome-to-jekyll</id>
-      <content type="html" xml:base="http://localhost:4000/2017/01/05/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+      <link href="http://localhost:4000/2017/03/27/dc-dogs/" rel="alternate" type="text/html" title="Who's that Lady?" />
+      <published>2017-03-27T00:00:00-05:00</published>
+      <updated>2017-03-27T00:00:00-05:00</updated>
+      <id>http://localhost:4000/2017/03/27/dc-dogs</id>
+      <content type="html" xml:base="http://localhost:4000/2017/03/27/dc-dogs/">&lt;p&gt;Let’s say you’re at a local dog park in DC, and you see a dog chasing a ball, doing dog things, and you want to call out for her to come play with you. What should you yell?&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;Try “Lady” or “Blue.”&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pbs.twimg.com/media/C77GgWCW0AAAHqi.jpg:large&quot; alt=&quot;Peanut! from @darth&quot; /&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;According to a list of 1,533 dog registrations in the District in 2016, those are most likely names for female and male dogs, respectively. Here are other common pup names.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Good Boys&lt;/th&gt;
+      &lt;th&gt;#&lt;/th&gt;
+      &lt;th&gt;Good Girls&lt;/th&gt;
+      &lt;th&gt;#&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Blue&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Lady&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;King&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;Chloe&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rocky&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Bella&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Charlie&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Sheba&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nino&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Princess&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Max&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Lola&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Zeus&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Sasha&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Rambo, my favorite name on this list, is shared by four lucky dogs. Those who enjoy trademark infringement may consider “Oreo,” which is shared by five males and one female.&lt;/p&gt;
+
+&lt;p&gt;So what else do we know about these dogs?&lt;/p&gt;
+
+&lt;p&gt;For starters, they are slightly more likely to be male, and both males and females (that are registered with DC) are very likely to be fixed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/dogs_registered_mf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;They also have a great chance of being some breed of terrier. More than a third of registered dogs is some kind of terrier or mix. The most common breed variety in DC is the Terrier / Pit Bull mix, with 233 registrants.&lt;/p&gt;
+
+&lt;p&gt;Dogs in DC are also on the younger side, as on this chart (measured in people years).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/dog_years_dc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The data on who the dogs are in DC comes from a &lt;a href=&quot;https://github.com/katerabinowitz/FOIA-Requests/tree/master/Registered%20Dogs&quot;&gt;dataset&lt;/a&gt; FOIA’d and compiled by the great &lt;a href=&quot;http://www.datalensdc.com/&quot;&gt;Kate Rabinowitz&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hopefully, this has been a good excuse for you to go out and pet a pup!&lt;/p&gt;</content>
 
       
       
@@ -56,7 +123,7 @@
 
       
         <author>
-            <name>Yous</name>
+            <name>Brian Austin</name>
           
           
         </author>
@@ -67,7 +134,7 @@
       
 
       
-        <summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated. To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.ext and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works. Jekyll also offers powerful support for code snippets: def print_hi(name) puts &quot;Hi, #{name}&quot; end print_hi('Tom') #=&amp;gt; prints 'Hi, Tom' to STDOUT. Check out the Jekyll docs for more info on how to get the most out of Jekyll. File all bugs/feature requests at Jekyll’s GitHub repo. If you have questions, you can ask them on Jekyll Talk.</summary>
+        <summary type="html">Let’s say you’re at a local dog park in DC, and you see a dog chasing a ball, doing dog things, and you want to call out for her to come play with you. What should you yell? Try “Lady” or “Blue.” According to a list of 1,533 dog registrations in the District in 2016, those are most likely names for female and male dogs, respectively. Here are other common pup names. Good Boys # Good Girls # Blue 10 Lady 14 King 8 Chloe 11 Rocky 7 Bella 10 Charlie 6 Sheba 7 Nino 6 Princess 6 Max 6 Lola 6 Zeus 6 Sasha 6 Rambo, my favorite name on this list, is shared by four lucky dogs. Those who enjoy trademark infringement may consider “Oreo,” which is shared by five males and one female. So what else do we know about these dogs? For starters, they are slightly more likely to be male, and both males and females (that are registered with DC) are very likely to be fixed. They also have a great chance of being some breed of terrier. More than a third of registered dogs is some kind of terrier or mix. The most common breed variety in DC is the Terrier / Pit Bull mix, with 233 registrants. Dogs in DC are also on the younger side, as on this chart (measured in people years). The data on who the dogs are in DC comes from a dataset FOIA’d and compiled by the great Kate Rabinowitz. Hopefully, this has been a good excuse for you to go out and pet a pup!</summary>
       
 
       
@@ -78,95 +145,35 @@
   
     <entry>
       
-      <title type="html">This post demonstrates post content styles</title>
+      <title type="html">The wild predictive ride of the NCAA first round</title>
       
-      <link href="http://localhost:4000/2017/01/04/this-post-demonstrates-post-content-styles/" rel="alternate" type="text/html" title="This post demonstrates post content styles" />
-      <published>2017-01-04T00:00:00+00:00</published>
-      <updated>2017-01-04T00:00:00+00:00</updated>
-      <id>http://localhost:4000/2017/01/04/this-post-demonstrates-post-content-styles</id>
-      <content type="html" xml:base="http://localhost:4000/2017/01/04/this-post-demonstrates-post-content-styles/">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.&lt;/p&gt;
+      <link href="http://localhost:4000/2017/03/20/ncaa-rd1/" rel="alternate" type="text/html" title="The wild predictive ride of the NCAA first round" />
+      <published>2017-03-20T00:00:00-05:00</published>
+      <updated>2017-03-20T00:00:00-05:00</updated>
+      <id>http://localhost:4000/2017/03/20/ncaa-rd1</id>
+      <content type="html" xml:base="http://localhost:4000/2017/03/20/ncaa-rd1/">&lt;p&gt;Ah, March.&lt;/p&gt;
 
-&lt;h2&gt;Some great heading (h2)&lt;/h2&gt;
+&lt;p&gt;It’s a time of bright &lt;a href=&quot;http://www.accuweather.com/en/weather-news/noreaster-shuts-down-travel-threatens-to-unleash-blizzard-conditions-in-at-least-8-states/70001093&quot;&gt;spring sunshine&lt;/a&gt;, cherry blossoms, and people everywhere searching their memories for where exactly &lt;a href=&quot;https://en.wikipedia.org/wiki/Xavier_University&quot; title=&quot;Cincinnati&quot;&gt;Xavier University&lt;/a&gt; is.&lt;/p&gt;
 
-&lt;p&gt;Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu.&lt;/p&gt;
+&lt;p&gt;It’s tournament season! Or at least it is every year in my household until UNC loses. But beyond my general interest in watching a round ball go through a hoop, it’s also a great time to test out predictions. Since everyone and their brother makes predictions about who is likely to win the games each round, I thought I’d check and see how they are doing.&lt;/p&gt;
 
-&lt;p&gt;Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
+&lt;p&gt;To do that, I simulated the projections from data scientists at &lt;a href=&quot;http://www.cbssports.com/college-basketball/bracketology/&quot;&gt;CBS Sports&lt;/a&gt;, &lt;a href=&quot;https://sports.yahoo.com/m/66607537-5012-36a0-8694-65a0522cf6c1/ss_2017-ncaa-tournament-bracket.html&quot;&gt;Yahoo!&lt;/a&gt;, data &lt;a href=&quot;https://projects.fivethirtyeight.com/2017-march-madness-predictions/&quot;&gt;blog 538&lt;/a&gt;, &lt;a href=&quot;http://www.espn.com/mens-college-basketball/bracketology&quot;&gt;ESPN&lt;/a&gt;, college basketball stat-tracker &lt;a href=&quot;http://kenpom.com/&quot;&gt;Ken Pomeroy&lt;/a&gt;, and sports handicapper &lt;a href=&quot;http://sagarin.com/sports/cbsend.htm&quot;&gt;Jeff Sagarin&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2&gt;Another great heading (h2)&lt;/h2&gt;
+&lt;p&gt;I collected the percentage likelihoods for each of the rounds from where they were compiled at the &lt;a href=&quot;https://www.nytimes.com/interactive/2017/03/13/upshot/ncaa-bracket-super-table.html&quot;&gt;NY Times Upshot&lt;/a&gt;. &lt;details&gt;&amp;lt;summary&amp;gt;More methodology&amp;lt;/summary&amp;gt; I then created a simulator that used the projections given, and for each school, simulated 5,000 iterations of each team’s probability. I compiled the results of these simulations into an overall projection that differs very slightly (and randomly) from the average of the range of probability projections from a school.&lt;/details&gt;&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.&lt;/p&gt;
+&lt;p&gt;Since the first round of the tournament is 64 hours of basketball shoved into a two-day period, it’s often the most exciting period, and the best for analyzing predictions. So I compiled the results of the first round and compared the scores for each team to the prior prediction.&lt;/p&gt;
 
-&lt;h3&gt;Some great subheading (h3)&lt;/h3&gt;
-
-&lt;p&gt;Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum.&lt;/p&gt;
-
-&lt;p&gt;Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.&lt;/p&gt;
-
-&lt;h3&gt;Some great subheading (h3)&lt;/h3&gt;
-
-&lt;p&gt;Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This quote will change your life. It will reveal the secrets of the universe, and all the wonders of humanity. Don’t misuse it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt.&lt;/p&gt;
-
-&lt;h3&gt;Some great subheading (h3)&lt;/h3&gt;
-
-&lt;p&gt;Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Hello, World!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
-
-&lt;h4&gt;You might want a sub-subheading (h4)&lt;/h4&gt;
-
-&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
-
-&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
-
-&lt;h4&gt;But it’s probably overkill (h4)&lt;/h4&gt;
-
-&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
-
-&lt;h3&gt;Oh hai, an unordered list!!&lt;/h3&gt;
-
-&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
-
+&lt;p&gt;As the graph below demonstrates, these results split out into four groups:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;First item, yo&lt;/li&gt;
-  &lt;li&gt;Second item, dawg&lt;/li&gt;
-  &lt;li&gt;Third item, what what?!&lt;/li&gt;
-  &lt;li&gt;Fourth item, fo sheezy my neezy&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Favorites&lt;/strong&gt;: teams that are performing as advertised; they were supposed to win, and they did win&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Upsets&lt;/strong&gt;: this is the reason we watch March Madness; these are the teams that weren’t supposed to win, and then they do. The farther to the left they appear, the more surprising it was.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Shockers&lt;/strong&gt;: this is where the &lt;a href=&quot;http://screengrabber.deadspin.com/piccolo-tears-are-the-saddest-tears-1692898303&quot;&gt;crying&lt;/a&gt; happens; these teams were supposed to win, but lost. Brutal.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Made-the-Dancers&lt;/strong&gt;: where it was an honor just to be nominated, but nobody expected them to win, and they didn’t.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;Oh hai, an ordered list!!&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;../assets/NCAA_rd1_labeled.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;First item, yo&lt;/li&gt;
-  &lt;li&gt;Second item, dawg&lt;/li&gt;
-  &lt;li&gt;Third item, what what?!&lt;/li&gt;
-  &lt;li&gt;Fourth item, fo sheezy my neezy&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Headings are cool! (h2)&lt;/h2&gt;
-
-&lt;p&gt;Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
-
-&lt;p&gt;Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
-
-&lt;p&gt;Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.&lt;/p&gt;</content>
+&lt;p&gt;As we move into the second weekend of the tournament, I’ll keep taking a look at how these predictions held up. There are some early upsets. Last year’s champ Villanova have already lost this year. I felt bad for them for exactly &lt;a href=&quot;https://www.youtube.com/watch?v=EMHoGRp1QrE&quot;&gt;4.7 seconds&lt;/a&gt;.&lt;/p&gt;</content>
 
       
       
@@ -176,93 +183,7 @@
 
       
         <author>
-            <name>Bart Simpson</name>
-          
-          
-        </author>
-      
-
-      
-        <category term="junk" />
-      
-
-      
-
-      
-        <summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Some great heading (h2) Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Another great heading (h2) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Some great subheading (h3) Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Some great subheading (h3) Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. This quote will change your life. It will reveal the secrets of the universe, and all the wonders of humanity. Don’t misuse it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Some great subheading (h3) Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Hello, World!&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. You might want a sub-subheading (h4) In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. But it’s probably overkill (h4) In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Oh hai, an unordered list!! In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. First item, yo Second item, dawg Third item, what what?! Fourth item, fo sheezy my neezy Oh hai, an ordered list!! In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. First item, yo Second item, dawg Third item, what what?! Fourth item, fo sheezy my neezy Headings are cool! (h2) Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">Some articles are just so long they deserve a really long title to see if things will break well</title>
-      
-      <link href="http://localhost:4000/2017/01/03/super-long-article/" rel="alternate" type="text/html" title="Some articles are just so long they deserve a really long title to see if things will break well" />
-      <published>2017-01-03T00:00:00+00:00</published>
-      <updated>2017-01-03T00:00:00+00:00</updated>
-      <id>http://localhost:4000/2017/01/03/super-long-article</id>
-      <content type="html" xml:base="http://localhost:4000/2017/01/03/super-long-article/">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Yous</name>
-          
-          
-        </author>
-      
-
-      
-        <category term="misc" />
-      
-
-      
-
-      
-        <summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">My Example Post</title>
-      
-      <link href="http://localhost:4000/2017/01/02/my-example-post/" rel="alternate" type="text/html" title="My Example Post" />
-      <published>2017-01-02T00:00:00+00:00</published>
-      <updated>2017-01-02T00:00:00+00:00</updated>
-      <id>http://localhost:4000/2017/01/02/my-example-post</id>
-      <content type="html" xml:base="http://localhost:4000/2017/01/02/my-example-post/">&lt;p&gt;Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te.&lt;/p&gt;
-
-&lt;p&gt;No laudem altera adolescens has, volumus lucilius eum no. Eam ei nulla audiam efficiantur. Suas affert per no, ei tale nibh sea. Sea ne magna harum, in denique scriptorem sea, cetero alienum tibique ei eos. Labores persequeris referrentur eos ei.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Yous</name>
+            <name>Brian Austin</name>
           
           
         </author>
@@ -273,7 +194,7 @@
       
 
       
-        <summary type="html">Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te. No laudem altera adolescens has, volumus lucilius eum no. Eam ei nulla audiam efficiantur. Suas affert per no, ei tale nibh sea. Sea ne magna harum, in denique scriptorem sea, cetero alienum tibique ei eos. Labores persequeris referrentur eos ei.</summary>
+        <summary type="html">Ah, March. It’s a time of bright spring sunshine, cherry blossoms, and people everywhere searching their memories for where exactly Xavier University is. It’s tournament season! Or at least it is every year in my household until UNC loses. But beyond my general interest in watching a round ball go through a hoop, it’s also a great time to test out predictions. Since everyone and their brother makes predictions about who is likely to win the games each round, I thought I’d check and see how they are doing. To do that, I simulated the projections from data scientists at CBS Sports, Yahoo!, data blog 538, ESPN, college basketball stat-tracker Ken Pomeroy, and sports handicapper Jeff Sagarin. I collected the percentage likelihoods for each of the rounds from where they were compiled at the NY Times Upshot. &amp;lt;summary&amp;gt;More methodology&amp;lt;/summary&amp;gt; I then created a simulator that used the projections given, and for each school, simulated 5,000 iterations of each team’s probability. I compiled the results of these simulations into an overall projection that differs very slightly (and randomly) from the average of the range of probability projections from a school. Since the first round of the tournament is 64 hours of basketball shoved into a two-day period, it’s often the most exciting period, and the best for analyzing predictions. So I compiled the results of the first round and compared the scores for each team to the prior prediction. As the graph below demonstrates, these results split out into four groups: Favorites: teams that are performing as advertised; they were supposed to win, and they did win Upsets: this is the reason we watch March Madness; these are the teams that weren’t supposed to win, and then they do. The farther to the left they appear, the more surprising it was. Shockers: this is where the crying happens; these teams were supposed to win, but lost. Brutal. Made-the-Dancers: where it was an honor just to be nominated, but nobody expected them to win, and they didn’t. As we move into the second weekend of the tournament, I’ll keep taking a look at how these predictions held up. There are some early upsets. Last year’s champ Villanova have already lost this year. I felt bad for them for exactly 4.7 seconds.</summary>
       
 
       
