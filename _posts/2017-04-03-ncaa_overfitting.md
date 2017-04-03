@@ -4,7 +4,7 @@ title: "Overfitting the Sweet 16"
 author: "Brian Austin"
 meta: "ncaa, basketball, UNC"
 ---
-I've been thinking a lot about overfitting lately, and I've also been thinking about the NCAA tournament. I have a very simple model for about a quarter of my NCAA bracket predictions: if UNC, move to next round.
+I have a very simple model for about a quarter of my NCAA bracket predictions: if UNC, move to next round.
 
 This year, that model has worked pretty well.
 
@@ -13,6 +13,7 @@ But unfortunately, it only helps you out in a few circumstances. Every pick is U
 This is isn't very useful for the broader world of NCAA tournament basketball, so we need a more complex model, one that describes more teams. But here's the problem a lot of people have in building models: *they use everything they know*. Let me explain.
 
 Here is the bracket of the Sweet 16 games:
+
 ![where's Dook?](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/ncaa_ss_bracket_8blank.png)
 
 Since we currently live in a world where we know who won the Sweet 16 games, we can make a *super* accurate model to "predict" the winners of those games. It might look like this:
@@ -38,9 +39,13 @@ Factor | Factor Description | Team Picked
 
 
 How'd we do?
+
 ![wow such prediction](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/NCAA_ss_circles.png)
 
-Crushed it. We got them all right! We are 100% accurate. This is the best model of all time. So we confidently deploy it to predict the winners of the Final Four.
+Crushed it.
+
+We got them all right! We are 100% accurate. This is the best model of all time. So we confidently deploy it to predict the winners of the Final Four.
+
 
 Factor | Factor Description | Team Picked
 ----|-----|------
@@ -52,7 +57,10 @@ Factor | Factor Description | Team Picked
 6. | Chalk | Kansas
 
 And just as we suspected...
+
 ![not as good](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/NCAA_ss_xxxs.png)
+
+
 
 Wait what?
 
