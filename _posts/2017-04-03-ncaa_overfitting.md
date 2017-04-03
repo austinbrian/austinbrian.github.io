@@ -44,7 +44,7 @@ How'd we do?
 
 Crushed it.
 
-We got them all right! We are 100% accurate. This is the best model of all time. So we confidently deploy it to predict the winners of the Final Four.
+We got them all right! We are 100% accurate. This is the best model of all time. So we confidently deploy it to predict the winners of the Elite Eight who will move on to the Final Four.
 
 
 Factor | Factor Description | Team Picked
