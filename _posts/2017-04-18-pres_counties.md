@@ -8,7 +8,10 @@ Happy (?) Tax Day, everyone.
 
 In honor of Tax Day, I wanted to do a small piece of analysis on the way taxpayers voted in the 2016 election. Here are a couple of brief headlines:
 * Hillary Clinton won among those who filed tax returns in 2015.
-* Donald Trump won the vast majority of counties, winning 2,623 counties to Clinton's 490.
+* Donald Trump won the vast majority of counties, winning 2,623 counties to Clinton's 490, or about 84%.
+* Of the counties that had the highest proportion of votes for independent candidates, 12 of the top 15 are in Utah (the other three are in Idaho), likely a function of the independent candidacy of Evan McMullin, a member of the Mormon church in Utah.
+* Counties with the highest total gross income per capita include a small town of 499 voters in Texas called McMullen, of whom Trump won 454 votes. Manhattan, NY also cracks the top 3, and voted for Clinton with 87 percent of the vote.
+* The poorest counties also voted heavily for Clinton. Three counties on South Dakota reservations, and one county in Mississippi all voted for her by margins of at least 3-to-1. 
 
 Here is a graphic of the overall margin by county, according to data on county-level vote from the New York *Times*.
 
