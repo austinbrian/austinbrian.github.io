@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Data futures blog
+title: Data futures
 author: Brian Austin
-description: Blog of the future.
+description: Long on data.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://austinbrian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
@@ -36,10 +36,10 @@ twitter_username: bda
 twitter_image:
 facebook_app_id:
 facebook_image:
-google_analytics:
+google_analytics: UA-NNNNNNNN-N
 
 # Plugins
-gems: 
+gems:
   - jekyll-archives
   - jekyll-paginate
   - jekyll-sitemap
