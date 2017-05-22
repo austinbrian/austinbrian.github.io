@@ -13,7 +13,8 @@ But total amount of funding is, at best, a blunt instrument. The National Center
 
 This table is a selection of the 640 universities that responded to the survey for 2015. *Rank* indicates the university's relative positioning to other institutions in terms of total research funding. Johns Hopkins has the most funding, and comes in with nearly twice as much as the next-highest institution (the University of Michigan - Ann Arbor).
 
-The other variable names correspond with research funding received by various fields in 2015 (*measured in thousands of dollars*).
+The other variable names correspond with research funding received by various fields in 2015 (*measured in thousands of dollars*).   
+
 
 Rank |	Institution |	Environmental sciences |	Life sciences |	Math and computer sciences |	Physical sciences |	Psychology |	Social sciences |	Sciences, nec	| Engineering |	All non-S&E fields |
 :----------:|
