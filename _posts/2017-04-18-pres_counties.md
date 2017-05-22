@@ -15,7 +15,7 @@ In honor of Tax Day, I wanted to do a small piece of analysis on the way taxpaye
 
 Here is a graphic of the overall margin by county, according to data on county-level vote from the New York *Times*.
 
-<iframe width="800" height="600" src="https://public.tableau.com/views/Clinton-TrumpMarginbyCounty/Story1?:embed=y&:display_count=yes" frameborder="0" allowfullscreen></iframe>
+<iframe width="1000" height="1000" src="https://public.tableau.com/views/Clinton-TrumpMarginbyCounty/Story1?:embed=y&:display_count=yes" frameborder="0" allowfullscreen></iframe>
 
 A short note on methodology and assumptions:
 -  Income calculations is based on IRS [county-level data](https://www.irs.gov/uac/soi-tax-stats-county-data) from taxes filed for the year 2014 (those typically due by April 15, 2015).

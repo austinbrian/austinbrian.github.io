@@ -31,11 +31,11 @@ Rank |	Institution |	Environmental sciences |	Life sciences |	Math and computer 
 
 I wanted to look beyond these total figures and see how unsupervised machine learning would classify these schools compared to one another. I started by examining total research dollars for various sets of fields against one another. Scatter plots are a useful way to see that information. Here, darker points indicate greater total research dollars.
 
-![](../assets/es_engineering_rd.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/es_engineering_rd.png)
 
 Most plots that are highly clustered around 0, with bands of institutions fanning out. In some cases, such as engineering, institutions with a greater concentration of students are outliers, but don't necessarily show a high degree of difference between them.
 
-![](../assets/psy_lifesci_rd.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/psy_lifesci_rd.png)
 
 Psychology and Life Sciences, however, have a data distribution that allow us to see some of the spread of data, which makes them a decent place to start visualizing the way some of these schools might cluster together.
 <br>
@@ -46,7 +46,7 @@ These data points seem relatively tightly grouped, and I'll start with DBSCAN, a
 
 I'll use the same plot of Psychology vs Life Sciences that looked promising before, but colorized by the clusters that DBSCAN assigns.
 
-![](../assets/psy_lifsci_dbscan.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/psy_lifsci_dbscan.png)
 
 Yikes. This only shows 2-3 clusters, and they don't seem to be particularly useful in describing the data. It doesn't look particularly good, but eyeballing it isn't always a great way to determine the usefulness of unsupervised learning algorithms, so I'll check the numbers.
 
@@ -68,7 +68,7 @@ To improve our approach, it would be useful to be able to see how many clusters 
 
 This results in a tree-type diagram that shows the "distance" (here measured in research dollars) between two data points.
 
-![](../assets/dendrogram_he_rd.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/dendrogram_he_rd.png)
 
 On first inspection, there look to be a couple of good places to break up our clusters.
 * If we want a very simple way to break down groups, we could still break it at ~$1.5 million, which would separate into three total groups, though one would include far more data points than the other. This is basically what the DBSCAN algorithm did.
@@ -79,24 +79,24 @@ For the purposes of grouping schools together, I think that middle class of clus
 
 And here is what the Psychology vs Life Sciences plot looks like, with different colors indicating cluster groupings.
 
-![](../assets/psy_lifsci_clustered.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/psy_lifsci_clustered.png)
 
 Hey! It looks like there are distinct bands of colors in there! This looks like something we can use to better understand how universities are different. Let's look at one more.
 
-![](../assets/es_life_sci_clustered.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/es_life_sci_clustered.png)
 
 Again, a useful banding, and one that is more prominent for the Life Sciences dimension than for the Environmental Sciences one.
 
 Not all the comparisons will look as robust, but that's part of why the clustering itself is good - this can be difficult to eyeball.
 
-![](../assets/math_cs_clustered.png)
+![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/math_cs_clustered.png)
 <br>
 
 ### Final cluster insights
 
 Below I have included a table of the final cluster groups. The big takeaway is that Johns Hopkins receives so much R&D funding that it stands alone as an institution. It is a cluster unto itself. It is the übercluster.
 
-The next cluster includes a number of state universities, many of which fund a [significant portion of their operating budgets](../assets/UNCCH_budget.png "23% in 2012 at UNC-Chapel Hill") from federal grant money.
+The next cluster includes a number of state universities, many of which fund a [significant portion of their operating budgets](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/UNCCH_budget.png "23% in 2012 at UNC-Chapel Hill") from federal grant money.
 
 The next group of institutions includes a dozen largely technical institutions or large medical centers (as well as the University of California - Berkeley). Following that are smaller research-focused institutions, then larger institutions with less research focus, and finally a large group of primarily access-oriented institutions.
 
