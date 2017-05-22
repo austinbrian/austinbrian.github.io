@@ -23,6 +23,7 @@ Rank |	Institution |	Environmental sciences |	Life sciences |	Math and computer 
   28|	U. Southern California|	20051|	411987|	93765|	16924|	9935|	27941|	327|	69527|	40574
 	32	| U. Illinois, Urbana-Champaign	|7214|	220029	|114512	|67182|	17276|	21340|	5000|	161458	|25806
 	89|	Carnegie Mellon U.	|348|	11212|	109026	|14162|	7757|	6791	|3479|	89054|	175
+
 <br>
 
 ### Initial Exploration
