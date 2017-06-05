@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?">
 
   <head>
   <meta charset="utf-8">
@@ -9,7 +10,7 @@
   
   
   
-  <title>Data futures</title>
+  <title>Brian Austin</title>
   <meta name="description" content="Long on data.">
   
 
@@ -17,14 +18,15 @@
   <link rel="canonical" href="http://localhost:4000/posts/2/">
   
   
-  <link rel="alternate" type="application/rss+xml" title="Data futures" href="http://localhost:4000/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Brian Austin" href="http://localhost:4000/feed.xml">
 
   
+
 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="bda">
-  <meta name="twitter:title" content="Data futures">
+  <meta name="twitter:title" content="Brian Austin">
   <meta name="twitter:description" content="Long on data.">
   
     <meta name="twitter:creator" content="bda">
@@ -60,16 +62,40 @@
   </script>
 
 
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
 </head>
 
 
   <body>
 
-    <header class="site-header">
+    <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+<header class="site-header">
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Data futures</a>
+    <a class="site-title" href="/about">Brian Austin</a>
 
     <nav class="site-nav">
       
@@ -105,14 +131,14 @@
       <li>
         <header class="post-header">
           <h1 class="post-title">
-            <a class="post-link" href="/2017/04/04/mood/">#mood</a>
+            <a class="post-link" href="/mood/">#mood</a>
           </h1>
 
           <p class="post-meta">Apr 4, 2017</p>
         </header>
 
         <div class="post-content">
-          <p><img src="https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/theo_confetti_angel.jpg" alt="Theo" /></p>
+          <p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/theo_confetti_angel.jpg" alt="Theo" /></p>
 
         </div>
         
@@ -124,7 +150,7 @@
       <li>
         <header class="post-header">
           <h1 class="post-title">
-            <a class="post-link" href="/2017/04/03/ncaa_overfitting/">Overfitting the Sweet 16</a>
+            <a class="post-link" href="/ncaa_overfitting/">Overfitting the Sweet 16</a>
           </h1>
 
           <p class="post-meta">Apr 3, 2017</p>
@@ -141,7 +167,7 @@
 
 <p>Here is the bracket of the Sweet 16 games:</p>
 
-<p><img src="https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/ncaa_ss_bracket_8blank.png" alt="where's Dook?" /></p>
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/ncaa_ss_bracket_8blank.png" alt="where's Dook?" /></p>
 
 <p>Since we currently live in a world where we know who won the Sweet 16 games, we can make a <em>super</em> accurate model to “predict” the winners of those games. It might look like this:</p>
 <ol>
@@ -201,7 +227,7 @@
 
 <p>How’d we do?</p>
 
-<p><img src="https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/NCAA_ss_circles.png" alt="wow such prediction" /></p>
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/NCAA_ss_circles.png" alt="wow such prediction" /></p>
 
 <p>Crushed it.</p>
 
@@ -251,7 +277,7 @@
 
 <p>And just as we suspected…</p>
 
-<p><img src="https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/NCAA_ss_xxxs.png" alt="not as good" /></p>
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/NCAA_ss_xxxs.png" alt="not as good" /></p>
 
 <p>Wait what?</p>
 
@@ -277,7 +303,7 @@
       <li>
         <header class="post-header">
           <h1 class="post-title">
-            <a class="post-link" href="/2017/03/27/dc-dogs/">Who&#39;s that Lady?</a>
+            <a class="post-link" href="/dc-dogs/">Who&#39;s that Lady?</a>
           </h1>
 
           <p class="post-meta">Mar 27, 2017</p>
@@ -361,13 +387,13 @@
 
 <p>For starters, they are slightly more likely to be male, and both males and females (that are registered with DC) are very likely to be fixed.</p>
 
-<p><img src="https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/images/dogs_registered_mf.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/dogs_registered_mf.png" alt="" /></p>
 
 <p>They also have a great chance of being some breed of terrier. More than a third of registered dogs is some kind of terrier or mix. The most common breed variety in DC is the Terrier / Pit Bull mix, with 233 registrants.</p>
 
 <p>Dogs in DC are also on the younger side, as on this chart (measured in people years).</p>
 
-<p><img src="https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/images/dog_years_dc.jpg" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/dog_years_dc.jpg" alt="" /></p>
 
 <p>The data on who the dogs are in DC comes from a <a href="https://github.com/katerabinowitz/FOIA-Requests/tree/master/Registered%20Dogs">dataset</a> FOIA’d and compiled by the great <a href="http://www.datalensdc.com/">Kate Rabinowitz</a>.</p>
 
@@ -383,7 +409,7 @@
       <li>
         <header class="post-header">
           <h1 class="post-title">
-            <a class="post-link" href="/2017/03/20/ncaa-rd1/">The wild predictive ride of the NCAA first round</a>
+            <a class="post-link" href="/ncaa-rd1/">The wild predictive ride of the NCAA first round</a>
           </h1>
 
           <p class="post-meta">Mar 20, 2017</p>
@@ -413,7 +439,7 @@ Since the first round of the tournament is 64 hours of basketball shoved into a 
   <li><strong>Made-the-Dancers</strong>: where it was an honor just to be nominated, but nobody expected them to win, and they didn’t.</li>
 </ul>
 
-<p><img src="http://austinbrian.github.io/assets/NCAA_rd1_labeled.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/NCAA_rd1_labeled.png" alt="" /></p>
 
 <p>As we move into the second weekend of the tournament, I’ll keep taking a look at how these predictions held up. There are some early upsets. Last year’s champ Villanova have already lost this year. I felt bad for them for exactly <a href="https://www.youtube.com/watch?v=EMHoGRp1QrE">4.7 seconds</a>.</p>
 
@@ -442,15 +468,16 @@ Since the first round of the tournament is 64 hours of basketball shoved into a 
     <footer class="site-footer">
 
   <div class="wrapper">
-
     <p>
       
+
 
 &copy; Brian Austin - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
 
     </p>
 
   </div>
+
 
 </footer>
 
