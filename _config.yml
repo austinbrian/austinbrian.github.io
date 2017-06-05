@@ -15,8 +15,8 @@
 # in the templates via {{ site.myvariable }}.
 title: Brian Austin
 author: Brian Austin
-description: Long on data.
-baseurl:  # the subpath of your site, e.g. /blog
+description: Long on data science. The website and portfolio page of Brian Austin.
+baseurl:   # the subpath of your site, e.g. /blog
 url: "https://austinbrian.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: EST

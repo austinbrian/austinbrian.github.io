@@ -2,13 +2,13 @@
 # pages in order as they should show up.
 main:
   - title: "Blog"
-    url: /
+    url: /blog/
   - title: "Portfolio"
     url: /portfolio/
   - title: "About"
     url: /about/
   - title: "Blog Archives"
-    url: /archives/
+    url: /blog/archives/
   - title: <h2 class="fa fa-twitter"></h2>
     url: https://www.twitter.com/bda
   - title: <h2 class="fa fa-linkedin"></h2>
