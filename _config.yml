@@ -13,11 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Data futures
+title: Brian Austin
 author: Brian Austin
 description: Long on data.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://austinbrian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl:  # the subpath of your site, e.g. /blog
+url: "https://austinbrian.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: EST
 exclude:
@@ -31,9 +31,13 @@ exclude:
   - screenshot.png
   - vendor
 
+
 # Social media
 twitter_username: bda
+github_username: austinbrian
+linkedin_username: briandaustin
 twitter_image:
+github_image:
 facebook_app_id:
 facebook_image:
 google_analytics: UA-NNNNNNNN-N
@@ -49,7 +53,7 @@ markdown: kramdown
 excerpt_separator: "<!-- more -->"
 
 # Outputting
-permalink: /:year/:month/:day/:title/
+permalink: /:title/
 paginate_path: /posts/:num/
 paginate: 5
 

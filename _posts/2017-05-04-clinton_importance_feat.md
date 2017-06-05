@@ -19,7 +19,7 @@ But these findings largely conform to the behaviors we might expect of the elect
 Perhaps more interesting are the distinctions that weren't found in the dataset. Most importantly, total taxable income did not emerge as an especially valuable predictor.
 <br>
 
-![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/images/agi_pp_vs_clinton.png)
+![](https://raw.githubusercontent.com/austinbrian/blog/master/images/agi_pp_vs_clinton.png)
 <br>
 
 The figure above demonstrates the distribution of income, as separated by Clinton's margin over Trump (or vice versa). Each blue dot represents a county in which more people voted for Clinton than Trump, and each red dot shows a county with more Trump votes.

@@ -14,7 +14,7 @@ This is isn't very useful for the broader world of NCAA tournament basketball, s
 
 Here is the bracket of the Sweet 16 games:
 
-![where's Dook?](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/ncaa_ss_bracket_8blank.png)
+![where's Dook?](https://raw.githubusercontent.com/austinbrian/blog/master/images/ncaa_ss_bracket_8blank.png)
 
 Since we currently live in a world where we know who won the Sweet 16 games, we can make a *super* accurate model to "predict" the winners of those games. It might look like this:
 1. If UNC is playing, pick UNC (this is my model, after all)
@@ -40,7 +40,7 @@ Factor | Factor Description | Team Picked
 
 How'd we do?
 
-![wow such prediction](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/NCAA_ss_circles.png)
+![wow such prediction](https://raw.githubusercontent.com/austinbrian/blog/master/images/NCAA_ss_circles.png)
 
 Crushed it.
 
@@ -58,7 +58,7 @@ Factor | Factor Description | Team Picked
 
 And just as we suspected...
 
-![not as good](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/assets/NCAA_ss_xxxs.png)
+![not as good](https://raw.githubusercontent.com/austinbrian/blog/master/images/NCAA_ss_xxxs.png)
 
 
 

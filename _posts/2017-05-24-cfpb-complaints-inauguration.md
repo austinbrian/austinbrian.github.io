@@ -8,7 +8,7 @@ The [Consumer Financial Protection Bureau](https://www.consumerfinance.gov/) (CF
 
 And for Donald Trump's Inauguration Day, there were more complaints to the CFPB than there have been on any other day.
 
-![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/images/Total_cfpb_complaints_5_24.png "That orange spike there is You-Know-Who")
+![](https://raw.githubusercontent.com/austinbrian/blog/master/images/Total_cfpb_complaints_5_24.png "That orange spike there is You-Know-Who")
 
 While complaints have increased steadily over the CFPB's existence, the 24 hours before Trump's inauguration saw more than twice as many reports to the CFPB as any preceding day. There were more than 1,500 individual complaints on both Inauguration Day and the day before it.
 
@@ -16,6 +16,6 @@ The CFPB houses a massive amount of data in its [complaints database](https://da
 
 But on Inauguration Day, more than 60% of complaints were about student loans.
 
-![](https://raw.githubusercontent.com/austinbrian/austinbrian.github.io/master/images/obama_trump_prod_complaints.png)
+![](https://raw.githubusercontent.com/austinbrian/blog/master/images/obama_trump_prod_complaints.png)
 
 I'm especially interested in how these complaints demonstrate the ways people talk about their mistreatments, and the way those translate to actions. I'll be pursuing those questions in the following days as part of a larger project.
