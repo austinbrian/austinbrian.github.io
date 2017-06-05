@@ -3,6 +3,11 @@ layout: page
 title: "Portfolio"
 permalink: /portfolio/
 ---
+Included here is a selection of projects that represent topics and techniques I've been working with. I'm especially interested in topics on voting, government, and higher education.   
+
+*Find the full code for all projects on this page [on Github here](https://github.com/austinbrian/portfolio).*
+
+---
 ## [Voting with their Tax Returns](../tax_votes)   
 *An analysis of the relationship between deductions taken on income tax returns and county-level voting patterns in the 2016 election.*    
 
@@ -11,7 +16,7 @@ permalink: /portfolio/
 
 ----
 
-## Topic modeling with the CFPB database
+## [Topic modeling with the CFPB database](../cfpb_topic_modeling)
 *Natural language processing analysis of the topics discussed in complaints to the Consumer Financial Protection Bureau.*
 
 <span align="center">
