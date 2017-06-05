@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Voting with their Tax Returns</title>
+  <meta name="description" content="Long on data.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/tax_votes/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Brian Austin" href="http://localhost:4000/feed.xml">
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="bda">
+  <meta name="twitter:title" content="Voting with their Tax Returns">
+  <meta name="twitter:description" content="Long on data.">
+  
+    <meta name="twitter:creator" content="bda">
+  
+  
+
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Bitter:400,700,400italic:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-NNNNNNNN-N', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+  <body>
+
+    <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/about">Brian Austin</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/">Blog</a>
+      
+        
+        <a class="page-link" href="/portfolio/">Portfolio</a>
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Blog Archives</a>
+      
+        
+        <a class="page-link" href="https://www.twitter.com/bda"><h2 class="fa fa-twitter"></h2></a>
+      
+        
+        <a class="page-link" href="https://www.linkedin.com/in/briandaustin/"><h2 class="fa fa-linkedin"></h2></a>
+      
+        
+        <a class="page-link" href="https://www.github.com/austinbrian"><h2 class="fa fa-github"></h2></a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Voting with their Tax Returns</h1>
+  </header>
+
+  <div class="post-content">
+    <p><em>Find the full code and data for this project at <a href="https://github.com/austinbrian/portfolio/tree/master/tax_votes">GitHub here</a>.</em></p>
+
+<p>In thinking about the 2016 election, I had a relatively simple question: did Hillary Clinton win among taxpayers? I started with the logic that Clinton won about 3 million more popular votes in the general election than Donald Trump, and used tax returns as a window into the ways that the areas Trump won are different from the areas Clinton won.</p>
+
+<iframe width="800" height="800" src="https://public.tableau.com/views/Clinton-TrumpMarginbyCounty/Story1?:embed=y&amp;:display_count=yes" frameborder="0" allowfullscreen=""></iframe>
+
+<p>If you took all 3,113 counties in the United States, and wanted to try and guess whether a county would cast more votes for Hillary Clinton or Donald Trump, the most important pieces of information to have be the number of people who claim an education-related deduction or credit.</p>
+
+<p>This finding on student loans is part of my ongoing analysis of the intersection of 2016 voting behavior and tax return information.</p>
+
+<p>This analysis was performed using a random forest classifier, which used 124 variables drawn from county-level 2014 IRS data. Variables included aggregate totals and participant counts for each income type and deduction. The dataset was matched by county with the New York Times report of election night votes. Average cross-validated accuracy score using the model’s classification was approximately 0.89 (good!) and an F1 score of 0.88 (not bad!).</p>
+
+<p>Here’s the full output of this classifier after performing a train-test split on the data and evaluating the resulting confusion matrix.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='auto', max_leaf_nodes=None,
+            min_impurity_split=1e-07, min_samples_leaf=1,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            n_estimators=10, n_jobs=1, oob_score=False, random_state=None,
+            verbose=0, warm_start=False)
+
+Accuracy Score:	0.89
+
+
+Cross Val Scores: [ 0.86538462  0.88782051  0.89423077  0.90996785  0.90996785  0.90032154
+  0.88424437  0.87459807  0.87459807  0.86173633]
+
+Avg cross val: 0.886286998104
+
+Predicted Totals:
+class 0: 2623
+class 1: 490
+
+Confusion Matrix:
+          Predicted 1  Predicted 0
+Actual 1           52           71
+Actual 0           15          641
+
+Classification Report:
+              precision    recall  f1-score   support
+
+Clinton Lose       0.90      0.98      0.94       656
+ Clinton Win       0.78      0.42      0.55       123
+
+ avg / total       0.88      0.89      0.88       779
+
+</code></pre>
+</div>
+
+<p>To be sure, these groups of voters are qualitatively different in other measurable ways. For instance, the number of farm returns in a county is the next-most impactful feature in the income dataset behind education credits and deductions. Counties with the highest numbers of these returns were the most likely in the data to cast more returns for Trump than Clinton.</p>
+
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/clinton_feature_importances_bar.png" alt="" /></p>
+
+<p>The feature ids here don’t mean much, but four in the top six in terms of importance are related to paying for education.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature ID</th>
+      <th>Importance</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N03230</td>
+      <td>0.054240</td>
+      <td style="text-align: left">Number of returns with tuition and fees deduction</td>
+    </tr>
+    <tr>
+      <td>N10960</td>
+      <td>0.053645</td>
+      <td style="text-align: left">Number of returns with refundable education credits</td>
+    </tr>
+    <tr>
+      <td>SCHF</td>
+      <td>0.038331</td>
+      <td style="text-align: left">Number of farm returns</td>
+    </tr>
+    <tr>
+      <td>N07230</td>
+      <td>0.031493</td>
+      <td style="text-align: left">Number of returns with nonrefundable education expenses</td>
+    </tr>
+    <tr>
+      <td>N02300</td>
+      <td>0.026453</td>
+      <td style="text-align: left">Number of returns with unemployment compensation</td>
+    </tr>
+    <tr>
+      <td>A03230</td>
+      <td>0.026133</td>
+      <td style="text-align: left">Tuition and fees deduction amount</td>
+    </tr>
+    <tr>
+      <td>A09400</td>
+      <td>0.025870</td>
+      <td style="text-align: left">Self-employment tax amount</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+But these findings largely conform to the behaviors we might expect of the electorate. Those with higher levels of education (especially those at high-cost liberal arts colleges) are most likely to inhabit counties that vote for Clinton. Farmers were more likely to vote Trump.</p>
+
+<p>Perhaps more interesting are the distinctions that weren’t found in the dataset. Most importantly, total taxable income did not emerge as an especially valuable predictor.</p>
+
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/agi_pp_vs_clinton.png" alt="" />
+<br /></p>
+
+<p>The figure above demonstrates the distribution of income, as separated by Clinton’s margin over Trump (or vice versa). Each blue dot represents a county in which more people voted for Clinton than Trump, and each red dot shows a county with more Trump votes.</p>
+
+<p>While the sheer numbers for the Trump voters are significantly greater - Trump won about 84 percent of US counties - the distribution of incomes is relatively similar between them.</p>
+
+<p>Of the counties that had the highest proportion of votes for independent candidates, 12 of the top 15 are in Utah (the other three are in Idaho), likely a function of the independent candidacy of Evan McMullin, a member of the Mormon church in Utah.</p>
+
+<p>Counties with the highest total gross income per capita include a small town of 499 voters in Texas called McMullen, of whom Trump won 454 votes. Manhattan, NY also cracks the top 3, and voted for Clinton with 87 percent of the vote.
+The poorest counties also voted heavily for Clinton. Three counties on South Dakota reservations, and one county in Mississippi all voted for her by margins of at least 3-to-1.</p>
+
+<p>A short note on methodology and assumptions:</p>
+
+<ul>
+  <li>Income calculations is based on IRS county-level data from taxes filed for the year 2014 (those typically due by April 15, 2015).</li>
+  <li>Taxpayer-level calculations were conducted by assuming that within a county, taxpayers and non-taxpayers voted at the same rate. Thus, to find the number of taxpayers voting for Clinton within a county, this analysis multiplied Clinton’s margin in that county by the total number of tax returns for the county.</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <p>
+      
+
+
+&copy; Brian Austin - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+
+</footer>
+
+
+  </body>
+
+</html>
