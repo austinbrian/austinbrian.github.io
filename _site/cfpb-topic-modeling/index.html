@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Topic modeling complaints to the CFPB</title>
+  <meta name="description" content="Long on data science. The website and portfolio page of Brian Austin.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/cfpb-topic-modeling/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Brian Austin" href="http://localhost:4000/feed.xml">
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="bda">
+  <meta name="twitter:title" content="Topic modeling complaints to the CFPB">
+  <meta name="twitter:description" content="Long on data science. The website and portfolio page of Brian Austin.">
+  
+    <meta name="twitter:creator" content="bda">
+  
+  
+
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Bitter:400,700,400italic:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-NNNNNNNN-N', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+  <body>
+
+    <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/about">Brian Austin</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/blog/">Blog</a>
+      
+        
+        <a class="page-link" href="/portfolio/">Portfolio</a>
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/blog/archives/">Blog Archives</a>
+      
+        
+        <a class="page-link" href="https://www.twitter.com/bda"><h2 class="fa fa-twitter"></h2></a>
+      
+        
+        <a class="page-link" href="https://www.linkedin.com/in/briandaustin/"><h2 class="fa fa-linkedin"></h2></a>
+      
+        
+        <a class="page-link" href="https://www.github.com/austinbrian"><h2 class="fa fa-github"></h2></a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Topic modeling complaints to the CFPB</h1>
+  </header>
+
+  <div class="post-content">
+    <p><em>Find the full code and data for this project at <a href="https://github.com/austinbrian/portfolio/tree/master/cfpb">GitHub here</a></em>.</p>
+
+<p>The <a href="https://www.consumerfinance.gov/">Consumer Financial Protection Bureau</a> (CFPB) collects consumer complaints against financial companies, as I’ve <a href="https://austinbrian.github.io/blog/cfpb-complaints-inauguration/">discussed in this space</a>. In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it’s important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.</p>
+
+<p>But the distinction between “My bank is opening up credit card applications I didn’t ask for” and “my credit card company keeps calling my house, but I haven’t missed a payment” is subtle, and the sort of thing that doesn’t lend itself to easy product classifications.</p>
+
+<p>You can’t just count the number of times the term “bank” is said, or “credit card” is said and get that this is about credit cards. The first is really about the bank’s service, not the credit cards themselves. The second is really about a debt collector calling someone’s home repeatedly.</p>
+
+<p>To better understand what people are talking about in these complaints, I performed a modeling technique called Latent Dirichlet Allocation.</p>
+
+<p>Here’s a brief introduction to how it works.</p>
+<ol>
+  <li>The words in each complaint are converted to simplified versions of the words (i.e., both “property” and “properties” become “properti”) and given unique identifier numbers.</li>
+  <li>Numbers that appear in the same complaint documents across the entire set of complaints are grouped together into “topics”. These topics typically include words from multiple documents, and the words in a document are likely to be in multiple documents. Each word in a topic is given a weighting, indicating how “important” a word is to the topic - or how many times it is mentioned across documents in conjunction with the other words.</li>
+</ol>
+
+<p>In the example below, the chart below demonstrates how words in documents on the left match up with the topics across the entire document, on the right.</p>
+
+<p><img src="/images/conceptual_topic_modeling.png" alt="" /></p>
+
+<p>The first topic is primarily about getting money back, and how consumers interact with the customer service gatekeepers who can do that. The second is all about making mortgage or other home payments (e.g., escrow, taxes). And the third is a little more opaque, with words that describe the account, and the way that interactions go. Not all topics are readily interpretable.</p>
+
+<p>I tested out a series of the topic models to see what size might be a good descriptor, and landed on a topic size of 50. The graphic below shows the relationship between topics and the words that comprise them. Bigger circles indicate topics that are more common.</p>
+
+<details><summary>More graph details</summary> The topics are organized by plotting them on the axes of the two linear combinations that best describe their features - a method known as <a href="https://medium.com/towards-data-science/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c" title="Really excellent overview of the technicals behind PCA">Principal Component Analysis</a>. The blue bars on the right-hand side indicate the frequency of a word across all the documents in the entire dataset. The red bar indicates how frequent the terms are within a topic. The relevance metric &lambda; is a representation of the relative exclusivity of a term - higher values are more frequent, less exclusive, and lower values are more exclusive, but may be more idiosyncratic.<br />       
+<em>The LDA visualization tool used for this project was developed by <a href="http://www.kennyshirley.com/LDAvis/">Carson Sievert and Kenny Shirley</a></em>.
+</details>
+<p><br /> <br />
+<span align="center">
+<a href="../model_50_topics_graphic.html">
+  <img src="/images/lda_50_topic_static_topic10.png" /></a>
+</span></p>
+
+<p>The topic highlighted here (just called #10), groups together words about debt collectors. The right-hand side walks includes the words that are common in each topic (the red bars) and the words frequencies across the entire dataset (blue bars).</p>
+
+<p>This type of clustering is especially convenient for large datasets, where it’s impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to certain groupings.</p>
+
+<p>In the next iteration, I’ll be looking at the way these topics change depending on the companies and products that the complaints are about.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <p>
+      
+
+
+&copy; Brian Austin - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://localhost:4000/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+
+</footer>
+
+
+  </body>
+
+</html>

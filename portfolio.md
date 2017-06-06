@@ -11,12 +11,13 @@ Included here is a selection of projects that represent topics and techniques I'
 ## [Voting with their Tax Returns](../tax_votes)   
 *An analysis of the relationship between deductions taken on income tax returns and county-level voting patterns in the 2016 election.*    
 
-<p align="center">
-  <img src="../images/agi_pp_vs_clinton.png"></p>
+<p align="center">    
+<a href='../tax_votes'>   
+  <img src="../images/agi_pp_vs_clinton.png"></a></p>
 
 ----
 
-## [Topic modeling with the CFPB database](../cfpb_topic_modeling)
+## [Topic modeling with the CFPB database](../cfpb-topic-modeling)
 *Natural language processing analysis of the topics discussed in complaints to the Consumer Financial Protection Bureau.*
 
 <span align="center">
@@ -28,5 +29,6 @@ Included here is a selection of projects that represent topics and techniques I'
 *Used DBSCAN and hierarchical clustering methods to sort more than 300 universities according to the amount of research funding they receive by branch of the university.*    
 
 <p align="center">
-<img src="../images/psy_lifsci_clustered.png">
+<a href="http://nbviewer.jupyter.org/github/austinbrian/DSI-labs/blob/master/Higher%20Ed%20R%26D%20Analysis.ipynb">   
+<img src="../images/psy_lifsci_clustered.png"></a>
 </p>
