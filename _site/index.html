@@ -143,6 +143,62 @@
       <li>
         <header class="post-header">
           <h1 class="post-title">
+            <a class="post-link" href="/cfpb-topic-modeling/">Topic modeling complaints to the CFPB</a>
+          </h1>
+
+          <p class="post-meta">Jun 1, 2017</p>
+        </header>
+
+        <div class="post-content">
+          <p>The <a href="https://www.consumerfinance.gov/">Consumer Financial Protection Bureau</a> (CFPB) collects consumer complaints against financial companies, as I’ve <a href="https://austinbrian.github.io/blog/cfpb-complaints-inauguration/">discussed in this space</a>. In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it’s important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.</p>
+
+<p>But the distinction between “My bank is opening up credit card applications I didn’t ask for” and “my credit card company keeps calling my house, but I haven’t missed a payment” is subtle, and the sort of thing that doesn’t lend itself to easy product classifications.</p>
+
+<p>You can’t just count the number of times the term “bank” is said, or “credit card” is said and get that this is about credit cards. The first is really about the bank’s service, not the credit cards themselves. The second is really about a debt collector calling someone’s home repeatedly.</p>
+
+<p>To better understand what people are talking about in these complaints, I performed a modeling technique called <strong>Latent Dirichlet Allocation</strong>.</p>
+
+<p>Here’s a brief introduction to how it works.</p>
+<ol>
+  <li>The words in each complaint are converted to simplified versions of the words (i.e., both “property” and “properties” become “properti”) and given unique identifier numbers.</li>
+  <li>Numbers that appear in the same complaint documents across the entire set of complaints are grouped together into “topics”. These topics typically include words from multiple documents, and the words in a document are likely to be in multiple documents. Each word in a topic is given a weighting, indicating how “important” a word is to the topic - or how many times it is mentioned across documents in conjunction with the other words.</li>
+</ol>
+
+<p>In the example below, the chart below demonstrates how words in documents on the left match up with the topics across the entire document, on the right.</p>
+
+<p><img src="/images/conceptual_topic_modeling.png" alt="" /></p>
+
+<p>The first topic is primarily about getting money back, and how consumers interact with the customer service gatekeepers who can do that. The second is all about making mortgage or other home payments (e.g., escrow, taxes). And the third is a little more opaque, with words that describe the account, and the way that interactions go. Not all topics are readily interpretable.</p>
+
+<p>I tested out a series of the topic models to see what size might be a good descriptor, and landed on a topic size of 50. The graphic below shows the relationship between topics and the words that comprise them. Bigger circles indicate topics that are more common.</p>
+
+<details><summary>More graph details</summary> The topics are organized by plotting them on the axes of the two linear combinations that best describe their features - a method known as <a href="https://medium.com/towards-data-science/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c" title="Really excellent overview of the technicals behind PCA">Principal Component Analysis</a>. The blue bars on the right-hand side indicate the frequency of a word across all the documents in the entire dataset. The red bar indicates how frequent the terms are within a topic. The relevance metric &lambda; is a representation of the relative exclusivity of a term - higher values are more frequent, less exclusive, and lower values are more exclusive, but may be more idiosyncratic.<br />       
+<em>The LDA visualization tool used for this project was developed by <a href="http://www.kennyshirley.com/LDAvis/">Carson Sievert and Kenny Shirley</a></em>.
+</details>
+<p><br /> <br />
+<span align="center">
+<a href="../images/cfpb/model_50_topics_graphic.html">
+  <img src="../images/cfpb/lda_50_topic_static_topic10.png" /></a>
+</span></p>
+
+<p><em>Click the image to see how all the topics are distributed</em></p>
+
+<p>The topic highlighted here (just called #10), groups together words about debt collectors. The right-hand side walks includes the words that are common in each topic (the red bars) and the words frequencies across the entire dataset (blue bars).</p>
+
+<p>This type of clustering is especially convenient for large datasets, where it’s impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to certain groupings.</p>
+
+<p>In the next iteration, I’ll be looking at the way these topics change depending on the companies and products that the complaints are about.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
             <a class="post-link" href="/cfpb-complaints-inauguration/">Donald Trump&#39;s inauguration prompted the most CFPB complaints ever</a>
           </h1>
 
@@ -515,44 +571,6 @@ To be sure, these groups of voters are qualitatively different in other measurab
 <p>The figure above demonstrates the distribution of income, as separated by Clinton’s margin over Trump (or vice versa). Each blue dot represents a county in which more people voted for Clinton than Trump, and each red dot shows a county with more Trump votes.</p>
 
 <p>While the sheer numbers for the Trump voters are significantly greater - Trump won about 84 percent of US counties - the distribution of incomes is relatively similar between them.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            <a class="post-link" href="/pres_counties/">Hillary Clinton won the taxpayer vote and other Tax Day findings</a>
-          </h1>
-
-          <p class="post-meta">Apr 18, 2017</p>
-        </header>
-
-        <div class="post-content">
-          <p>Happy (?) Tax Day, everyone.</p>
-
-<p>In honor of Tax Day, I wanted to do a small piece of analysis on the way taxpayers voted in the 2016 election. Here are a couple of brief headlines:</p>
-<ul>
-  <li>Hillary Clinton won among those who filed tax returns in 2015.</li>
-  <li>Donald Trump won the vast majority of counties, winning 2,623 counties to Clinton’s 490, or about 84%.</li>
-  <li>Of the counties that had the highest proportion of votes for independent candidates, 12 of the top 15 are in Utah (the other three are in Idaho), likely a function of the independent candidacy of Evan McMullin, a member of the Mormon church in Utah.</li>
-  <li>Counties with the highest total gross income per capita include a small town of 499 voters in Texas called McMullen, of whom Trump won 454 votes. Manhattan, NY also cracks the top 3, and voted for Clinton with 87 percent of the vote.</li>
-  <li>The poorest counties also voted heavily for Clinton. Three counties on South Dakota reservations, and one county in Mississippi all voted for her by margins of at least 3-to-1.</li>
-</ul>
-
-<p>Here is a graphic of the overall margin by county, according to data on county-level vote from the New York <em>Times</em>.</p>
-
-<iframe width="1000" height="1000" src="https://public.tableau.com/views/Clinton-TrumpMarginbyCounty/Story1?:embed=y&amp;:display_count=yes" frameborder="0" allowfullscreen=""></iframe>
-
-<p>A short note on methodology and assumptions:</p>
-<ul>
-  <li>Income calculations is based on IRS <a href="https://www.irs.gov/uac/soi-tax-stats-county-data">county-level data</a> from taxes filed for the year 2014 (those typically due by April 15, 2015).</li>
-  <li>Taxpayer-level calculations were conducted by assuming that within a county, taxpayers and non-taxpayers voted at the same rate. Thus, to find the number of taxpayers voting for Clinton within a county, this analysis multiplied Clinton’s margin in that county by the total number of tax returns for the county.</li>
-</ul>
 
         </div>
         
