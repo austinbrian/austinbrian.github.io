@@ -17,7 +17,7 @@ Included here is a selection of projects that represent topics and techniques I'
 
 ----
 
-## [Topic modeling with the CFPB database](../cfpb-topic-modeling)
+## [Topic modeling with the CFPB database](../cfpb)
 *Natural language processing analysis of the topics discussed in complaints to the Consumer Financial Protection Bureau.*
 
 <span align="center">

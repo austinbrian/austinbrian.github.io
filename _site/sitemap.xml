@@ -50,6 +50,9 @@
 <loc>http://localhost:4000/cfpb-topic-modeling/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/cfpb/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/drafts/cfpb_topic_modeling/</loc>
 </url>
 <url>

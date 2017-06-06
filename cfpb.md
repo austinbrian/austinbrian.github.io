@@ -1,12 +1,30 @@
 ---
 layout: page
-title: "Topic modeling complaints to the CFPB"
-meta: "CFPB, civic engagement, complaints database"
+title: "What's the Problem?"
+subtitle: "Topic modeling consumer complaints to the CFPB"
+
 ---
+*Find the full code and data for this project at [GitHub here](https://github.com/austinbrian/portfolio/).*
 
-*Find the full code and data for this project at [GitHub here](https://github.com/austinbrian/portfolio/tree/master/cfpb)*.    
+## Overview
+- This project examines the text of complaints to the Consumer Financial Protection Bureau.
+- Topics are generated using Latent Dirichlet Allocation, an unsupervised clustering algorithm that groups words commonly used in the same context.
+- Topics are used to predict which financial product a consumer is referring to, given a set of unstructured text. A support vector machine classifier determined which product a given complaint referred to with 77% accuracy.
+- This model could be useful to a company that used a customer service chatbot to efficiently direct consumers to on-site resources.
 
-The [Consumer Financial Protection Bureau](https://www.consumerfinance.gov/) (CFPB) collects consumer complaints against financial companies, as I've [discussed in this space](https://austinbrian.github.io/blog/cfpb-complaints-inauguration/). In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it's important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.
+
+## Introduction   
+The [Consumer Financial Protection Bureau](https://www.consumerfinance.gov/) (CFPB) has been around since 2011. The organization is charged with policing financial services companies to ensure that they are fairly treating consumers. One of the ways they gather information on consumers' experiences is by tallying complaints of wrongdoing against companies.
+
+This graph shows the number of complaints for every day since the organization began keeping track. Complaints have been increasing over its four-year history, and for reasons that escape me, Wednesdays and Thursdays are consistently less frequent days for complaints to be made than the rest of the week.
+
+![](/images/cfpb/all_complaints_scatter.png "That highest orange point is Donald Trump's Inauguration")
+
+Complaints include information regarding the company, the product, sub-products, as well as information on whether or not the company in question responded to the consumer.
+
+## Topic Modeling
+
+In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it's important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.
 
 But the distinction between "My bank is opening up credit card applications I didn't ask for" and "my credit card company keeps calling my house, but I haven't missed a payment" is subtle, and the sort of thing that doesn't lend itself to easy product classifications.    
 
@@ -30,12 +48,10 @@ I tested out a series of the topic models to see what size might be a good descr
 <em>The LDA visualization tool used for this project was developed by <a href="http://www.kennyshirley.com/LDAvis/">Carson Sievert and Kenny Shirley</a></em>.
 </details> <br>   
 <span align="center">
-<a href="../model_50_topics_graphic.html">
-  <img src="/images/lda_50_topic_static_topic10.png"></a>
+<a href="/images/cfpb/model_50_topics_graphic.html">
+  <img src="/images/cfpb/lda_50_topic_static_topic10.png"></a>
 </span>   
 
 The topic highlighted here (just called \#10), groups together words about debt collectors. The right-hand side walks includes the words that are common in each topic (the red bars) and the words frequencies across the entire dataset (blue bars).   
 
-This type of clustering is especially convenient for large datasets, where it's impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to groups within the data, like all the topics of a company.  
-
-In the next iteration, I'll be looking at the way these topics change depending on the companies and products that the complaints are about.
+This type of clustering is especially convenient for large datasets, where it's impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to certain groupings.   

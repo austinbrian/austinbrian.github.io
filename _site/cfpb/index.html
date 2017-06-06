@@ -10,12 +10,12 @@
   
   
   
-  <title>Topic modeling complaints to the CFPB</title>
-  <meta name="description" content="The Consumer Financial Protection Bureau (CFPB) collects consumer complaints against financial companies, as I’ve discussed in this space. In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it’s important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly. But the distinction between “My bank is opening up credit card applications I didn’t ask for” and “my credit card company keeps calling my house, but I haven’t missed a payment” is subtle, and the sort of thing that doesn’t lend itself to easy product classifications. You can’t just count the number of times the term “bank” is said, or “credit card” is said and get that this is about credit cards. The first is really about the bank’s service, not the credit cards themselves. The second is really about a debt collector calling someone’s home repeatedly. To better understand what people are talking about in these complaints, I performed a modeling technique called Latent Dirichlet Allocation. Here’s a brief introduction to how it works. The words in each complaint are converted to simplified versions of the words (i.e., both “property” and “properties” become “properti”) and given unique identifier numbers. Numbers that appear in the same complaint documents across the entire set of complaints are grouped together into “topics”. These topics typically include words from multiple documents, and the words in a document are likely to be in multiple documents. Each word in a topic is given a weighting, indicating how “important” a word is to the topic - or how many times it is mentioned across documents in conjunction with the other words. In the example below, the chart below demonstrates how words in documents on the left match up with the topics across the entire document, on the right. The first topic is primarily about getting money back, and how consumers interact with the customer service gatekeepers who can do that. The second is all about making mortgage or other home payments (e.g., escrow, taxes). And the third is a little more opaque, with words that describe the account, and the way that interactions go. Not all topics are readily interpretable. I tested out a series of the topic models to see what size might be a good descriptor, and landed on a topic size of 50. The graphic below shows the relationship between topics and the words that comprise them. Bigger circles indicate topics that are more common. More graph details The topics are organized by plotting them on the axes of the two linear combinations that best describe their features - a method known as Principal Component Analysis. The blue bars on the right-hand side indicate the frequency of a word across all the documents in the entire dataset. The red bar indicates how frequent the terms are within a topic. The relevance metric &amp;lambda; is a representation of the relative exclusivity of a term - higher values are more frequent, less exclusive, and lower values are more exclusive, but may be more idiosyncratic. The LDA visualization tool used for this project was developed by Carson Sievert and Kenny Shirley. Click the image to see how all the topics are distributed The topic highlighted here (just called #10), groups together words about debt collectors. The right-hand side walks includes the words that are common in each topic (the red bars) and the words frequencies across the entire dataset (blue bars). This type of clustering is especially convenient for large datasets, where it’s impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to certain groupings. In the next iteration, I’ll be looking at the way these topics change depending on the companies and products that the complaints are about.">
+  <title>What&#39;s the Problem?</title>
+  <meta name="description" content="Long on data science. The website and portfolio page of Brian Austin.">
   
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/cfpb-topic-modeling/">
+  <link rel="canonical" href="http://localhost:4000/cfpb/">
   
   
   <link rel="alternate" type="application/rss+xml" title="Brian Austin" href="http://localhost:4000/feed.xml">
@@ -26,8 +26,8 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="bda">
-  <meta name="twitter:title" content="Topic modeling complaints to the CFPB">
-  <meta name="twitter:description" content="The Consumer Financial Protection Bureau (CFPB) collects consumer complaints against financial companies, as I’ve discussed in this space. In trying to meet the problems identified in these complai...">
+  <meta name="twitter:title" content="What&#39;s the Problem?">
+  <meta name="twitter:description" content="Long on data science. The website and portfolio page of Brian Austin.">
   
     <meta name="twitter:creator" content="bda">
   
@@ -129,23 +129,41 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post">
 
   <header class="post-header">
-    
-      <h1 class="post-title" itemprop="name headline">Topic modeling complaints to the CFPB</h1>
-    
-    <p class="post-meta"><time datetime="2017-06-01T00:00:00-05:00" itemprop="datePublished">Jun 1, 2017</time></p>
+    <h1 class="post-title">What&#39;s the Problem?</h1>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>The <a href="https://www.consumerfinance.gov/">Consumer Financial Protection Bureau</a> (CFPB) collects consumer complaints against financial companies, as I’ve <a href="https://austinbrian.github.io/blog/cfpb-complaints-inauguration/">discussed in this space</a>. In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it’s important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.</p>
+  <div class="post-content">
+    <p><em>Find the full code and data for this project at <a href="https://github.com/austinbrian/portfolio/">GitHub here</a>.</em></p>
+
+<h2>Overview</h2>
+<ul>
+  <li>This project examines the text of complaints to the Consumer Financial Protection Bureau.</li>
+  <li>Topics are generated using Latent Dirichlet Allocation, an unsupervised clustering algorithm that groups words commonly used in the same context.</li>
+  <li>Topics are used to predict which financial product a consumer is referring to, given a set of unstructured text. A support vector machine classifier determined which product a given complaint referred to with 77% accuracy.</li>
+  <li>This model could be useful to a company that used a customer service chatbot to efficiently direct consumers to on-site resources.</li>
+</ul>
+
+<h2>Introduction</h2>
+<p>The <a href="https://www.consumerfinance.gov/">Consumer Financial Protection Bureau</a> (CFPB) has been around since 2011. The organization is charged with policing financial services companies to ensure that they are fairly treating consumers. One of the ways they gather information on consumers’ experiences is by tallying complaints of wrongdoing against companies.</p>
+
+<p>This graph shows the number of complaints for every day since the organization began keeping track. Complaints have been increasing over its four-year history, and for reasons that escape me, Wednesdays and Thursdays are consistently less frequent days for complaints to be made than the rest of the week.</p>
+
+<p><img src="/images/cfpb/all_complaints_scatter.png" alt="" title="That highest orange point is Donald Trump's Inauguration" /></p>
+
+<p>Complaints include information regarding the company, the product, sub-products, as well as information on whether or not the company in question responded to the consumer.</p>
+
+<h2>Topic Modeling</h2>
+
+<p>In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it’s important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.</p>
 
 <p>But the distinction between “My bank is opening up credit card applications I didn’t ask for” and “my credit card company keeps calling my house, but I haven’t missed a payment” is subtle, and the sort of thing that doesn’t lend itself to easy product classifications.</p>
 
 <p>You can’t just count the number of times the term “bank” is said, or “credit card” is said and get that this is about credit cards. The first is really about the bank’s service, not the credit cards themselves. The second is really about a debt collector calling someone’s home repeatedly.</p>
 
-<p>To better understand what people are talking about in these complaints, I performed a modeling technique called <strong>Latent Dirichlet Allocation</strong>.</p>
+<p>To better understand what people are talking about in these complaints, I performed a modeling technique called Latent Dirichlet Allocation.</p>
 
 <p>Here’s a brief introduction to how it works.</p>
 <ol>
@@ -166,17 +184,13 @@
 </details>
 <p><br /> <br />
 <span align="center">
-<a href="../images/cfpb/model_50_topics_graphic.html">
-  <img src="../images/cfpb/lda_50_topic_static_topic10.png" /></a>
+<a href="/images/cfpb/model_50_topics_graphic.html">
+  <img src="/images/cfpb/lda_50_topic_static_topic10.png" /></a>
 </span></p>
-
-<p><em>Click the image to see how all the topics are distributed</em></p>
 
 <p>The topic highlighted here (just called #10), groups together words about debt collectors. The right-hand side walks includes the words that are common in each topic (the red bars) and the words frequencies across the entire dataset (blue bars).</p>
 
 <p>This type of clustering is especially convenient for large datasets, where it’s impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to certain groupings.</p>
-
-<p>In the next iteration, I’ll be looking at the way these topics change depending on the companies and products that the complaints are about.</p>
 
   </div>
 
