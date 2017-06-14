@@ -38,10 +38,9 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 * Other projects included a clustering analysis of higher education spending, webscraping salary classification, random forest feature importance assessment of income tax returns on county-level voting patterns in the 2016 election.
 
 ### NC Coordinated Campaign
-**Mooresville, NC**
-*Part of DNC effort to elect Hillary Clinton president and other Democrats to federal and statewide offices.*
-**Regional Get Out the Vote Director**   
-*October – November 2016*
+**Mooresville, NC**   
+*Part of DNC effort to elect Hillary Clinton president and other Democrats to federal and statewide offices.*   
+**Regional Get Out the Vote Director** *October – November 2016*
 * Provided tactical and logistical support for GOTV operations   
 
 ### Kaiser Associates
