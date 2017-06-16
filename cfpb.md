@@ -55,7 +55,3 @@ I tested out a series of the topic models to see what size might be a good descr
 The topic highlighted here (just called \#10), groups together words about debt collectors. The right-hand side walks includes the words that are common in each topic (the red bars) and the words frequencies across the entire dataset (blue bars).   
 
 This type of clustering is especially convenient for large datasets, where it's impractical to read every one of the entries. Instead, you can look at the topics, and then check the distribution of those topics, especially where they are limited to certain groupings.  
-
-# Products
-
-The products used  
