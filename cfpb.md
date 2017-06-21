@@ -1,7 +1,6 @@
 ---
 layout: page
-title: "What's the Problem?"
-subtitle: "Topic modeling consumer complaints to the CFPB"
+title: "What's the Problem -- Topic modeling consumer complaints to the CFPB"
 
 ---
 *Find the full code and data for this project at [GitHub here](https://github.com/austinbrian/portfolio/).*

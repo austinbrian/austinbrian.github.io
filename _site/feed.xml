@@ -5,7 +5,7 @@
   
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2017-06-16T14:33:42-05:00</updated>
+  <updated>2017-06-21T15:18:06-05:00</updated>
   <id>http://localhost:4000//</id>
 
   
@@ -24,6 +24,129 @@
     </author>
   
 
+  
+  
+    <entry>
+      
+      <title type="html">CFPB enforcement actions spike consumer complaints, but changes aren’t permanent</title>
+      
+      <link href="http://localhost:4000/company_cfpb_complaints/" rel="alternate" type="text/html" title="CFPB enforcement actions spike consumer complaints, but changes aren't permanent" />
+      <published>2017-06-18T00:00:00-05:00</published>
+      <updated>2017-06-18T00:00:00-05:00</updated>
+      <id>http://localhost:4000/company_cfpb_complaints</id>
+      <content type="html" xml:base="http://localhost:4000/company_cfpb_complaints/">&lt;p&gt;When consumer complaints come to the &lt;a href=&quot;https://www.consumerfinance.gov/&quot;&gt;Consumer Financial Protection Bureau&lt;/a&gt; (CFPB) complaints database, consumers get the chance to vent their spleen about &lt;a href=&quot;../cfpb-topic-modeling&quot;&gt;whatever happened to them&lt;/a&gt;. As part of these complaint records, they also name the banks that caused the problems. With this information, we can see what happens when a big bank gets a big fine.&lt;/p&gt;
+
+&lt;p&gt;And in September 2016, Wells Fargo got a big fine.&lt;/p&gt;
+
+&lt;p&gt;You may remember this fine. The CFPB laid down the law with a &lt;a href=&quot;https://www.consumerfinance.gov/about-us/newsroom/consumer-financial-protection-bureau-fines-wells-fargo-100-million-widespread-illegal-practice-secretly-opening-unauthorized-accounts/&quot; title=&quot;The total fine was even more, with an additional $85 million levied between another federal regulator and Los Angeles county government.&quot;&gt;$100 million fine&lt;/a&gt; after consumers reported that Wells Fargo employees were opening up fake credit card accounts in their names in order to meet internal quotas. Consumers, when they heard about this became about twice as likely to complain each day.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/cfpb/wells_bokeh_plot.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;…for a while.&lt;/p&gt;
+
+&lt;p&gt;In the four months prior to the fine, the CFPB registered &lt;strong&gt;3,090 total complaints&lt;/strong&gt; about Wells Fargo. In the four months after the fine was levied, complaints jumped 58 percent to &lt;strong&gt;4,896 complaints&lt;/strong&gt;. But by the end of the year, as the graph shows, the average complaint frequency dipped down to its prior levels.&lt;/p&gt;
+
+&lt;p&gt;Beyond the sheer numbers of complaints registered against Wells Fargo, however, there isn’t a major shift in topics of the complaints that consumers made to the CFPB.&lt;/p&gt;
+
+&lt;p&gt;The graph below on the left demonstrates the distribution of &lt;a href=&quot;../cfpb-topic-modeling&quot;&gt;topics&lt;/a&gt; over the entire time the CFPB has been collecting those complaints. The other two graphs demonstrate the most frequent topics of complaints in the &lt;em&gt;four months prior&lt;/em&gt; to the enforcement action being taken, and then their distribution in the &lt;em&gt;four months after&lt;/em&gt; the enforcement action. As we covered earlier, four months was about the period of time in which the frequency of complaints had regressed to the same level as it was prior to enforcement.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4&gt;Wells Fargo complaint topics&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;../images/cfpb/wells_topics_4_mo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The post-enforcement topics largely mirror the pre-enforcement topics - there isn’t a large shift in conversation to entirely different topics. But three things are different:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The topic most frequently represented changed from topic 17 to topic 31.&lt;/li&gt;
+  &lt;li&gt;There are 4 more topics after enforcement than there were prior to enforcement. New topics post-enforcement include: 5, 44, 13, 18, 26, 39, and 1. Topics that were not represented in comments after enforcement include: 10, 21, and 41.&lt;/li&gt;
+  &lt;li&gt;Topics that saw increases after enforcement tended to be those that included words about contracts and agreements, which is consistent with more complaints about the types of financial company abuses that prompted the CFPB’s enforcement action.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Selected topics from Wells Fargo complaints&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Topic No.&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Words in topic&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Count prior&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Count after&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;31&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;acct, pmi, remove, block, thru, bayview, dob, child, I’ve, dear&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;37&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;17&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;boa, box, equip, internet, service, phh, return, install, west, cable&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;55&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;38&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;27&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;associ, recovery, new, portfolio, old, expire, type, unknown, york, service&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;33&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;party, third, agreement, term, page, consent, condition, disclose, site, exhibit&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;chase, charge, refund, discover, dispute, claim, cancel, merchant, transaction, purchase&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;contract, sign, son, signature, cancel, asset, manage, account, consult, never&lt;/em&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt; &lt;br /&gt;
+In some cases, the topics covered include words similar to those that would be common with other bank or credit-card transaction issues.&lt;/p&gt;
+
+&lt;p&gt;One significant limitation to this analysis is that only about 10% of the Wells Fargo complaints have corresponding narrative descriptions, which is where the topics arise. Just looking at the total number that included a narrative, there were 238 complaints prior to enforcement, and 218 after. This may partially explain why there was limited change in the topics discussed after the enforcement action. While many more people claimed harm, approximately as many filled in the details of their stories.&lt;/p&gt;
+
+&lt;p&gt;Taking a look at the way that the products that drove the complaints shows a huge shift for the “Bank account or service” product category, here in dark red, in the four months after enforcement. The lighter red indicates credit card complaints, which more than doubled over the same time period.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/cfpb/wells_products_4_mo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Brian Austin</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">When consumer complaints come to the Consumer Financial Protection Bureau (CFPB) complaints database, consumers get the chance to vent their spleen about whatever happened to them. As part of these complaint records, they also name the banks that caused the problems. With this information, we can see what happens when a big bank gets a big fine. And in September 2016, Wells Fargo got a big fine. You may remember this fine. The CFPB laid down the law with a $100 million fine after consumers reported that Wells Fargo employees were opening up fake credit card accounts in their names in order to meet internal quotas. Consumers, when they heard about this became about twice as likely to complain each day. …for a while. In the four months prior to the fine, the CFPB registered 3,090 total complaints about Wells Fargo. In the four months after the fine was levied, complaints jumped 58 percent to 4,896 complaints. But by the end of the year, as the graph shows, the average complaint frequency dipped down to its prior levels. Beyond the sheer numbers of complaints registered against Wells Fargo, however, there isn’t a major shift in topics of the complaints that consumers made to the CFPB. The graph below on the left demonstrates the distribution of topics over the entire time the CFPB has been collecting those complaints. The other two graphs demonstrate the most frequent topics of complaints in the four months prior to the enforcement action being taken, and then their distribution in the four months after the enforcement action. As we covered earlier, four months was about the period of time in which the frequency of complaints had regressed to the same level as it was prior to enforcement. Wells Fargo complaint topics The post-enforcement topics largely mirror the pre-enforcement topics - there isn’t a large shift in conversation to entirely different topics. But three things are different: The topic most frequently represented changed from topic 17 to topic 31. There are 4 more topics after enforcement than there were prior to enforcement. New topics post-enforcement include: 5, 44, 13, 18, 26, 39, and 1. Topics that were not represented in comments after enforcement include: 10, 21, and 41. Topics that saw increases after enforcement tended to be those that included words about contracts and agreements, which is consistent with more complaints about the types of financial company abuses that prompted the CFPB’s enforcement action. Selected topics from Wells Fargo complaints Topic No. Words in topic Count prior Count after 31 acct, pmi, remove, block, thru, bayview, dob, child, I’ve, dear 37 47 17 boa, box, equip, internet, service, phh, return, install, west, cable 55 38 27 associ, recovery, new, portfolio, old, expire, type, unknown, york, service 33 23 14 party, third, agreement, term, page, consent, condition, disclose, site, exhibit 11 16 5 chase, charge, refund, discover, dispute, claim, cancel, merchant, transaction, purchase 0 3 44 contract, sign, son, signature, cancel, asset, manage, account, consult, never 0 3 In some cases, the topics covered include words similar to those that would be common with other bank or credit-card transaction issues. One significant limitation to this analysis is that only about 10% of the Wells Fargo complaints have corresponding narrative descriptions, which is where the topics arise. Just looking at the total number that included a narrative, there were 238 complaints prior to enforcement, and 218 after. This may partially explain why there was limited change in the topics discussed after the enforcement action. While many more people claimed harm, approximately as many filled in the details of their stories. Taking a look at the way that the products that drove the complaints shows a huge shift for the “Bank account or service” product category, here in dark red, in the four months after enforcement. The lighter red indicates credit card complaints, which more than doubled over the same time period.</summary>
+      
+
+      
+      
+    </entry>
+  
   
   
     <entry>

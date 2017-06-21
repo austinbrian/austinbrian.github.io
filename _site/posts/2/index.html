@@ -143,6 +143,45 @@
       <li>
         <header class="post-header">
           <h1 class="post-title">
+            <a class="post-link" href="/clinton_importance_feat/">The most important factor in the 2016 election? Student loans.</a>
+          </h1>
+
+          <p class="post-meta">May 4, 2017</p>
+        </header>
+
+        <div class="post-content">
+          <p>If you took all 3,113 counties in the United States, and wanted to try and guess whether a county would cast more votes for Hillary Clinton or Donald Trump, the most important pieces of information to have be the number of people who claim an education-related deduction or credit.</p>
+
+<p>This finding on student loans is part of my ongoing analysis of the intersection of 2016 voting behavior and tax return information.</p>
+
+<details><summary>More methodology</summary>
+This analysis was performed using a random forest classifier, which used 124 variables drawn from county-level 2014 IRS data. Variables included aggregate totals and participant counts for each income type and deduction. The dataset was matched by county with the New York Times report of election night votes. Average cross-validated accuracy score using the model's classification was approximately 0.89 (good!) and an F1 score of 0.88 (not bad!).
+</details>
+<p><br />
+To be sure, these groups of voters are qualitatively different in other measurable ways. For instance, the number of farm returns in a county is the next-most impactful feature in the income dataset behind education credits and deductions. Counties with the highest numbers of these returns were the most likely in the data to cast more returns for Trump than Clinton.</p>
+
+<p>But these findings largely conform to the behaviors we might expect of the electorate. Those with higher levels of education (especially those at high-cost liberal arts colleges) are most likely to inhabit counties that vote for Clinton. Farmers were more likely to vote Trump.</p>
+
+<p>Perhaps more interesting are the distinctions that weren’t found in the dataset. Most importantly, total taxable income did not emerge as an especially valuable predictor.
+<br /></p>
+
+<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/agi_pp_vs_clinton.png" alt="" />
+<br /></p>
+
+<p>The figure above demonstrates the distribution of income, as separated by Clinton’s margin over Trump (or vice versa). Each blue dot represents a county in which more people voted for Clinton than Trump, and each red dot shows a county with more Trump votes.</p>
+
+<p>While the sheer numbers for the Trump voters are significantly greater - Trump won about 84 percent of US counties - the distribution of incomes is relatively similar between them.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
             <a class="post-link" href="/pres_counties/">Hillary Clinton won the taxpayer vote and other Tax Day findings</a>
           </h1>
 
@@ -453,54 +492,12 @@
         
       </li>
     
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            <a class="post-link" href="/ncaa-rd1/">The wild predictive ride of the NCAA first round</a>
-          </h1>
-
-          <p class="post-meta">Mar 20, 2017</p>
-        </header>
-
-        <div class="post-content">
-          <p>Ah, March.</p>
-
-<p>It’s a time of bright <a href="http://www.accuweather.com/en/weather-news/noreaster-shuts-down-travel-threatens-to-unleash-blizzard-conditions-in-at-least-8-states/70001093">spring sunshine</a>, cherry blossoms, and people everywhere searching their memories for where exactly <a href="https://en.wikipedia.org/wiki/Xavier_University" title="Cincinnati">Xavier University</a> is.</p>
-
-<p>It’s tournament season! Or at least it is every year in my household until UNC loses. But beyond my general interest in watching a round ball go through a hoop, it’s also a great time to test out predictions. Since everyone and their brother makes predictions about who is likely to win the games each round, I thought I’d check and see how they are doing.</p>
-
-<p>To do that, I simulated the projections from data scientists at <a href="http://www.cbssports.com/college-basketball/bracketology/">CBS Sports</a>, <a href="https://sports.yahoo.com/m/66607537-5012-36a0-8694-65a0522cf6c1/ss_2017-ncaa-tournament-bracket.html">Yahoo!</a>, data <a href="https://projects.fivethirtyeight.com/2017-march-madness-predictions/">blog 538</a>, <a href="http://www.espn.com/mens-college-basketball/bracketology">ESPN</a>, college basketball stat-tracker <a href="http://kenpom.com/">Ken Pomeroy</a>, and sports handicapper <a href="http://sagarin.com/sports/cbsend.htm">Jeff Sagarin</a>.</p>
-
-<p>I collected the percentage likelihoods for each of the rounds from where they were compiled at the <a href="https://www.nytimes.com/interactive/2017/03/13/upshot/ncaa-bracket-super-table.html">NY Times Upshot</a>.
-<br /></p>
-<details><summary>More methodology</summary>
-I then created a simulator that used the projections given, and for each school, simulated 5,000 iterations of each team's probability. I compiled the results of these simulations into an overall projection that differs very slightly (and randomly) from the average of the range of probability projections from a school.</details>
-<p><br />
-Since the first round of the tournament is 64 hours of basketball shoved into a two-day period, it’s often the most exciting period, and the best for analyzing predictions. So I compiled the results of the first round and compared the scores for each team to the prior prediction.</p>
-
-<p>As the graph below demonstrates, these results split out into four groups:</p>
-<ul>
-  <li><strong>Favorites</strong>: teams that are performing as advertised; they were supposed to win, and they did win</li>
-  <li><strong>Upsets</strong>: this is the reason we watch March Madness; these are the teams that weren’t supposed to win, and then they do. The farther to the left they appear, the more surprising it was.</li>
-  <li><strong>Shockers</strong>: this is where the <a href="http://screengrabber.deadspin.com/piccolo-tears-are-the-saddest-tears-1692898303">crying</a> happens; these teams were supposed to win, but lost. Brutal.</li>
-  <li><strong>Made-the-Dancers</strong>: where it was an honor just to be nominated, but nobody expected them to win, and they didn’t.</li>
-</ul>
-
-<p><img src="https://raw.githubusercontent.com/austinbrian/blog/master/images/NCAA_rd1_labeled.png" alt="" /></p>
-
-<p>As we move into the second weekend of the tournament, I’ll keep taking a look at how these predictions held up. There are some early upsets. Last year’s champ Villanova have already lost this year. I felt bad for them for exactly <a href="https://www.youtube.com/watch?v=EMHoGRp1QrE">4.7 seconds</a>.</p>
-
-        </div>
-        
-      </li>
-    
   </ul>
 
   
   <div class="pagination">
+    
+      <a class="previous" href="/posts/3/">&laquo; Older</a>
     
 
     
