@@ -24,15 +24,20 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 
 ---
 ## Toolkit
-* Python, STATA, SQL, UNIX command line tools, AWS, Google Cloud
+### Technologies    
+Python, STATA, PostgreSQL, mySQL, UNIX command line tools, AWS, Google Cloud SDK, Bootstrap
+### Machine Learning Libraries
+Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, NLTK, Gensim, PyMC, TensorFlow, Keras
+### Presentation & Visualization   
+Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas
+
 * Natural language processing, machine learning,  classification, regression, webscraping
-* Presentation and data visualization tools including Tableau, Matplotlib, Seaborn, Powerpoint
 
 ----
 ## Experience
 ### General Assembly
 **Washington, DC**   
-*General Assembly immersive program is a full-time 12-week course that develops statistical, programming, and data communication skills.*   
+*Full-time 12-week immersive program that develops statistical, programming, and data communication skills.*   
 **Data Science Immersive** *March - May 2017*
 * Capstone project culminated in unsupervised natural language processing analysis of 750,000 complaints to the Consumer Financial Protection Bureau. A classification algorithm correctly identified which of 17 products a consumer's unstructured text referred to 77% of the time.
 * Other projects included a clustering analysis of higher education spending, webscraping salary classification, random forest feature importance assessment of income tax returns on county-level voting patterns in the 2016 election.
