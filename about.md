@@ -31,8 +31,6 @@ Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, NLTK, Ge
 ### Presentation & Visualization   
 Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas
 
-* Natural language processing, machine learning,  classification, regression, webscraping
-
 ----
 ## Experience
 ### General Assembly
