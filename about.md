@@ -12,12 +12,12 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 
 <h2 align="center">
 
-  <a href="mailto:austin.brian+from_website@gmail.com"><i class="fa fa-envelope icon-large"></i></a> &nbsp;
+  <a href="mailto:austin.brian+from_website@gmail.com"><i class="fa fa-envelope" style="font-size:36px"></i></a> &nbsp;
 
   <a href="https://github.com/austinbrian">
-            <i class="fa fa-github icon-large"></i></a> &nbsp;
+            <i class="fa fa-github" style="font-size:36px"></i></a> &nbsp;
   <a href="https://www.linkedin.com/in/briandaustin/">
-      <i class="fa fa-linkedin icon-large"></i>
+      <i class="fa fa-linkedin" style="font-size:36px""></i>
                     </a>
 
 </h2>
@@ -25,14 +25,25 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 ---
 ## Toolkit
 ### Technologies    
-Python, STATA, PostgreSQL, mySQL, UNIX command line tools, AWS, Google Cloud SDK, Bootstrap
+Python, STATA, PostgreSQL, mySQL, UNIX, AWS, Google Cloud SDK, Bootstrap, JavaScript, React.js, Node.js, Neo4j
 ### Machine Learning Libraries
-Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, NLTK, Gensim, PyMC, TensorFlow, Keras
+Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, selenium, NLTK, Gensim, PyMC, TensorFlow, Keras
+### Polling
+Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 ### Presentation & Visualization   
-Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas
+Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, HTML, CSS
 
 ----
 ## Experience
+### General Assembly
+**Arlington, VA**   
+*Agile technology and consulting firm working in corporate and government sectors*   
+**Data Scientist** *August 2017 - present*
+* Analyzed changes to the loyalty program of a large hospitality corporation, making recommendations based on a simulation model programmed in Python, working cross-functionally with finance, loyalty, and marketing teams.
+* Maintained and updated simulation programming, cutting model run time by 70% while reducing errors by 90%.
+* Developed reporting and quality assurance mechanisms to delivery impact to financial and loyalty stakeholders.
+* Built application layer using Reactjs, MongoDB, and Flask to serve dashboard that uses deep learning to identify fraud in OIG audits.
+
 ### General Assembly
 **Washington, DC**   
 *Full-time 12-week immersive program that develops statistical, programming, and data communication skills.*   
