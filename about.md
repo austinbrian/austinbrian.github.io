@@ -17,7 +17,7 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
   <a href="https://github.com/austinbrian">
             <i class="fa fa-github" style="font-size:36px"></i></a> &nbsp;
   <a href="https://www.linkedin.com/in/briandaustin/">
-      <i class="fa fa-linkedin" style="font-size:36px""></i>
+      <i class="fa fa-linkedin" style="font-size:36px"></i>
                     </a>
 
 </h2>
