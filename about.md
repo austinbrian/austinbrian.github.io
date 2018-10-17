@@ -35,7 +35,7 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 
 ----
 ## Experience
-### General Assembly
+### Excella Consulting
 **Arlington, VA**   
 *Agile technology and consulting firm working in corporate and government sectors*   
 **Data Scientist** *August 2017 - present*
