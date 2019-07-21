@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-permalink: /about/
+permalink: /about
 ---
 Brian is a Washington, DC-based data scientist originally from North Carolina. He likes politics, startups, and advanced baseball statistics.
 
@@ -25,9 +25,9 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 ---
 ## Toolkit
 ### Technologies    
-Python, STATA, PostgreSQL, mySQL, UNIX, AWS, Google Cloud SDK, Bootstrap, JavaScript, React.js, Node.js, Neo4j
+Python, STATA, PostgreSQL, mySQL, UNIX, AWS, Google Cloud, Flask, Bootstrap, JavaScript, React.js, Node.js, Neo4j
 ### Machine Learning Libraries
-Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, selenium, NLTK, Gensim, PyMC, TensorFlow, Keras
+Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, selenium, NLTK, Gensim, PyMC, TensorFlow, Keras, PyTorch
 ### Polling
 Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 ### Presentation & Visualization   
@@ -35,10 +35,17 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 
 ----
 ## Experience
+### U.Group
+**Arlington, VA**   
+*Technical consulting and design firm working with DoD and corporate clients*
+**Data Scientist** *November 2018 - present*
+* Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database. Wrote machine learning and heuristic algorithms to draw insights from the data and pass them to front-end developers using a custom API.
+* Deployed prototype pipeline as microservices architecture using Docker on a client-owned AWS instance.
+
 ### Excella Consulting
 **Arlington, VA**   
 *Agile technology and consulting firm working in corporate and government sectors*   
-**Data Scientist** *August 2017 - present*
+**Data Scientist** *August 2017 - November 2018*
 * Analyzed changes to the loyalty program of a large hospitality corporation, making recommendations based on a simulation model programmed in Python, working cross-functionally with finance, loyalty, and marketing teams.
 * Maintained and updated simulation programming, cutting model run time by 70% while reducing errors by 90%.
 * Developed reporting and quality assurance mechanisms to delivery impact to financial and loyalty stakeholders.
