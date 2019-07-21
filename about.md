@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-permalink: /about
+permalink: /about/
 ---
 Brian is a Washington, DC-based data scientist originally from North Carolina. He likes politics, startups, and advanced baseball statistics.
 
