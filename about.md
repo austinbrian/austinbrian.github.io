@@ -37,7 +37,7 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 ## Experience
 ### U.Group
 **Arlington, VA**   
-*Technical consulting and design firm working with DoD and corporate clients*
+*Technical consulting and design firm working with DoD and corporate clients*   
 **Data Scientist** *November 2018 - present*
 * Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database. Wrote machine learning and heuristic algorithms to draw insights from the data and pass them to front-end developers using a custom API.
 * Deployed prototype pipeline as microservices architecture using Docker on a client-owned AWS instance.
