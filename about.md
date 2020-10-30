@@ -99,6 +99,10 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 * Developed innovative sampling methodology for mobile phones, web panels and traditional landlines, improving response rates by 25% among targeted demographics.
 
 ---
+## Speaking and Presentation
+- ***[How and Why to Put Your Jupyter Notebooks into Docker Containers](https://www.youtube.com/watch?v=f6zoRrJhHXA)*** -- [PyData NYC](https://pydata.org/nyc2019/schedule/presentation/72/how-and-why-to-put-your-jupyter-notebooks-in-docker-containers/) -- November 2019
+
+---
 ## Education
 ### General Assembly
 **Data Science Immersive** *March – May 2017*   
