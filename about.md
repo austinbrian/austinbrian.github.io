@@ -35,11 +35,19 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 
 ----
 ## Experience
+### OneGlobe
+**Reston, VA**   
+*Technical consulting and design firm working with DoD and corporate clients*   
+**Data Scientist** *May 2020 - present*
+* Aligned to [Kessel Run](https://kesselrun.af.mil/), a software factory within the US Air Force
+* Serve as technical lead for the development of a user analytics platform within the Enterprise AI product portfolio.
+
 ### U.Group
 **Arlington, VA**   
 *Technical consulting and design firm working with DoD and corporate clients*   
-**Data Scientist** *November 2018 - present*
-* Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database. Wrote machine learning and heuristic algorithms to draw insights from the data and pass them to front-end developers using a custom API.
+**Data Scientist** *November 2018 - May 2020*
+* Wrote machine learning and graph data mining algorithms to perform entity resolution and draw insights from military intelligence data, maintaining a custom API also developed for the prototype.
+* Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database as an implementation of a knowledge graph for proprietary data.
 * Deployed prototype pipeline as microservices architecture using Docker on a client-owned AWS instance.
 
 ### Excella Consulting
