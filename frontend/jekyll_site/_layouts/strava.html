@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="strava-stats">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+  
+  <div id="weekly-running-chart"></div>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    // Fetch and display the weekly running chart
+    fetch('/strava/weekly_running')
+      .then(response => response.json())
+      .then(figure => {
+        Plotly.newPlot('weekly-running-chart', figure.data, figure.layout);
+      })
+      .catch(error => {
+        console.error('Error fetching weekly running data:', error);
+        document.getElementById('weekly-running-chart').innerHTML = 
+          '<p class="error">Failed to load weekly running data. Please try again later.</p>';
+      });
+  </script>
+</div>
+
+<style>
+.strava-stats {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#weekly-running-chart {
+  width: 100%;
+  height: 600px;
+  margin: 20px 0;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+</style> 
