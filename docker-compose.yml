@@ -2,19 +2,24 @@ version: '3.8'
 
 services:
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
+    build: ./api
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - ./api:/app
-      - ./frontend/jekyll_site/_site:/app/frontend/jekyll_site/_site
+      - ./frontend/jekyll_site/_site:/app/static
+    env_file:
+      - .env
     environment:
       - STRAVA_CLIENT_ID=${STRAVA_CLIENT_ID}
       - STRAVA_CLIENT_SECRET=${STRAVA_CLIENT_SECRET}
       - STRAVA_REFRESH_TOKEN=${STRAVA_REFRESH_TOKEN}
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      - JEKYLL_SITE_PATH=/app/static
+    command: >
+      sh -c "while [ ! -d /app/static ]; do sleep 1; done &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    depends_on:
+      - jekyll
 
   jekyll:
     image: jekyll/jekyll:4.2.2
@@ -22,4 +27,11 @@ services:
       - "4000:4000"
     volumes:
       - ./frontend/jekyll_site:/srv/jekyll
-    command: jekyll build --watch
+    environment:
+      - JEKYLL_ENV=development
+      - BUNDLE_GEMFILE=/srv/jekyll/Gemfile
+    command: >
+      sh -c "gem install bundler:2.6.7 &&
+             bundle install &&
+             bundle exec jekyll build &&
+             bundle exec jekyll serve --watch --force_polling"

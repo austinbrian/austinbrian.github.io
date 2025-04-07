@@ -1,4 +1,4 @@
-from pathlib import Path
+import os
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,16 +15,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount Jekyll static site
-jekyll_site_path = (
-    Path(__file__).parent.parent.parent / "frontend" / "jekyll_site" / "_site"
-)
-app.mount("/", StaticFiles(directory=str(jekyll_site_path), html=True), name="static")
-
-# Strava routes will be imported from a separate module
+# Import and include Strava routes first
 from .routers import strava
 
 app.include_router(strava.router, prefix="/strava", tags=["strava"])
+
+# Get Jekyll site path from environment variable
+jekyll_site_path = os.getenv("JEKYLL_SITE_PATH", "/app/static")
+
+# Mount the Jekyll static site last, so API routes take precedence
+app.mount("/", StaticFiles(directory=jekyll_site_path, html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn

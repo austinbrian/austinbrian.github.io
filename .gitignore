@@ -3,3 +3,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+.env
+browser.txt
+get_strava_token.py
+token.sh

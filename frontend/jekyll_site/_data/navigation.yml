@@ -6,9 +6,9 @@ main:
   - title: "Portfolio"
     url: /portfolio/
   - title: "About"
-    url: /blog/about/
+    url: /about/
   - title: "Blog Archives"
-    url: /blog/archives/
+    url: /archives/
   - title: <h2 class="fa fa-twitter"></h2>
     url: https://www.twitter.com/bda
   - title: <h2 class="fa fa-linkedin"></h2>
