@@ -1,0 +1,14 @@
+[phases.setup]
+nixPkgs = ["python39", "python39Packages.pip", "python39Packages.virtualenv", "ruby"]
+
+[phases.install]
+cmds = [
+    "python -m venv venv",
+    ". venv/bin/activate",
+    "pip install -r api/requirements.txt",
+    "cd frontend/jekyll_site && bundle install",
+    "cd frontend/jekyll_site && bundle exec jekyll build"
+]
+
+[start]
+cmd = "cd api && uvicorn app.main:app --host 0.0.0.0 --port $PORT" 

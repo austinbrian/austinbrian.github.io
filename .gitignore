@@ -7,3 +7,4 @@ vendor
 browser.txt
 get_strava_token.py
 token.sh
+api/strava_data.db
