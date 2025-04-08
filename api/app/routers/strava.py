@@ -1,12 +1,18 @@
+import logging
 import os
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional
 
 import httpx
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from dotenv import load_dotenv
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query, Response
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -38,19 +44,69 @@ async def get_access_token() -> str:
                     "scope": "activity:read_all",
                 },
             )
-
             if response.status_code != 200:
-                error_detail = f"Failed to get access token. Status: {response.status_code}, Response: {response.text}"
-                print(error_detail)  # Log the error
-                raise HTTPException(
-                    status_code=response.status_code, detail=error_detail
+                logger.error(
+                    f"Failed to get access token. Status: {response.status_code}, Response: {response.text}"
                 )
-
+                raise HTTPException(
+                    status_code=response.status_code,
+                    detail="Failed to get access token",
+                )
             return response.json()["access_token"]
     except Exception as e:
-        print(f"Error getting access token: {str(e)}")  # Log the error
+        logger.error(f"Error getting access token: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"Error getting access token: {str(e)}"
+        )
+
+
+async def get_all_activities(
+    after: Optional[int] = None, per_page: int = 200
+) -> List[Dict]:
+    """Get Strava activities with pagination support."""
+    try:
+        token = await get_access_token()
+        all_activities = []
+        page = 1
+
+        while True:
+            async with httpx.AsyncClient() as client:
+                params = {"per_page": per_page, "page": page}
+                if after:
+                    params["after"] = after
+
+                response = await client.get(
+                    "https://www.strava.com/api/v3/athlete/activities",
+                    headers={"Authorization": f"Bearer {token}"},
+                    params=params,
+                )
+
+                if response.status_code != 200:
+                    logger.error(
+                        f"Failed to fetch activities. Status: {response.status_code}, Response: {response.text}"
+                    )
+                    raise HTTPException(
+                        status_code=response.status_code,
+                        detail="Failed to fetch activities",
+                    )
+
+                activities = response.json()
+                if not activities:  # No more activities to fetch
+                    break
+
+                all_activities.extend(activities)
+                page += 1
+
+                # If we got fewer activities than requested, we've reached the end
+                if len(activities) < per_page:
+                    break
+
+        logger.info(f"Retrieved {len(all_activities)} total activities")
+        return all_activities
+    except Exception as e:
+        logger.error(f"Error fetching activities: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error fetching activities: {str(e)}"
         )
 
 
@@ -59,24 +115,22 @@ async def get_activities():
     """Get recent Strava activities."""
     try:
         token = await get_access_token()
-
         async with httpx.AsyncClient() as client:
             response = await client.get(
                 "https://www.strava.com/api/v3/athlete/activities",
                 headers={"Authorization": f"Bearer {token}"},
-                params={"per_page": 30},
             )
-
             if response.status_code != 200:
-                error_detail = f"Failed to fetch activities. Status: {response.status_code}, Response: {response.text}"
-                print(error_detail)  # Log the error
-                raise HTTPException(
-                    status_code=response.status_code, detail=error_detail
+                logger.error(
+                    f"Failed to fetch activities. Status: {response.status_code}, Response: {response.text}"
                 )
-
+                raise HTTPException(
+                    status_code=response.status_code,
+                    detail="Failed to fetch activities",
+                )
             return response.json()
     except Exception as e:
-        print(f"Error fetching activities: {str(e)}")  # Log the error
+        logger.error(f"Error fetching activities: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"Error fetching activities: {str(e)}"
         )
@@ -85,7 +139,7 @@ async def get_activities():
 @router.get("/stats")
 async def get_stats():
     """Get aggregated statistics and generate visualizations."""
-    activities = await get_activities()
+    activities = await get_all_activities()
 
     # Convert to DataFrame
     df = pd.DataFrame(activities)
@@ -113,30 +167,11 @@ async def get_stats():
 async def get_weekly_running():
     """Get weekly running distance for the past year."""
     try:
-        token = await get_access_token()
-
         # Get activities for the past year
         now = datetime.now()
         one_year_ago = now - timedelta(days=365)
 
-        async with httpx.AsyncClient() as client:
-            response = await client.get(
-                "https://www.strava.com/api/v3/athlete/activities",
-                headers={"Authorization": f"Bearer {token}"},
-                params={
-                    "after": int(one_year_ago.timestamp()),
-                    "per_page": 200,  # Maximum allowed by Strava
-                },
-            )
-
-            if response.status_code != 200:
-                error_detail = f"Failed to fetch activities. Status: {response.status_code}, Response: {response.text}"
-                print(error_detail)  # Log the error
-                raise HTTPException(
-                    status_code=response.status_code, detail=error_detail
-                )
-
-            activities = response.json()
+        activities = await get_all_activities(after=int(one_year_ago.timestamp()))
 
         # Filter running activities and create DataFrame
         running_activities = [
@@ -151,12 +186,22 @@ async def get_weekly_running():
             if activity["type"] == "Run"
         ]
 
+        logger.info(f"Found {len(running_activities)} running activities")
+
+        if not running_activities:
+            logger.warning("No running activities found")
+            return Response(
+                content="<div>No running activities found</div>", media_type="text/html"
+            )
+
         df = pd.DataFrame(running_activities)
 
         # Add week number and group by week
         df["week"] = df["start_date"].dt.isocalendar().week
         df["year"] = df["start_date"].dt.isocalendar().year
         weekly_distance = df.groupby(["year", "week"])["distance"].sum().reset_index()
+
+        logger.info(f"Created weekly distance data with {len(weekly_distance)} weeks")
 
         # Create the bar chart
         fig = go.Figure(
@@ -182,9 +227,11 @@ async def get_weekly_running():
             xaxis=dict(tickangle=45),
         )
 
-        return fig.to_json()
+        # Generate HTML with Plotly.js included
+        html = fig.to_html(full_html=True, include_plotlyjs=True)
+        return Response(content=html, media_type="text/html")
     except Exception as e:
-        print(f"Error generating weekly running chart: {str(e)}")  # Log the error
+        logger.error(f"Error generating weekly running chart: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"Error generating weekly running chart: {str(e)}"
         )
@@ -194,3 +241,134 @@ async def get_weekly_running():
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy"}
+
+
+@router.get("/cumulative_mileage")
+async def get_cumulative_mileage(
+    target: Optional[int] = Query(2000, description="Target annual mileage"),
+):
+    """Get cumulative running distance for the current year with target pace line."""
+    try:
+        # Get activities for the current year
+        now = datetime.now()
+        start_of_year = datetime(now.year, 1, 1)
+
+        activities = await get_all_activities(after=int(start_of_year.timestamp()))
+
+        # Filter running activities and create DataFrame
+        running_activities = [
+            {
+                "distance": activity["distance"]
+                * 0.000621371,  # Convert meters to miles
+                "start_date": datetime.strptime(
+                    activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
+                ),
+            }
+            for activity in activities
+            if activity["type"] == "Run"
+        ]
+
+        logger.info(f"Found {len(running_activities)} running activities")
+
+        if not running_activities:
+            logger.warning("No running activities found")
+            return Response(
+                content="<div>No running activities found</div>", media_type="text/html"
+            )
+
+        df = pd.DataFrame(running_activities)
+
+        # Add day of year and calculate cumulative sum
+        df["day_of_year"] = df["start_date"].dt.dayofyear
+        daily_mileage = df.groupby("day_of_year")["distance"].sum().reset_index()
+        daily_mileage["cumulative_miles"] = daily_mileage["distance"].cumsum()
+
+        logger.info(f"Created cumulative mileage data with {len(daily_mileage)} days")
+
+        # Create target pace line
+        days_in_year = (
+            366
+            if (now.year % 4 == 0 and now.year % 100 != 0) or (now.year % 400 == 0)
+            else 365
+        )
+        target_pace = pd.DataFrame(
+            {
+                "day_of_year": range(1, days_in_year + 1),
+                "target_miles": [
+                    target * (day / days_in_year) for day in range(1, days_in_year + 1)
+                ],
+            }
+        )
+
+        # Create the figure
+        fig = go.Figure()
+
+        # Add actual cumulative mileage
+        fig.add_trace(
+            go.Scatter(
+                x=daily_mileage["day_of_year"],
+                y=daily_mileage["cumulative_miles"],
+                mode="lines+markers",
+                name="Actual Miles",
+                line=dict(color="#FC4C02"),  # Strava orange
+                marker=dict(size=8),
+            )
+        )
+
+        # Add target pace line
+        fig.add_trace(
+            go.Scatter(
+                x=target_pace["day_of_year"],
+                y=target_pace["target_miles"],
+                mode="lines",
+                name=f"Target Pace ({target} miles/year)",
+                line=dict(color="gray", dash="dash"),
+                hoverinfo="skip",
+            )
+        )
+
+        # Add current day marker
+        current_day = now.timetuple().tm_yday
+        current_miles = (
+            daily_mileage["cumulative_miles"].iloc[-1] if not daily_mileage.empty else 0
+        )
+        fig.add_trace(
+            go.Scatter(
+                x=[current_day],
+                y=[current_miles],
+                mode="markers",
+                name="Today",
+                marker=dict(size=12, color="red", symbol="star"),
+            )
+        )
+
+        # Update layout
+        fig.update_layout(
+            title=f"Cumulative Running Distance {now.year}",
+            xaxis_title="Day of Year",
+            yaxis_title="Cumulative Miles",
+            template="plotly_dark",
+            showlegend=True,
+            legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
+            annotations=[
+                dict(
+                    x=current_day,
+                    y=current_miles,
+                    text=f"Today: {current_miles:.1f} miles",
+                    showarrow=True,
+                    arrowhead=1,
+                    ax=0,
+                    ay=-40,
+                )
+            ],
+        )
+
+        # Generate HTML with Plotly.js included
+        html = fig.to_html(full_html=True, include_plotlyjs=True)
+        return Response(content=html, media_type="text/html")
+    except Exception as e:
+        logger.error(f"Error generating cumulative mileage chart: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error generating cumulative mileage chart: {str(e)}",
+        )

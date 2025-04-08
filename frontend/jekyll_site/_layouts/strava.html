@@ -6,21 +6,58 @@ layout: default
   <h1>{{ page.title }}</h1>
   {{ content }}
   
-  <div id="weekly-running-chart"></div>
+  <div class="chart-container">
+    <h2>Weekly Running Distance</h2>
+    <div id="weekly-running-chart"></div>
+  </div>
+
+  <div class="chart-container">
+    <h2>Cumulative Running Distance</h2>
+    <div id="cumulative-mileage-chart"></div>
+  </div>
 
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script>
-    // Fetch and display the weekly running chart
-    fetch('/strava/weekly_running')
-      .then(response => response.json())
-      .then(figure => {
-        Plotly.newPlot('weekly-running-chart', figure.data, figure.layout);
-      })
-      .catch(error => {
-        console.error('Error fetching weekly running data:', error);
-        document.getElementById('weekly-running-chart').innerHTML = 
-          '<p class="error">Failed to load weekly running data. Please try again later.</p>';
-      });
+    // Function to fetch and display a chart
+    async function displayChart(endpoint, containerId) {
+      try {
+        console.log(`Fetching data from ${endpoint}`);
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const html = await response.text();
+        console.log(`Received HTML from ${endpoint}:`, html);
+        
+        // Insert the HTML directly into the container
+        document.getElementById(containerId).innerHTML = html;
+        
+        // Extract the plot div ID from the HTML
+        const plotDiv = document.getElementById(containerId).querySelector('.plotly-graph-div');
+        if (!plotDiv) {
+          throw new Error(`No plot div found in HTML for ${containerId}`);
+        }
+        
+        // Get the plot data from the script tag
+        const scriptTag = document.getElementById(containerId).querySelector('script');
+        if (!scriptTag) {
+          throw new Error(`No script tag found in HTML for ${containerId}`);
+        }
+        
+        // Execute the script to initialize the plot
+        eval(scriptTag.textContent);
+        
+        console.log(`Successfully rendered plot for ${endpoint}`);
+      } catch (error) {
+        console.error(`Error fetching ${endpoint}:`, error);
+        document.getElementById(containerId).innerHTML = 
+          `<p class="error">Failed to load data. Please try again later.</p>`;
+      }
+    }
+
+    // Fetch and display both charts
+    displayChart('/strava/weekly_running', 'weekly-running-chart');
+    displayChart('/strava/cumulative_mileage', 'cumulative-mileage-chart');
   </script>
 </div>
 
@@ -31,7 +68,17 @@ layout: default
   padding: 20px;
 }
 
-#weekly-running-chart {
+.chart-container {
+  margin: 40px 0;
+}
+
+.chart-container h2 {
+  margin-bottom: 20px;
+  color: #FC4C02;  /* Strava orange */
+}
+
+#weekly-running-chart,
+#cumulative-mileage-chart {
   width: 100%;
   height: 600px;
   margin: 20px 0;
@@ -45,4 +92,4 @@ layout: default
   border-radius: 4px;
   margin: 10px 0;
 }
-</style> 
+</style>
