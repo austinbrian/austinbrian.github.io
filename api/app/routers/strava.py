@@ -7,6 +7,13 @@ import httpx
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from app.db import (
+    get_latest_activity_date,
+    get_running_activities_older_than,
+    get_running_activities_this_year,
+    init_db,
+    store_activities,
+)
 from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException, Query, Response
 
@@ -18,6 +25,9 @@ load_dotenv()
 
 router = APIRouter()
 
+# Initialize database
+init_db()
+
 # Strava API configuration
 STRAVA_CLIENT_ID = os.getenv("STRAVA_CLIENT_ID")
 STRAVA_CLIENT_SECRET = os.getenv("STRAVA_CLIENT_SECRET")
@@ -28,6 +38,43 @@ if not all([STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN]):
     raise ValueError(
         "Missing required Strava environment variables. Please check your .env file."
     )
+
+
+@router.get("/sync")
+async def sync_activities():
+    """Sync new activities from Strava API."""
+    try:
+        # Get the latest activity date from the database
+        latest_date = get_latest_activity_date()
+
+        if latest_date:
+            # Convert to Unix timestamp for Strava API
+            after_timestamp = int(latest_date.timestamp())
+            logger.info(f"Fetching activities after {latest_date}")
+        else:
+            # If no activities in database, fetch last 30 days
+            after_timestamp = int((datetime.now() - timedelta(days=30)).timestamp())
+            logger.info("No activities in database, fetching last 30 days")
+
+        # Fetch new activities from API
+        activities = await get_all_activities(after=after_timestamp)
+
+        if not activities:
+            return {"message": "No new activities found", "count": 0}
+
+        # Store new activities in database
+        store_activities(activities)
+
+        return {
+            "message": "Successfully synced activities",
+            "count": len(activities),
+            "latest_date": max(activity["start_date"] for activity in activities),
+        }
+    except Exception as e:
+        logger.error(f"Error syncing activities: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error syncing activities: {str(e)}"
+        )
 
 
 async def get_access_token() -> str:
@@ -102,6 +149,10 @@ async def get_all_activities(
                     break
 
         logger.info(f"Retrieved {len(all_activities)} total activities")
+
+        # Store activities in database
+        store_activities(all_activities)
+
         return all_activities
     except Exception as e:
         logger.error(f"Error fetching activities: {str(e)}")
@@ -114,6 +165,12 @@ async def get_all_activities(
 async def get_activities():
     """Get recent Strava activities."""
     try:
+        # First try to get from database
+        df = get_running_activities_older_than(7)  # Get last 7 days
+        if not df.empty:
+            return df.to_dict("records")
+
+        # If no data in database, fetch from API
         token = await get_access_token()
         async with httpx.AsyncClient() as client:
             response = await client.get(
@@ -128,7 +185,9 @@ async def get_activities():
                     status_code=response.status_code,
                     detail="Failed to fetch activities",
                 )
-            return response.json()
+            activities = response.json()
+            store_activities(activities)
+            return activities
     except Exception as e:
         logger.error(f"Error fetching activities: {str(e)}")
         raise HTTPException(
@@ -139,10 +198,12 @@ async def get_activities():
 @router.get("/stats")
 async def get_stats():
     """Get aggregated statistics and generate visualizations."""
-    activities = await get_all_activities()
-
-    # Convert to DataFrame
-    df = pd.DataFrame(activities)
+    # First try to get from database
+    df = get_all_activities()
+    if df.empty:
+        # If no data in database, fetch from API
+        activities = await get_all_activities()
+        df = pd.DataFrame(activities)
 
     # Basic statistics
     stats = {
@@ -167,34 +228,36 @@ async def get_stats():
 async def get_weekly_running():
     """Get weekly running distance for the past year."""
     try:
-        # Get activities for the past year
-        now = datetime.now()
-        one_year_ago = now - timedelta(days=365)
-
-        activities = await get_all_activities(after=int(one_year_ago.timestamp()))
-
-        # Filter running activities and create DataFrame
-        running_activities = [
-            {
-                "distance": activity["distance"]
-                * 0.000621371,  # Convert meters to miles
-                "start_date": datetime.strptime(
-                    activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
-                ),
-            }
-            for activity in activities
-            if activity["type"] == "Run"
-        ]
-
-        logger.info(f"Found {len(running_activities)} running activities")
+        # First try to get from database
+        df = get_running_activities_older_than(365)
+        if df.empty:
+            # If no data in database, fetch from API
+            now = datetime.now()
+            one_year_ago = now - timedelta(days=365)
+            activities = await get_all_activities(after=int(one_year_ago.timestamp()))
+            running_activities = [
+                {
+                    "distance": activity["distance"]
+                    * 0.000621371,  # Convert meters to miles
+                    "start_date": datetime.strptime(
+                        activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
+                    ),
+                }
+                for activity in activities
+                if activity["type"] == "Run"
+            ]
+            df = pd.DataFrame(running_activities)
+        else:
+            # Convert distance from meters to miles
+            df["distance"] = df["distance"] * 0.000621371
+            df["start_date"] = pd.to_datetime(df["start_date"])
+            running_activities = df[["distance", "start_date"]].to_dict("records")
 
         if not running_activities:
             logger.warning("No running activities found")
             return Response(
                 content="<div>No running activities found</div>", media_type="text/html"
             )
-
-        df = pd.DataFrame(running_activities)
 
         # Add week number and group by week
         df["week"] = df["start_date"].dt.isocalendar().week
@@ -249,34 +312,36 @@ async def get_cumulative_mileage(
 ):
     """Get cumulative running distance for the current year with target pace line."""
     try:
-        # Get activities for the current year
-        now = datetime.now()
-        start_of_year = datetime(now.year, 1, 1)
-
-        activities = await get_all_activities(after=int(start_of_year.timestamp()))
-
-        # Filter running activities and create DataFrame
-        running_activities = [
-            {
-                "distance": activity["distance"]
-                * 0.000621371,  # Convert meters to miles
-                "start_date": datetime.strptime(
-                    activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
-                ),
-            }
-            for activity in activities
-            if activity["type"] == "Run"
-        ]
-
-        logger.info(f"Found {len(running_activities)} running activities")
+        # First try to get from database
+        df = get_running_activities_this_year()
+        if df.empty:
+            # If no data in database, fetch from API
+            now = datetime.now()
+            start_of_year = datetime(now.year, 1, 1)
+            activities = await get_all_activities(after=int(start_of_year.timestamp()))
+            running_activities = [
+                {
+                    "distance": activity["distance"]
+                    * 0.000621371,  # Convert meters to miles
+                    "start_date": datetime.strptime(
+                        activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
+                    ),
+                }
+                for activity in activities
+                if activity["type"] == "Run"
+            ]
+            df = pd.DataFrame(running_activities)
+        else:
+            # Convert distance from meters to miles
+            df["distance"] = df["distance"] * 0.000621371
+            df["start_date"] = pd.to_datetime(df["start_date"])
+            running_activities = df[["distance", "start_date"]].to_dict("records")
 
         if not running_activities:
             logger.warning("No running activities found")
             return Response(
                 content="<div>No running activities found</div>", media_type="text/html"
             )
-
-        df = pd.DataFrame(running_activities)
 
         # Add day of year and calculate cumulative sum
         df["day_of_year"] = df["start_date"].dt.dayofyear

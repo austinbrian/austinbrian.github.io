@@ -30,7 +30,7 @@ twitter_username: bda
 github_username:  austinbrian
 
 # Build settings
-theme: whiteglass
+theme: minima
 plugins:
   - jekyll-feed
 
