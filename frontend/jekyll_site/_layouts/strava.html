@@ -27,7 +27,6 @@ layout: default
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const html = await response.text();
-        console.log(`Received HTML from ${endpoint}:`, html);
         
         // Insert the HTML directly into the container
         document.getElementById(containerId).innerHTML = html;
@@ -56,7 +55,7 @@ layout: default
     }
 
     // Fetch and display both charts
-    displayChart('/strava/weekly_running', 'weekly-running-chart');
+    displayChart('/strava/weekly_running_chart', 'weekly-running-chart');
     displayChart('/strava/cumulative_mileage', 'cumulative-mileage-chart');
   </script>
 </div>

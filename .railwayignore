@@ -9,4 +9,7 @@ venv
 node_modules/
 frontend/node_modules/
 frontend/.git
-frontend/.env 
+frontend/.env
+frontend/jekyll_site/.sass-cache/
+frontend/jekyll_site/.jekyll-cache/
+frontend/jekyll_site/vendor/ 

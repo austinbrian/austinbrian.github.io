@@ -1,13 +1,26 @@
 [phases.setup]
-nixPkgs = ["python39", "python39Packages.pip", "python39Packages.virtualenv", "ruby"]
+nixPkgs = [
+    "python39",
+    "python39Packages.pip",
+    "python39Packages.virtualenv",
+    "ruby",
+    "rubyPackages.bundler",
+    "rubyPackages.jekyll"
+]
 
 [phases.install]
 cmds = [
+    # Set up Python environment
     "python -m venv venv",
     ". venv/bin/activate",
     "pip install -r api/requirements.txt",
-    "cd frontend/jekyll_site && bundle install",
-    "cd frontend/jekyll_site && bundle exec jekyll build"
+    
+    # Set up Ruby environment
+    "gem install bundler",
+    "cd frontend/jekyll_site",
+    "bundle install",
+    "bundle exec jekyll build",
+    "cd ../.."
 ]
 
 [start]

@@ -21,35 +21,143 @@
 title: Brian Austin
 email: austinbrian@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  Personal website and blog
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://austinbrian.github.io" # the base hostname & protocol for your site
 twitter_username: bda
 github_username:  austinbrian
 
 # Build settings
-theme: minima
+markdown: kramdown
+theme: jekyll-whiteglass
 plugins:
-  - jekyll-feed
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed
+  implementation: sassc
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+  - .github/
+  - .venv/
+  - api/
+  - frontend/
+  - .jekyll-cache/
+  - .sass-cache/ 
+
+# Whiteglass theme settings
+whiteglass:
+  # Optional: Set the default layout for posts and pages
+  default_layout: post
+  # Optional: Set the default author for posts
+  author: Brian Austin
+  # Optional: Set the default category for posts
+  category: blog
+  # Optional: Set the default tags for posts
+  tags: []
+  # Optional: Set the default excerpt separator
+  excerpt_separator: <!--more-->
+  # Optional: Set the default date format
+  date_format: "%B %-d, %Y"
+  # Optional: Set the default time format
+  time_format: "%I:%M %p"
+  # Optional: Set the default timezone
+  timezone: America/New_York
+  # Optional: Set the default permalink style
+  permalink: /:year/:month/:day/:title/
+  # Optional: Set the default pagination
+  paginate: 5
+  # Optional: Set the default pagination path
+  paginate_path: /page:num/
+  # Optional: Set the default feed
+  feed:
+    path: atom.xml
+    limit: 20
+  # Optional: Set the default sitemap
+  sitemap:
+    path: sitemap.xml
+    limit: 1000
+  # Optional: Set the default robots
+  robots:
+    path: robots.txt
+    limit: 1000
+  # Optional: Set the default search
+  search:
+    path: search.json
+    limit: 1000
+  # Optional: Set the default archive
+  archive:
+    path: archive.html
+    limit: 1000
+  # Optional: Set the default categories
+  categories:
+    path: categories.html
+    limit: 1000
+  # Optional: Set the default tags
+  tags:
+    path: tags.html
+    limit: 1000
+  # Optional: Set the default authors
+  authors:
+    path: authors.html
+    limit: 1000
+  # Optional: Set the default drafts
+  drafts:
+    path: drafts.html
+    limit: 1000
+  # Optional: Set the default future
+  future: false
+  # Optional: Set the default unpublished
+  unpublished: false
+  # Optional: Set the default show_drafts
+  show_drafts: false
+  # Optional: Set the default show_future
+  show_future: false
+  # Optional: Set the default show_unpublished
+  show_unpublished: false
+  # Optional: Set the default show_drafts_in_feed
+  show_drafts_in_feed: false
+  # Optional: Set the default show_future_in_feed
+  show_future_in_feed: false
+  # Optional: Set the default show_unpublished_in_feed
+  show_unpublished_in_feed: false
+  # Optional: Set the default show_drafts_in_sitemap
+  show_drafts_in_sitemap: false
+  # Optional: Set the default show_future_in_sitemap
+  show_future_in_sitemap: false
+  # Optional: Set the default show_unpublished_in_sitemap
+  show_unpublished_in_sitemap: false
+  # Optional: Set the default show_drafts_in_archive
+  show_drafts_in_archive: false
+  # Optional: Set the default show_future_in_archive
+  show_future_in_archive: false
+  # Optional: Set the default show_unpublished_in_archive
+  show_unpublished_in_archive: false
+  # Optional: Set the default show_drafts_in_categories
+  show_drafts_in_categories: false
+  # Optional: Set the default show_future_in_categories
+  show_future_in_categories: false
+  # Optional: Set the default show_unpublished_in_categories
+  show_unpublished_in_categories: false
+  # Optional: Set the default show_drafts_in_tags
+  show_drafts_in_tags: false
+  # Optional: Set the default show_future_in_tags
+  show_future_in_tags: false
+  # Optional: Set the default show_unpublished_in_tags
+  show_unpublished_in_tags: false
+  # Optional: Set the default show_drafts_in_authors
+  show_drafts_in_authors: false
+  # Optional: Set the default show_future_in_authors
+  show_future_in_authors: false
+  # Optional: Set the default show_unpublished_in_authors
+  show_unpublished_in_authors: false
