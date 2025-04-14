@@ -91,25 +91,38 @@ def store_activities(activities: List[Dict]):
         logger.info(f"Stored {len(activities)} activities in database")
 
 
-def get_activities(after: Optional[datetime] = None) -> pd.DataFrame:
+def get_activities(
+    after: Optional[datetime] = None,
+    start_date: Optional[datetime] = None,
+    end_date: Optional[datetime] = None,
+) -> pd.DataFrame:
     """Get activities from the database, optionally filtered by date."""
     with get_db() as conn:
         query = "SELECT * FROM activities"
         params = []
 
-        if after:
+        if start_date:
+            query += " AND start_date >= ?"
+            params.append(start_date)
+        elif after:
             query += " WHERE start_date >= ?"
             params.append(after)
 
-        query += " ORDER BY start_date DESC"
+        if end_date:
+            query += " AND start_date <= ?"
+            params.append(end_date)
 
         return conn.execute(query, params).df()
 
 
-def get_activities_older_than(days: int) -> pd.DataFrame:
+def get_activities_older_than(
+    days: int,
+    start_date: Optional[datetime] = None,
+    end_date: Optional[datetime] = None,
+) -> pd.DataFrame:
     """Get activities older than specified number of days."""
     cutoff_date = datetime.now() - timedelta(days=days)
-    return get_activities(after=cutoff_date)
+    return get_activities(after=cutoff_date, start_date=start_date, end_date=end_date)
 
 
 def get_all_activities() -> pd.DataFrame:
@@ -117,28 +130,50 @@ def get_all_activities() -> pd.DataFrame:
     return get_activities()
 
 
-def get_running_activities(after: Optional[datetime] = None) -> pd.DataFrame:
+def get_running_activities(
+    after: Optional[datetime] = None,
+    start_date: Optional[datetime] = None,
+    end_date: Optional[datetime] = None,
+) -> pd.DataFrame:
     """Get running activities from the database, optionally filtered by date."""
     with get_db() as conn:
         query = "SELECT * FROM activities WHERE type = 'Run'"
         params = []
 
-        if after:
+        if start_date:
+            query += " AND start_date >= ?"
+            params.append(start_date)
+        elif after:
             query += " AND start_date >= ?"
             params.append(after)
+
+        if end_date:
+            query += " AND start_date <= ?"
+            params.append(end_date)
 
         query += " ORDER BY start_date DESC"
 
         return conn.execute(query, params).df()
 
 
-def get_running_activities_older_than(days: int) -> pd.DataFrame:
+def get_running_activities_older_than(
+    days: int,
+    start_date: Optional[datetime] = None,
+    end_date: Optional[datetime] = None,
+) -> pd.DataFrame:
     """Get running activities older than specified number of days."""
     cutoff_date = datetime.now() - timedelta(days=days)
-    return get_running_activities(after=cutoff_date)
+    return get_running_activities(
+        after=cutoff_date, start_date=start_date, end_date=end_date
+    )
 
 
-def get_running_activities_this_year() -> pd.DataFrame:
+def get_running_activities_this_year(
+    start_date: Optional[datetime] = None,
+    end_date: Optional[datetime] = None,
+) -> pd.DataFrame:
     """Get all running activities from the current year."""
     start_of_year = datetime(datetime.now().year, 1, 1)
-    return get_running_activities(after=start_of_year)
+    return get_running_activities(
+        after=start_of_year, start_date=start_date, end_date=end_date
+    )

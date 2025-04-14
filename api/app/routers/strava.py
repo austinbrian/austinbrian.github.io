@@ -40,6 +40,13 @@ if not all([STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN]):
     )
 
 
+@router.get("/seed")
+async def seed_activities():
+    """Seed activities from Strava API."""
+    activities = await get_all_activities()
+    return activities
+
+
 @router.get("/sync")
 async def sync_activities():
     """Sync new activities from Strava API."""
@@ -108,7 +115,10 @@ async def get_access_token() -> str:
 
 
 async def get_all_activities(
-    after: Optional[int] = None, per_page: int = 200
+    after: Optional[int] = None,
+    per_page: int = 200,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
 ) -> List[Dict]:
     """Get Strava activities with pagination support."""
     try:
@@ -121,6 +131,10 @@ async def get_all_activities(
                 params = {"per_page": per_page, "page": page}
                 if after:
                     params["after"] = after
+                if start_date:
+                    params["after"] = start_date
+                if end_date:
+                    params["before"] = end_date
 
                 response = await client.get(
                     "https://www.strava.com/api/v3/athlete/activities",
@@ -141,7 +155,28 @@ async def get_all_activities(
                 if not activities:  # No more activities to fetch
                     break
 
-                all_activities.extend(activities)
+                # Process each activity to ensure all required fields are present
+                processed_activities = []
+                for activity in activities:
+                    processed_activity = {
+                        "id": activity.get("id"),
+                        "name": activity.get("name"),
+                        "type": activity.get("type"),
+                        "distance": activity.get("distance", 0),
+                        "moving_time": activity.get("moving_time", 0),
+                        "elapsed_time": activity.get("elapsed_time", 0),
+                        "total_elevation_gain": activity.get("total_elevation_gain", 0),
+                        "start_date": activity.get("start_date"),
+                        "average_speed": activity.get("average_speed", 0),
+                        "max_speed": activity.get("max_speed", 0),
+                        "average_cadence": activity.get("average_cadence", 0),
+                        "average_heartrate": activity.get("average_heartrate", 0),
+                        "max_heartrate": activity.get("max_heartrate", 0),
+                        "suffer_score": activity.get("suffer_score", 0),
+                    }
+                    processed_activities.append(processed_activity)
+
+                all_activities.extend(processed_activities)
                 page += 1
 
                 # If we got fewer activities than requested, we've reached the end
@@ -224,17 +259,27 @@ async def get_stats():
     return stats
 
 
-@router.get("/weekly_running")
-async def get_weekly_running():
+@router.get("/weekly_running_data")
+async def get_weekly_running_data(
+    start_date: Optional[str] = Query(
+        None, description="Start date in YYYY-MM-DD format"
+    ),
+    end_date: Optional[str] = Query(None, description="End date in YYYY-MM-DD format"),
+):
     """Get weekly running distance for the past year."""
+
     try:
         # First try to get from database
-        df = get_running_activities_older_than(365)
+        df = get_running_activities_older_than(365, start_date, end_date)
         if df.empty:
             # If no data in database, fetch from API
             now = datetime.now()
             one_year_ago = now - timedelta(days=365)
-            activities = await get_all_activities(after=int(one_year_ago.timestamp()))
+            activities = await get_all_activities(
+                after=int(one_year_ago.timestamp()),
+                start_date=start_date,
+                end_date=end_date,
+            )
             running_activities = [
                 {
                     "distance": activity["distance"]
@@ -263,19 +308,47 @@ async def get_weekly_running():
         df["week"] = df["start_date"].dt.isocalendar().week
         df["year"] = df["start_date"].dt.isocalendar().year
         weekly_distance = df.groupby(["year", "week"])["distance"].sum().reset_index()
-
         logger.info(f"Created weekly distance data with {len(weekly_distance)} weeks")
+        return weekly_distance.to_dict("records")
+    except Exception as e:
+        logger.error(f"Error generating weekly running data: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error generating weekly running data: {str(e)}"
+        )
+
+
+@router.get("/weekly_running_chart")
+async def get_weekly_running_chart(
+    start_date: Optional[str] = Query(
+        None, description="Start date in YYYY-MM-DD format"
+    ),
+    end_date: Optional[str] = Query(None, description="End date in YYYY-MM-DD format"),
+):
+    try:
+        weekly_distance = await get_weekly_running_data(
+            start_date=start_date,
+            end_date=end_date,
+        )
+        logger.info(f"Using weekly distance data with {len(weekly_distance)} weeks")
+
+        # Convert the list of dictionaries to a DataFrame
+        df = pd.DataFrame(weekly_distance)
+
+        # Create week labels
+        df["week_label"] = df.apply(
+            lambda x: f"{int(x['year'])}-W{int(x['week']):02d}", axis=1
+        )
+
+        # Sort by year and week
+        df = df.sort_values(["year", "week"])
 
         # Create the bar chart
         fig = go.Figure(
             data=[
                 go.Bar(
-                    x=[
-                        f"{row['year']}-W{row['week']}"
-                        for _, row in weekly_distance.iterrows()
-                    ],
-                    y=weekly_distance["distance"],
-                    text=weekly_distance["distance"].round(1),
+                    x=df["week_label"],
+                    y=df["distance"],
+                    text=df["distance"].round(1),
                     textposition="auto",
                 )
             ]
@@ -285,7 +358,7 @@ async def get_weekly_running():
             title="Weekly Running Distance (Miles)",
             xaxis_title="Week",
             yaxis_title="Distance (miles)",
-            template="plotly_dark",
+            template="plotly_white",
             showlegend=False,
             xaxis=dict(tickangle=45),
         )
@@ -309,16 +382,24 @@ async def health_check():
 @router.get("/cumulative_mileage")
 async def get_cumulative_mileage(
     target: Optional[int] = Query(2000, description="Target annual mileage"),
+    start_date: Optional[str] = Query(
+        None, description="Start date in YYYY-MM-DD format"
+    ),
+    end_date: Optional[str] = Query(None, description="End date in YYYY-MM-DD format"),
 ):
     """Get cumulative running distance for the current year with target pace line."""
     try:
         # First try to get from database
         df = get_running_activities_this_year()
+        now = datetime.now()
         if df.empty:
             # If no data in database, fetch from API
-            now = datetime.now()
             start_of_year = datetime(now.year, 1, 1)
-            activities = await get_all_activities(after=int(start_of_year.timestamp()))
+            activities = await get_all_activities(
+                after=int(start_of_year.timestamp()),
+                start_date=start_date,
+                end_date=end_date,
+            )
             running_activities = [
                 {
                     "distance": activity["distance"]
@@ -412,7 +493,7 @@ async def get_cumulative_mileage(
             title=f"Cumulative Running Distance {now.year}",
             xaxis_title="Day of Year",
             yaxis_title="Cumulative Miles",
-            template="plotly_dark",
+            template="plotly_white",
             showlegend=True,
             legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
             annotations=[
