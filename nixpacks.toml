@@ -13,7 +13,7 @@ cmds = [
     # Set up Python environment
     "python -m venv venv",
     ". venv/bin/activate",
-    "pip install -r api/requirements.txt",
+    "pip install -r api/requirements.txt --break-system-packages --no-cache-dir",
     
     # Set up Ruby environment
     "gem install bundler",
