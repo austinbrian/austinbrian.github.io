@@ -6,7 +6,6 @@ from typing import Dict, List, Optional
 import httpx
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 from app.db import (
     get_latest_activity_date,
     get_running_activities_older_than,
@@ -342,30 +341,26 @@ async def get_weekly_running_chart(
         # Sort by year and week
         df = df.sort_values(["year", "week"])
 
-        # Create the bar chart
-        fig = go.Figure(
-            data=[
-                go.Bar(
-                    x=df["week_label"],
-                    y=df["distance"],
-                    text=df["distance"].round(1),
-                    textposition="auto",
-                )
-            ]
-        )
+        # Create the bar chart data
+        data = [
+            {
+                "type": "bar",
+                "x": df["week_label"].tolist(),
+                "y": df["distance"].tolist(),
+                "text": df["distance"].round(1).tolist(),
+                "textposition": "auto",
+            }
+        ]
 
-        fig.update_layout(
-            title="Weekly Running Distance (Miles)",
-            xaxis_title="Week",
-            yaxis_title="Distance (miles)",
-            template="plotly_white",
-            showlegend=False,
-            xaxis=dict(tickangle=45),
-        )
+        layout = {
+            "title": "Weekly Running Distance (Miles)",
+            "xaxis": {"title": "Week", "tickangle": 45},
+            "yaxis": {"title": "Distance (miles)"},
+            "template": "plotly_white",
+            "showlegend": False,
+        }
 
-        # Generate HTML with Plotly.js included
-        html = fig.to_html(full_html=True, include_plotlyjs=True)
-        return Response(content=html, media_type="text/html")
+        return {"data": data, "layout": layout}
     except Exception as e:
         logger.error(f"Error generating weekly running chart: {str(e)}")
         raise HTTPException(
@@ -387,10 +382,9 @@ async def get_cumulative_mileage(
     ),
     end_date: Optional[str] = Query(None, description="End date in YYYY-MM-DD format"),
 ):
-    """Get cumulative running distance for the current year with target pace line."""
     try:
         # First try to get from database
-        df = get_running_activities_this_year()
+        df = get_running_activities_this_year(start_date, end_date)
         now = datetime.now()
         if df.empty:
             # If no data in database, fetch from API
@@ -402,8 +396,9 @@ async def get_cumulative_mileage(
             )
             running_activities = [
                 {
-                    "distance": activity["distance"]
-                    * 0.000621371,  # Convert meters to miles
+                    "distance": float(
+                        activity["distance"] * 0.000621371
+                    ),  # Convert meters to miles and ensure float
                     "start_date": datetime.strptime(
                         activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
                     ),
@@ -414,104 +409,106 @@ async def get_cumulative_mileage(
             df = pd.DataFrame(running_activities)
         else:
             # Convert distance from meters to miles
-            df["distance"] = df["distance"] * 0.000621371
+            df["distance"] = df["distance"].astype(float) * 0.000621371
             df["start_date"] = pd.to_datetime(df["start_date"])
             running_activities = df[["distance", "start_date"]].to_dict("records")
 
         if not running_activities:
             logger.warning("No running activities found")
-            return Response(
-                content="<div>No running activities found</div>", media_type="text/html"
-            )
+            return {"data": [], "layout": {}}
+
+        start = (
+            datetime.strptime(start_date, "%Y-%m-%d")
+            if start_date
+            else datetime(now.year, 1, 1)
+        )
+
+        # Get end date - either from query param or Dec 31 of start year
+        end = (
+            datetime.strptime(end_date, "%Y-%m-%d")
+            if end_date
+            else datetime(now.year, 12, 31)
+        )
+
+        # Calculate number of days between start and end
+        days_in_year = (end - start).days + 1
+
+        def convert_to_day_of_year(date, start=None, end=None):
+            if start is None:
+                start = datetime(now.year, 1, 1)
+            if end is None:
+                end = datetime(now.year, 12, 31)
+
+            return (date - start).days + 1
 
         # Add day of year and calculate cumulative sum
-        df["day_of_year"] = df["start_date"].dt.dayofyear
+        df["day_of_year"] = df["start_date"].apply(
+            convert_to_day_of_year, start=start, end=end
+        )
         daily_mileage = df.groupby("day_of_year")["distance"].sum().reset_index()
         daily_mileage["cumulative_miles"] = daily_mileage["distance"].cumsum()
 
-        logger.info(f"Created cumulative mileage data with {len(daily_mileage)} days")
-
         # Create target pace line
-        days_in_year = (
-            366
-            if (now.year % 4 == 0 and now.year % 100 != 0) or (now.year % 400 == 0)
-            else 365
-        )
+
         target_pace = pd.DataFrame(
             {
                 "day_of_year": range(1, days_in_year + 1),
                 "target_miles": [
-                    target * (day / days_in_year) for day in range(1, days_in_year + 1)
+                    float(target * (day / days_in_year))
+                    for day in range(1, days_in_year + 1)
                 ],
             }
         )
 
-        # Create the figure
-        fig = go.Figure()
-
-        # Add actual cumulative mileage
-        fig.add_trace(
-            go.Scatter(
-                x=daily_mileage["day_of_year"],
-                y=daily_mileage["cumulative_miles"],
-                mode="lines+markers",
-                name="Actual Miles",
-                line=dict(color="#FC4C02"),  # Strava orange
-                marker=dict(size=8),
-            )
-        )
-
-        # Add target pace line
-        fig.add_trace(
-            go.Scatter(
-                x=target_pace["day_of_year"],
-                y=target_pace["target_miles"],
-                mode="lines",
-                name=f"Target Pace ({target} miles/year)",
-                line=dict(color="gray", dash="dash"),
-                hoverinfo="skip",
-            )
-        )
+        # Create the plot data
+        data = [
+            {
+                "type": "scatter",
+                "mode": "lines+markers",
+                "name": "Actual Miles",
+                "x": daily_mileage["day_of_year"].tolist(),
+                "y": [float(x) for x in daily_mileage["cumulative_miles"].tolist()],
+                "line": {"color": "#FC4C02"},
+                "marker": {"size": 8},
+            },
+            {
+                "type": "scatter",
+                "mode": "lines",
+                "name": f"Target Pace ({target} miles/year)",
+                "x": target_pace["day_of_year"].tolist(),
+                "y": [float(x) for x in target_pace["target_miles"].tolist()],
+                "line": {"color": "gray", "dash": "dash"},
+            },
+        ]
 
         # Add current day marker
-        current_day = now.timetuple().tm_yday
+        current_day = convert_to_day_of_year(now, start, end)
         current_miles = (
-            daily_mileage["cumulative_miles"].iloc[-1] if not daily_mileage.empty else 0
+            float(daily_mileage["cumulative_miles"].iloc[-1])
+            if not daily_mileage.empty
+            else 0
         )
-        fig.add_trace(
-            go.Scatter(
-                x=[current_day],
-                y=[current_miles],
-                mode="markers",
-                name="Today",
-                marker=dict(size=12, color="red", symbol="star"),
-            )
-        )
-
-        # Update layout
-        fig.update_layout(
-            title=f"Cumulative Running Distance {now.year}",
-            xaxis_title="Day of Year",
-            yaxis_title="Cumulative Miles",
-            template="plotly_white",
-            showlegend=True,
-            legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
-            annotations=[
-                dict(
-                    x=current_day,
-                    y=current_miles,
-                    text=f"Today: {current_miles:.1f} miles",
-                    showarrow=True,
-                    arrowhead=1,
-                    ax=0,
-                    ay=-40,
-                )
-            ],
+        data.append(
+            {
+                "type": "scatter",
+                "mode": "markers",
+                "name": "Today",
+                "x": [current_day],
+                "y": [current_miles],
+                "marker": {"size": 12, "color": "red", "symbol": "star"},
+            }
         )
 
-        # Generate HTML with Plotly.js included
-        html = fig.to_html(full_html=True, include_plotlyjs=True)
-        return Response(content=html, media_type="text/html")
+        layout = {
+            "title": f"Cumulative Running Distance {now.year}",
+            "xaxis": {"title": "Day of Year"},
+            "yaxis": {"title": "Cumulative Miles"},
+            "template": "plotly_white",
+            "showlegend": True,
+            "legend": {"yanchor": "top", "y": 0.99, "xanchor": "left", "x": 0.01},
+        }
+
+        return {"data": data, "layout": layout}
     except Exception as e:
         logger.error(f"Error generating cumulative mileage chart: {str(e)}")
         raise HTTPException(

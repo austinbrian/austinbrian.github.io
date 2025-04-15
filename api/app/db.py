@@ -102,7 +102,7 @@ def get_activities(
         params = []
 
         if start_date:
-            query += " AND start_date >= ?"
+            query += " WHERE start_date >= ?"
             params.append(start_date)
         elif after:
             query += " WHERE start_date >= ?"

@@ -74,7 +74,7 @@ whiteglass:
   # Optional: Set the default timezone
   timezone: America/New_York
   # Optional: Set the default permalink style
-  permalink: /:year/:month/:day/:title/
+  permalink: pretty
   # Optional: Set the default pagination
   paginate: 5
   # Optional: Set the default pagination path

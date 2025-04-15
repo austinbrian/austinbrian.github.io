@@ -13,11 +13,16 @@ layout: default
 
   <div class="chart-container">
     <h2>Cumulative Running Distance</h2>
+    <div id="cumulative-mileage-data"></div>
     <div id="cumulative-mileage-chart"></div>
   </div>
 
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.3.min.js"></script>
   <script>
+    if (typeof Plotly === 'undefined') {
+      console.error('Plotly is not loaded');
+    }
+
     // Function to fetch and display a chart
     async function displayChart(endpoint, containerId) {
       try {
@@ -26,26 +31,17 @@ layout: default
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const html = await response.text();
         
-        // Insert the HTML directly into the container
-        document.getElementById(containerId).innerHTML = html;
+        // Parse the JSON response
+        const plotData = await response.json();
+        console.log('Received plot data:', plotData);
         
-        // Extract the plot div ID from the HTML
-        const plotDiv = document.getElementById(containerId).querySelector('.plotly-graph-div');
-        if (!plotDiv) {
-          throw new Error(`No plot div found in HTML for ${containerId}`);
+        if (!plotData.data || !plotData.layout) {
+          throw new Error('Invalid plot data received');
         }
         
-        // Get the plot data from the script tag
-        const scriptTag = document.getElementById(containerId).querySelector('script');
-        if (!scriptTag) {
-          throw new Error(`No script tag found in HTML for ${containerId}`);
-        }
-        
-        // Execute the script to initialize the plot
-        eval(scriptTag.textContent);
-        
+        // Create the plot
+        await Plotly.newPlot(containerId, plotData.data, plotData.layout);
         console.log(`Successfully rendered plot for ${endpoint}`);
       } catch (error) {
         console.error(`Error fetching ${endpoint}:`, error);
@@ -53,10 +49,48 @@ layout: default
           `<p class="error">Failed to load data. Please try again later.</p>`;
       }
     }
+    async function displayCumulativeMiles(containerId) {
+      try {
+        const response = await fetch('/strava/cumulative_mileage?target=1000');
+        const plotData = await response.json();
+        max_day_run = plotData['data'][0]['x'].slice(-1)
+        total_days_run = plotData['data'][0]['x'].length
+        max_mileage = plotData['data'][0]['y'].slice(-1)
+        max_days_target = plotData['data'][1]['x'].slice(-1)
+        max_miles_target = plotData['data'][1]['y'].slice(-1)
+        max_days_target_percent = max_day_run / max_days_target
+        max_miles_target_percent = max_mileage / max_miles_target
+        miles_remaining = max_miles_target - max_mileage
+        miles_remaining_percent = (miles_remaining / max_miles_target) * 100
+        days_remaining = max_days_target - max_day_run
+        days_remaining_percent = (days_remaining / max_days_target) * 100
+        miles_per_day_remaining = miles_remaining / days_remaining
+        miles_per_day_remaining_rounded = miles_per_day_remaining.toFixed(2)
+        miles_per_week_remaining = (miles_per_day_remaining * 7).toFixed(2)
+        miles_remaining_percent_rounded = ((1-miles_remaining_percent)*100).toFixed(2)
+        max_days_target_percent_rounded = (max_days_target_percent*100).toFixed(2)
+        max_miles_target_percent_rounded = (max_miles_target_percent*100).toFixed(2)
+        days_remaining_percent_rounded = (days_remaining_percent*100).toFixed(2)
+        document.getElementById(containerId).innerHTML = `
+          <p>Days run: ${total_days_run}/${max_days_target} (${Math.round(total_days_run/max_days_target*100)}%)</p>
+          <p>Latest mileage: ${Math.round(max_mileage)}/${max_miles_target} (${Math.round(max_mileage/max_miles_target*100)}%)</p>
+          <p>Miles remaining: ${miles_remaining.toFixed(2)}</p>
+          <p>Days remaining: ${days_remaining}</p>
+          <p>Miles per day remaining to target: ${miles_per_day_remaining_rounded}</p>
+          <p>Miles per week remaining to target: ${miles_per_week_remaining}</p>
+        `;
+      } catch (error) {
+        console.error(`Error fetching cumulative mileage data:`, error);
+      }
+    }
 
-    // Fetch and display both charts
-    displayChart('/strava/weekly_running_chart', 'weekly-running-chart');
-    displayChart('/strava/cumulative_mileage', 'cumulative-mileage-chart');
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fetch and display both charts
+      displayChart('/strava/weekly_running_chart', 'weekly-running-chart');
+      displayChart('/strava/cumulative_mileage?target=1000', 'cumulative-mileage-chart');
+      displayCumulativeMiles('cumulative-mileage-data');
+    });
   </script>
 </div>
 
