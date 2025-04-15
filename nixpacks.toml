@@ -4,7 +4,7 @@ nixPkgs = [
     "python311Packages.pip",
     "python311Packages.virtualenv",
     "ruby",
-    "rubyPackages.bundler_2",
+    "bundix",
     "rubyPackages.jekyll"
 ]
 
