@@ -13,15 +13,13 @@ cmds = [
     # Set up Python environment
     "python -m venv venv",
     ". venv/bin/activate",
-    "pip install -r api/requirements.txt --break-system-packages --no-cache-dir",
+    "pip install -r api/requirements.txt --break-system-packages",
     
-    # Set up Ruby environment
-    "gem install bundler",
+    # Set up Ruby environment and build Jekyll site
     "cd frontend/jekyll_site",
-    "bundle install",
-    "bundle exec jekyll build",
+    "export GEM_HOME=\"$(ruby -e 'puts Gem.user_dir')\" && export PATH=\"$GEM_HOME/bin:$PATH\" && gem install --user-install bundler:2.6.7 && bundle install && bundle exec jekyll build",
     "cd ../.."
 ]
 
 [start]
-cmd = "cd api && uvicorn app.main:app --host 0.0.0.0 --port $PORT" 
+cmd = ". venv/bin/activate && cd api && uvicorn app.main:app --host 0.0.0.0 --port $PORT" 

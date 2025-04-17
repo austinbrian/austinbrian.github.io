@@ -59,6 +59,7 @@ layout: default
         max_days_target = plotData['data'][1]['x'].slice(-1)
         max_miles_target = plotData['data'][1]['y'].slice(-1)
         max_days_target_percent = max_day_run / max_days_target
+        avg_miles_run = max_mileage / max_day_run 
         max_miles_target_percent = max_mileage / max_miles_target
         miles_remaining = max_miles_target - max_mileage
         miles_remaining_percent = (miles_remaining / max_miles_target) * 100
@@ -73,7 +74,8 @@ layout: default
         days_remaining_percent_rounded = (days_remaining_percent*100).toFixed(2)
         document.getElementById(containerId).innerHTML = `
           <p>Days run: ${total_days_run}/${max_days_target} (${Math.round(total_days_run/max_days_target*100)}%)</p>
-          <p>Latest mileage: ${Math.round(max_mileage)}/${max_miles_target} (${Math.round(max_mileage/max_miles_target*100)}%)</p>
+          <p>Latest mileage: ${Math.round(max_mileage, 1)}/${max_miles_target} (${Math.round(max_mileage/max_miles_target*100)}%)</p>
+          <p>Average miles per run: ${avg_miles_run.toFixed(2)}</p>
           <p>Miles remaining: ${miles_remaining.toFixed(2)}</p>
           <p>Days remaining: ${days_remaining}</p>
           <p>Miles per day remaining to target: ${miles_per_day_remaining_rounded}</p>
