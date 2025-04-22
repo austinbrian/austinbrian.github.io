@@ -18,3 +18,4 @@ main:
   - title: <h2 class="fa fa-github"></h2>
     url: https://www.github.com/austinbrian
   - title: <h2 class="fa fa-dashboard"></h2>
+    url: /strava/
