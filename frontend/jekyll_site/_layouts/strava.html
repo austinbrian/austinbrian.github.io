@@ -5,6 +5,9 @@ layout: default
 <div class="strava-stats">
   <h1>{{ page.title }}</h1>
   {{ content }}
+
+  <!-- Add in a refresh data button that calls /strava/sync -->
+  <button onclick="refreshData()">Refresh Data</button>
   
   <div class="chart-container">
     <a href="/weekly_chart.html?start_date=2025-01-01"> <h2>Weekly Running Distance</h2>
@@ -24,6 +27,13 @@ layout: default
   <script>
     if (typeof Plotly === 'undefined') {
       console.error('Plotly is not loaded');
+    }
+    async function refreshData() {
+      const response = await fetch('/strava/sync');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      console.log('Data refreshed');
     }
 
     // Function to fetch and display a chart

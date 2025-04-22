@@ -33,7 +33,6 @@ navbar = dbc.NavbarSimple(
                 dbc.NavLink(
                     page["name"],
                     href="/app" + page["path"],
-                    # style={"textDecoration": "none", "color": "darkgray"},
                 )
             )
             for page in dash.page_registry.values()
@@ -45,7 +44,6 @@ navbar = dbc.NavbarSimple(
                     html.A(
                         "Strava",
                         href="/strava/",
-                        # style={"textDecoration": "none", "color": "black"},
                     )
                 )
             ),
@@ -54,7 +52,6 @@ navbar = dbc.NavbarSimple(
                     html.A(
                         "Bio",
                         href="/about/",
-                        # style={"textDecoration": "none", "color": "black"},
                     )
                 )
             ),

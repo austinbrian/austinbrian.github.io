@@ -445,6 +445,7 @@ async def get_cumulative_mileage(
         df["day_of_year"] = df["start_date"].apply(
             convert_to_day_of_year, start=start, end=end
         )
+        day_to_date_mapping = df.set_index("day_of_year")["start_date"].to_dict()
         daily_mileage = df.groupby("day_of_year")["distance"].sum().reset_index()
         daily_mileage["cumulative_miles"] = daily_mileage["distance"].cumsum()
 
@@ -470,6 +471,10 @@ async def get_cumulative_mileage(
                 "y": [float(x) for x in daily_mileage["cumulative_miles"].tolist()],
                 "line": {"color": "#FC4C02"},
                 "marker": {"size": 8},
+                "text": [
+                    day_to_date_mapping[day].date()
+                    for day in daily_mileage["day_of_year"]
+                ],
             },
             {
                 "type": "scatter",
@@ -496,6 +501,7 @@ async def get_cumulative_mileage(
                 "x": [current_day],
                 "y": [current_miles],
                 "marker": {"size": 12, "color": "red", "symbol": "star"},
+                "text": [now.strftime("%Y-%m-%d")],
             }
         )
 
