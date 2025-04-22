@@ -9,9 +9,12 @@ main:
     url: /about/
   - title: "Blog Archives"
     url: /archives/
+  - title: "App"
+    url: /app/
   - title: <h2 class="fa fa-twitter"></h2>
     url: https://www.twitter.com/bda
   - title: <h2 class="fa fa-linkedin"></h2>
     url: https://www.linkedin.com/in/briandaustin/
   - title: <h2 class="fa fa-github"></h2>
     url: https://www.github.com/austinbrian
+  - title: <h2 class="fa fa-dashboard"></h2>

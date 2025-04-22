@@ -27,7 +27,7 @@ right_jumbotron = dbc.Col(
                     size="lg",
                     n_clicks=0,
                 ),
-                href="/docs",
+                href="/api/docs",
                 refresh=True,
             ),
         ],

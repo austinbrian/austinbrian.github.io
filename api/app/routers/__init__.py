@@ -1,3 +1,4 @@
+from .callbacks import *  # noqa
 from .dashapp import app
 from .strava import router as strava_router
 

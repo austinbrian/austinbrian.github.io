@@ -13,7 +13,12 @@ from fastapi.staticfiles import StaticFiles
 # Load environment variables
 load_dotenv()
 
-app = FastAPI(title="Brian Austin's Website API")
+app = FastAPI(
+    title="Brian Austin's Website API",
+    openapi_url="/api/openapi.json",
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+)
 
 # CORS middleware configuration
 app.add_middleware(

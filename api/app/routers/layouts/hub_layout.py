@@ -5,10 +5,18 @@ layout = html.Div(
         html.H1("Hub Page"),
         html.Div(
             [
-                html.P("Welcome to the hub page!"),
-                html.P("This is a separate page from the main Dash app."),
-                html.A("Back to Dash", href="/app/"),
-            ]
+                html.H2("Running Data"),
+                html.Hr(),
+                html.Div(id="running-data-totals", children="Totals"),
+                html.Div(id="running-data-strava-endpoint", children="Totals"),
+                html.A("Back to App Home", href="/app/"),
+            ],
         ),
-    ]
+    ],
+    style={
+        "margin-bottom": "10px",
+        "margin-top": "10px",
+        "margin-left": "10px",
+        "margin-right": "10px",
+    },
 )

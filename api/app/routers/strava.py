@@ -8,6 +8,7 @@ import pandas as pd
 import plotly.express as px
 from app.db import (
     get_latest_activity_date,
+    get_running_activities,
     get_running_activities_older_than,
     get_running_activities_this_year,
     init_db,
@@ -42,7 +43,7 @@ if not all([STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET, STRAVA_REFRESH_TOKEN]):
 @router.get("/seed")
 async def seed_activities():
     """Seed activities from Strava API."""
-    activities = await get_all_activities()
+    activities = await get_all_activities_from_strava()
     return activities
 
 
@@ -63,7 +64,7 @@ async def sync_activities():
             logger.info("No activities in database, fetching last 30 days")
 
         # Fetch new activities from API
-        activities = await get_all_activities(after=after_timestamp)
+        activities = await get_all_activities_from_strava(after=after_timestamp)
 
         if not activities:
             return {"message": "No new activities found", "count": 0}
@@ -113,7 +114,12 @@ async def get_access_token() -> str:
         )
 
 
-async def get_all_activities(
+async def get_all_activities_from_db() -> List[Dict]:
+    """Get all activities from the database."""
+    return get_running_activities()
+
+
+async def get_all_activities_from_strava(
     after: Optional[int] = None,
     per_page: int = 200,
     start_date: Optional[str] = None,
@@ -233,10 +239,10 @@ async def get_activities():
 async def get_stats():
     """Get aggregated statistics and generate visualizations."""
     # First try to get from database
-    df = get_all_activities()
+    df = await get_all_activities_from_strava()
     if df.empty:
         # If no data in database, fetch from API
-        activities = await get_all_activities()
+        activities = await get_all_activities_from_strava()
         df = pd.DataFrame(activities)
 
     # Basic statistics
@@ -274,7 +280,7 @@ async def get_weekly_running_data(
             # If no data in database, fetch from API
             now = datetime.now()
             one_year_ago = now - timedelta(days=365)
-            activities = await get_all_activities(
+            activities = await get_all_activities_from_strava(
                 after=int(one_year_ago.timestamp()),
                 start_date=start_date,
                 end_date=end_date,
@@ -389,7 +395,7 @@ async def get_cumulative_mileage(
         if df.empty:
             # If no data in database, fetch from API
             start_of_year = datetime(now.year, 1, 1)
-            activities = await get_all_activities(
+            activities = await get_all_activities_from_strava(
                 after=int(start_of_year.timestamp()),
                 start_date=start_date,
                 end_date=end_date,
@@ -521,3 +527,10 @@ async def get_cumulative_mileage(
             status_code=500,
             detail=f"Error generating cumulative mileage chart: {str(e)}",
         )
+
+
+@router.get("/totals")
+def get_totals(start_date: Optional[str] = None, end_date: Optional[str] = None) -> int:
+    """Get totals for running activities."""
+    df = get_running_activities(start_date, end_date)
+    return len(df)
