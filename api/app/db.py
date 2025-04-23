@@ -134,8 +134,20 @@ def get_running_activities(
     after: Optional[datetime] = None,
     start_date: Optional[datetime] = None,
     end_date: Optional[datetime] = None,
+    verbose: bool = False,
 ) -> pd.DataFrame:
     """Get running activities from the database, optionally filtered by date."""
+    if isinstance(start_date, str):
+        start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    if isinstance(end_date, str):
+        end_date = datetime.strptime(end_date, "%Y-%m-%d")
+
+    if isinstance(after, str):
+        after = datetime.strptime(after, "%Y-%m-%d")
+
+    start_date = datetime.strftime(start_date, "%Y-%m-%d") if start_date else None
+    end_date = datetime.strftime(end_date, "%Y-%m-%d") if end_date else None
+    after = datetime.strftime(after, "%Y-%m-%d") if after else None
     with get_db() as conn:
         query = "SELECT * FROM activities WHERE type = 'Run'"
         params = []
@@ -152,6 +164,10 @@ def get_running_activities(
             params.append(end_date)
 
         query += " ORDER BY start_date DESC"
+
+        if verbose:
+            logger.info(f"Query: {query}")
+            logger.info(f"Params: {params}")
 
         return conn.execute(query, params).df()
 

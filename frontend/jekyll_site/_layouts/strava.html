@@ -64,7 +64,7 @@ layout: default
     }
     async function displayCumulativeMiles(containerId) {
       try {
-        const response = await fetch('/strava/cumulative_mileage?target=1000');
+        const response = await fetch('/running/cumulative_mileage?target=1000');
         const plotData = await response.json();
         max_day_run = plotData['data'][0]['x'].slice(-1)
         total_days_run = plotData['data'][0]['x'].length
@@ -72,7 +72,7 @@ layout: default
         max_days_target = plotData['data'][1]['x'].slice(-1)
         max_miles_target = plotData['data'][1]['y'].slice(-1)
         max_days_target_percent = max_day_run / max_days_target
-        avg_miles_run = max_mileage / max_day_run 
+        avg_miles_run = max_mileage / total_days_run
         max_miles_target_percent = max_mileage / max_miles_target
         miles_remaining = max_miles_target - max_mileage
         miles_remaining_percent = (miles_remaining / max_miles_target) * 100
@@ -93,6 +93,7 @@ layout: default
           <p>Days remaining: ${days_remaining}</p>
           <p>Miles per day remaining to target: ${miles_per_day_remaining_rounded}</p>
           <p>Miles per week remaining to target: ${miles_per_week_remaining}</p>
+          <p>On pace to run ${Math.round((max_mileage*max_days_target)/max_day_run, 1)} miles in ${max_days_target} days</p>
         `;
       } catch (error) {
         console.error(`Error fetching cumulative mileage data:`, error);
@@ -102,8 +103,8 @@ layout: default
     // Wait for DOM to be ready
     document.addEventListener('DOMContentLoaded', function() {
       // Fetch and display both charts
-      displayChart('/strava/weekly_running_chart', 'weekly-running-chart');
-      displayChart('/strava/cumulative_mileage?target=1000', 'cumulative-mileage-chart');
+      displayChart('/running/weekly_running_chart', 'weekly-running-chart');
+      displayChart('/running/cumulative_mileage?target=1000', 'cumulative-mileage-chart');
       displayCumulativeMiles('cumulative-mileage-data');
     });
   </script>

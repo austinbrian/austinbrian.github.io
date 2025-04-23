@@ -1,6 +1,6 @@
 import os
 
-from app.routers import strava
+from app.routers import running, strava
 
 # Import and include Dash routes
 from app.routers.dashapp import app as dashapp_app
@@ -35,7 +35,7 @@ app.mount("/app", WSGIMiddleware(dashapp_app.server))
 
 # Import and include Strava routes first
 app.include_router(strava.router, prefix="/strava", tags=["strava"])
-
+app.include_router(running.router, prefix="/running", tags=["running"])
 
 # Get Jekyll site path from environment variable or use default
 # In Railway, the path will be relative to the project root
