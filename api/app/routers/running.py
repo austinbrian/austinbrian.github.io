@@ -147,7 +147,7 @@ async def get_weekly_running_data(
         df["week"] = df["start_date"].dt.isocalendar().week
         df["year"] = df["start_date"].dt.isocalendar().year
         weekly_distance = df.groupby(["year", "week"])["distance"].sum().reset_index()
-        logger.info(f"Created weekly distance data with {len(weekly_distance)} weeks")
+        logger.debug(f"Created weekly distance data with {len(weekly_distance)} weeks")
         return weekly_distance.to_dict("records")
     except Exception as e:
         logger.error(f"Error generating weekly running data: {str(e)}")
@@ -168,7 +168,7 @@ async def get_weekly_running_chart(
             start_date=start_date,
             end_date=end_date,
         )
-        logger.info(f"Using weekly distance data with {len(weekly_distance)} weeks")
+        logger.debug(f"Using weekly distance data with {len(weekly_distance)} weeks")
 
         # Convert the list of dictionaries to a DataFrame
         df = pd.DataFrame(weekly_distance)
@@ -210,7 +210,7 @@ async def get_weekly_running_chart(
 
 @router.get("/cumulative_mileage")
 async def get_cumulative_mileage(
-    target: Optional[int] = Query(2000, description="Target annual mileage"),
+    target: Optional[int] = 2000,
     start_date: Optional[str] = None,
     end_date: Optional[str] = None,
 ):
@@ -228,12 +228,11 @@ async def get_cumulative_mileage(
         else datetime(now.year, 12, 31)
     )
     end = end.replace(hour=23, minute=59, second=59)
-    logger.info(f"Start: {start}, End: {end}")
+    logger.debug(f"Start: {start}, End: {end}")
     days_in_year = (end - start).days + 1
     try:
         # First try to get from database
-        df = get_running_activities(start_date=start, end_date=end, verbose=True)
-        logger.info(f"Database data: {df.shape}")
+        df = get_running_activities(start_date=start, end_date=end, verbose=False)
         if df.empty:
             # If no data in database, fetch from API
             logger.info("Fetching data from Strava API")
@@ -322,7 +321,7 @@ async def get_cumulative_mileage(
         # Add last day marker
         latest_day = convert_to_day_of_year(end, start, end)
         current_day = convert_to_day_of_year(datetime.now(), start, end)
-        logger.info(f"Latest day: {latest_day}")
+        logger.debug(f"Latest day: {latest_day}")
         current_miles = (
             float(daily_mileage["cumulative_miles"].iloc[-1])
             if not daily_mileage.empty
