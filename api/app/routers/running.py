@@ -208,6 +208,15 @@ async def get_weekly_running_chart(
         )
 
 
+def convert_to_day_of_year(date, start=None, end=None):
+    if start is None:
+        start = datetime(now.year, 1, 1)
+    if end is None:
+        end = datetime(now.year, 12, 31, 23, 59, 59)
+
+    return (date - start).days + 1
+
+
 @router.get("/cumulative_mileage")
 async def get_cumulative_mileage(
     target: Optional[int] = 2000,
@@ -231,52 +240,12 @@ async def get_cumulative_mileage(
     logger.debug(f"Start: {start}, End: {end}")
     days_in_year = (end - start).days + 1
     try:
-        # First try to get from database
-        df = get_running_activities(start_date=start, end_date=end, verbose=False)
-        if df.empty:
-            # If no data in database, fetch from API
-            logger.info("Fetching data from Strava API")
-            activities = await get_all_activities_from_strava(
-                start_date=start,
-                end_date=end,
-            )
-            running_activities = [
-                {
-                    "distance": float(
-                        activity["distance"] * 0.000621371
-                    ),  # Convert meters to miles and ensure float
-                    "start_date": datetime.strptime(
-                        activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
-                    ),
-                }
-                for activity in activities
-                if activity["type"] == "Run"
-            ]
-            df = pd.DataFrame(running_activities)
-        else:
-            # Convert distance from meters to miles
-            df["distance"] = df["distance"].astype(float) * 0.000621371
-            df["start_date"] = pd.to_datetime(df["start_date"])
-            running_activities = df[["distance", "start_date"]].to_dict("records")
-
-        if not running_activities:
-            logger.warning("No running activities found")
-            return {"data": [], "layout": {}}
-
-        # Calculate number of days between start and end
-
-        def convert_to_day_of_year(date, start=None, end=None):
-            if start is None:
-                start = datetime(now.year, 1, 1)
-            if end is None:
-                end = datetime(now.year, 12, 31, 23, 59, 59)
-
-            return (date - start).days + 1
+        data = await get_cumulative_mileage_data(
+            start_date=start.strftime("%Y-%m-%d"), end_date=end.strftime("%Y-%m-%d")
+        )
+        df = pd.DataFrame(data)
 
         # Add day of year and calculate cumulative sum
-        df["day_of_year"] = df["start_date"].apply(
-            convert_to_day_of_year, start=start, end=end
-        )
         day_to_date_mapping = df.set_index("day_of_year")["start_date"].to_dict()
         daily_mileage = df.groupby("day_of_year")["distance"].sum().reset_index()
         daily_mileage["cumulative_miles"] = daily_mileage["distance"].cumsum()
@@ -349,6 +318,73 @@ async def get_cumulative_mileage(
         }
 
         return {"data": data, "layout": layout}
+    except Exception as e:
+        logger.error(f"Error generating cumulative mileage chart: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error generating cumulative mileage chart: {str(e)}",
+        )
+
+
+@router.get("/cumulative_mileage_data")
+async def get_cumulative_mileage_data(
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+):
+    now = datetime.now()
+    start = (
+        datetime.strptime(start_date, "%Y-%m-%d")
+        if start_date
+        else datetime(now.year, 1, 1)
+    )
+
+    # Get end date - either from query param or Dec 31 of start year
+    end = (
+        datetime.strptime(end_date, "%Y-%m-%d")
+        if end_date
+        else datetime(now.year, 12, 31)
+    )
+    end = end.replace(hour=23, minute=59, second=59)
+    logger.debug(f"Start: {start}, End: {end}")
+    days_in_year = (end - start).days + 1
+    try:
+        # First try to get from database
+        df = get_running_activities(start_date=start, end_date=end, verbose=False)
+        if df.empty:
+            # If no data in database, fetch from API
+            logger.info("Fetching data from Strava API")
+            activities = await get_all_activities_from_strava(
+                start_date=start,
+                end_date=end,
+            )
+            running_activities = [
+                {
+                    "distance": float(
+                        activity["distance"] * 0.000621371
+                    ),  # Convert meters to miles and ensure float
+                    "start_date": datetime.strptime(
+                        activity["start_date"], "%Y-%m-%dT%H:%M:%SZ"
+                    ),
+                }
+                for activity in activities
+                if activity["type"] == "Run"
+            ]
+            df = pd.DataFrame(running_activities)
+        else:
+            # Convert distance from meters to miles
+            df["distance"] = df["distance"].astype(float) * 0.000621371
+            df["start_date"] = pd.to_datetime(df["start_date"])
+            running_activities = df[["distance", "start_date"]].to_dict("records")
+
+        if not running_activities:
+            logger.warning("No running activities found")
+            return {"data": [], "layout": {}}
+
+        # Add day of year and calculate cumulative sum
+        df["day_of_year"] = df["start_date"].apply(
+            convert_to_day_of_year, start=start, end=end
+        )
+        return df.to_dict("records")
     except Exception as e:
         logger.error(f"Error generating cumulative mileage chart: {str(e)}")
         raise HTTPException(

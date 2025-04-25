@@ -6,6 +6,7 @@ from dash import dcc, html
 layout = html.Div(
     [
         html.H1("Hub Page"),
+        dcc.Store(id="cumulative-data-store", data={}),
         html.Div(
             [
                 html.H2("Running Data"),
@@ -32,17 +33,52 @@ layout = html.Div(
                         "margin-right": "20px",
                     },
                 ),
-                html.Div(id="running-data-totals", children="Totals"),
+                html.Div(
+                    id="running-data-totals",
+                    children="Totals",
+                    style={"visibility": "hidden"},
+                ),
+                html.Div(
+                    [
+                        html.Div(
+                            id="info-box-container",
+                            children=[
+                                dbc.Card(
+                                    id="info-box-1",
+                                    children="",
+                                    style={"width": "300px"},
+                                ),
+                                dbc.Card(
+                                    id="info-box-2",
+                                    children="",
+                                    style={"width": "300px"},
+                                ),
+                                dbc.Card(
+                                    id="info-box-3",
+                                    children="",
+                                    style={"width": "300px"},
+                                ),
+                            ],
+                            style={
+                                "display": "flex",
+                                "flex-direction": "row",
+                                "gap": "10px",
+                            },
+                        ),
+                    ],
+                    style={"display": "flex", "flex-direction": "row", "gap": "10px"},
+                ),
                 html.Div(
                     [
                         dcc.Slider(
                             id="cumulative-total-target-slider",
                             min=0,
-                            max=10000,
+                            max=8000,
                             step=500,
                             value=1000,
                             marks={n: str(n) for n in range(0, 10000, 1000)},
                         ),
+                        html.Div(id="cumulative-total-chart-info", children=""),
                         dcc.Graph(
                             id="cumulative-total-chart",
                         ),
