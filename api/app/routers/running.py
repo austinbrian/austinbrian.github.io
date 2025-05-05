@@ -350,6 +350,9 @@ async def get_cumulative_mileage_data(
     try:
         # First try to get from database
         df = get_running_activities(start_date=start, end_date=end, verbose=False)
+        logger.info(
+            f"Loaded {len(df)} activities from database for /cumulative_mileage_data"
+        )
         if df.empty:
             # If no data in database, fetch from API
             logger.info("Fetching data from Strava API")
@@ -398,3 +401,72 @@ def get_totals(start_date: Optional[str] = None, end_date: Optional[str] = None)
     """Get totals for running activities."""
     df = get_running_activities(start_date, end_date)
     return len(df)
+
+
+def convert_start_end_to_datetime(
+    start_date: Optional[str] = None, end_date: Optional[str] = None
+) -> tuple[datetime, datetime]:
+    now = datetime.now()
+    start = (
+        datetime.strptime(start_date, "%Y-%m-%d")
+        if start_date
+        else datetime(now.year, 1, 1)
+    )
+    end = (
+        datetime.strptime(end_date, "%Y-%m-%d")
+        if end_date
+        else datetime(now.year, 12, 31)
+    )
+    end = end.replace(hour=23, minute=59, second=59)
+    return start, end
+
+
+@router.get("/individual_runs_data")
+async def get_individual_runs_data(
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+) -> List[Dict]:
+    """Get individual runs data for the specified date range."""
+    try:
+        # Get activities from database
+        start, end = convert_start_end_to_datetime(start_date, end_date)
+        df = pd.DataFrame(
+            get_running_activities(start_date=start, end_date=end, verbose=False)
+        )
+        logger.info(f"Loaded {len(df)} activities from database")
+        if df.empty:
+            # If no data in database, fetch from API
+            logger.info(
+                "Fetching data from Strava API because /individual_runs_data had no data in db"
+            )
+            # activities = await get_all_activities_from_strava(
+            #     start_date=start.strftime("%Y-%m-%d"),
+            #     end_date=end.strftime("%Y-%m-%d"),
+            # )
+            # store_activities(activities)
+            # df = pd.DataFrame(activities)
+
+        # Filter for running activities only
+        df = df[df["type"] == "Run"].copy()
+
+        # Convert units
+        df["distance"] = df["distance"] * 0.000621371  # meters to miles
+        df["total_elevation_gain"] = (
+            df["total_elevation_gain"] * 3.28084
+        )  # meters to feet
+
+        # Convert timestamps
+        df["start_date"] = pd.to_datetime(df["start_date"])
+
+        return df.to_dict("records")
+        # Select and rename columns
+        # result_df = df[
+        #     ["name", "distance", "moving_time", "total_elevation_gain", "start_date"]
+        # ].copy()
+
+        # return result_df.to_dict("records")
+    except Exception as e:
+        logger.error(f"Error fetching individual runs data: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error fetching individual runs data: {str(e)}"
+        )
