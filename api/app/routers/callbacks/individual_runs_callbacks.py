@@ -1,8 +1,10 @@
 import logging
 
+import dash
 import pandas as pd
-from app.components.weekly_runs_chart import create_weekly_runs_chart
+from app.routers.components.weekly_runs_chart import create_weekly_runs_chart
 from dash import Input, Output, callback
+from dash.exceptions import PreventUpdate
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -52,3 +54,33 @@ def update_weekly_runs_charts(data):
         charts.append(create_weekly_runs_chart(week_start, week_data))
 
     return charts
+
+
+@callback(
+    Output("strava-activity-url", "href"),
+    Output("strava-activity-url", "target"),
+    Input({"type": "weekly-runs-chart", "week": dash.ALL}, "clickData"),
+    prevent_initial_call=True,
+)
+def handle_chart_click(click_data):
+    if not click_data or not any(click_data):
+        raise PreventUpdate
+
+    # Find the first non-None click data
+    for data in click_data:
+        if data:
+            logger.info(f"Click data: {data}")
+            point_index = data["points"][0]["pointIndex"]
+            customdata = data["points"][0]["customdata"]
+            if customdata and point_index:
+                logger.info(f"Customdata: {customdata}")
+                logger.info(f"Point index: {point_index}")
+                # Get the first activity ID for this day
+                activity_id = customdata[0]
+                logger.info(f"Opening activity: {activity_id}")
+                return f"https://www.strava.com/activities/{activity_id}", "_blank"
+            else:
+                logger.info(f"No customdata or point_index: {data}")
+                raise PreventUpdate
+
+    raise PreventUpdate
