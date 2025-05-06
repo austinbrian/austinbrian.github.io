@@ -15,8 +15,14 @@ def convert_decimal_minutes_to_minutes_seconds(decimal_minutes):
     return f"{minutes}:{seconds:02d}"
 
 
-def create_weekly_runs_chart(week_start, week_data):
-    """Create a chart showing runs for a single week."""
+def create_weekly_runs_chart(week_start, week_data, size_by="distance"):
+    """Create a chart showing runs for a single week.
+
+    Args:
+        week_start: Start date of the week
+        week_data: DataFrame containing the week's runs
+        size_by: Either "distance" or "elevation" to determine circle sizes
+    """
 
     # Create a figure for the week
     fig = go.Figure()
@@ -30,6 +36,7 @@ def create_weekly_runs_chart(week_start, week_data):
 
     # Calculate total weekly mileage
     total_weekly_miles = week_data["distance"].sum()
+    total_weekly_elevation = week_data["total_elevation_gain"].sum()
 
     # Group runs by day of week
     for day in range(7):
@@ -37,9 +44,12 @@ def create_weekly_runs_chart(week_start, week_data):
         day_data = week_data[week_data["normalized_start_date"] == day_date]
 
         if not day_data.empty:
-            # Sum up total distance for the day
+            # Sum up total distance and elevation for the day
             total_distance = day_data["distance"].sum()
-            sizes[day] = total_distance**1.15
+            total_elevation = day_data["total_elevation_gain"].sum()
+
+            # Set size based on the selected metric
+            sizes[day] = total_elevation if size_by == "elevation" else total_distance
 
             # Create hover text for all runs that day
             runs_text = []
@@ -59,47 +69,6 @@ def create_weekly_runs_chart(week_start, week_data):
             customdata[day] = day_data["id"].tolist()
         else:
             hover_texts[day] = "No runs"
-
-    # Update layout
-    fig.update_layout(
-        title=f"Week of {week_start.date().strftime('%B %d, %Y')}",
-        title_font=dict(
-            family="Arial, sans-serif",
-            size=18,
-            color="#333333",
-        ),
-        xaxis=dict(
-            ticktext=[
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday",
-            ],
-            tickvals=list(range(7)),
-            range=[-0.5, 6.5],
-            showgrid=False,
-            gridcolor="lightgray",
-            showline=False,  # Remove vertical lines
-        ),
-        yaxis=dict(
-            showticklabels=False,
-            range=[-1, 1],
-            showgrid=False,
-            zeroline=False,
-            showline=False,
-        ),
-        showlegend=False,
-        height=150,
-        margin=dict(l=20, r=20, t=40, b=20),
-        plot_bgcolor="white",
-        hovermode="x",
-        hoverdistance=300,
-        spikedistance=3000,
-        hoverlabel=dict(bgcolor="white", font_size=12, font_family="Arial, sans-serif"),
-    )
 
     # Add a single scatter plot for the entire week
     fig.add_trace(
@@ -127,6 +96,47 @@ def create_weekly_runs_chart(week_start, week_data):
         )
     )
 
+    # Update layout
+    fig.update_layout(
+        title=f"Week of {week_start.date().strftime('%B %d, %Y')}",
+        title_font=dict(
+            family="Arial, sans-serif",
+            size=18,
+            color="#333333",
+        ),
+        xaxis=dict(
+            ticktext=[
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+            ],
+            tickvals=list(range(7)),
+            range=[-0.5, 6.5],
+            showgrid=False,
+            gridcolor="lightgray",
+            showline=False,  # Remove vertical lines
+        ),
+        yaxis=dict(
+            showticklabels=False,
+            range=[-0.2, 0.2],  # Adjusted range without the horizontal bar
+            showgrid=False,
+            zeroline=False,
+            showline=False,
+        ),
+        showlegend=False,
+        height=150,
+        margin=dict(l=20, r=20, t=40, b=20),
+        plot_bgcolor="white",
+        hovermode="x",
+        hoverdistance=300,
+        spikedistance=3000,
+        hoverlabel=dict(bgcolor="white", font_size=12, font_family="Arial, sans-serif"),
+    )
+
     # Create a container with the chart and the total mileage
     return html.Div(
         [
@@ -149,7 +159,9 @@ def create_weekly_runs_chart(week_start, week_data):
                     html.Div(
                         [
                             html.Div(
-                                f"{total_weekly_miles:.1f}",
+                                f"{total_weekly_elevation:.0f}"
+                                if size_by == "elevation"
+                                else f"{total_weekly_miles:.1f}",
                                 style={
                                     "fontSize": "24px",
                                     "fontWeight": "bold",
@@ -158,7 +170,7 @@ def create_weekly_runs_chart(week_start, week_data):
                                 },
                             ),
                             html.Div(
-                                "miles",
+                                "ft" if size_by == "elevation" else "miles",
                                 style={
                                     "fontSize": "16px",
                                     "color": "#000080",  # Dark blue
@@ -171,6 +183,7 @@ def create_weekly_runs_chart(week_start, week_data):
                             "flexDirection": "column",
                             "justifyContent": "center",
                             "marginLeft": "10px",
+                            "minWidth": "80px",  # Ensure consistent width
                         },
                     ),
                 ],
@@ -180,7 +193,5 @@ def create_weekly_runs_chart(week_start, week_data):
                     "height": "100%",
                 },
             ),
-            # Hidden link that will be updated by the callback
-            # html.A(id="strava-activity-url", style={"display": "none"}),
         ],
     )

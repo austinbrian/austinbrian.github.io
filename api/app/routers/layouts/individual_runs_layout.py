@@ -1,5 +1,6 @@
 from datetime import date
 
+import dash_bootstrap_components as dbc
 from dash import dcc, html
 
 layout = html.Div(
@@ -23,26 +24,41 @@ layout = html.Div(
                             end_date_placeholder_text="End Date",
                             display_format="YYYY-MM-DD",
                         ),
+                        dbc.RadioItems(
+                            id="size-by-toggle",
+                            options=[
+                                {"label": "Distance", "value": "distance"},
+                                {"label": "Elevation", "value": "elevation"},
+                            ],
+                            value="distance",
+                            inline=True,
+                            className="btn-group",
+                            inputClassName="btn-check",
+                            labelClassName="btn btn-outline-primary",
+                            labelCheckedClassName="active",
+                            style={"marginLeft": "20px"},
+                        ),
                     ],
                     style={
                         "display": "flex",
-                        "justify-content": "space-between",
-                        "margin-left": "20px",
-                        "margin-right": "20px",
+                        "justifyContent": "space-between",
+                        "alignItems": "center",
+                        "marginLeft": "20px",
+                        "marginRight": "20px",
                     },
                 ),
                 html.Div(
                     id="weekly-runs-container",
                     children=[],
-                    style={"margin-top": "20px"},
+                    style={"marginTop": "20px"},
                 ),
             ],
         ),
     ],
     style={
-        "margin-bottom": "10px",
-        "margin-top": "10px",
-        "margin-left": "10px",
-        "margin-right": "10px",
+        "marginBottom": "10px",
+        "marginTop": "10px",
+        "marginLeft": "10px",
+        "marginRight": "10px",
     },
 )

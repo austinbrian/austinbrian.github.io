@@ -126,10 +126,28 @@ layout = html.Div(
                                         end_date_placeholder_text="End Date",
                                         display_format="YYYY-MM-DD",
                                     ),
+                                    dbc.RadioItems(
+                                        id="size-by-toggle",
+                                        options=[
+                                            {"label": "Distance", "value": "distance"},
+                                            {
+                                                "label": "Elevation",
+                                                "value": "elevation",
+                                            },
+                                        ],
+                                        value="distance",
+                                        inline=True,
+                                        className="btn-group",
+                                        inputClassName="btn-check",
+                                        labelClassName="btn btn-outline-primary",
+                                        labelCheckedClassName="active",
+                                        style={"marginLeft": "20px"},
+                                    ),
                                 ],
                                 style={
                                     "display": "flex",
                                     "justify-content": "space-between",
+                                    "align-items": "center",
                                     "margin-left": "20px",
                                     "margin-right": "20px",
                                 },

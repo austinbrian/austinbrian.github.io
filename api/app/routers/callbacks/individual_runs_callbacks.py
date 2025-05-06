@@ -3,7 +3,7 @@ import logging
 import dash
 import pandas as pd
 from app.routers.components.weekly_runs_chart import create_weekly_runs_chart
-from dash import Input, Output, callback
+from dash import Input, Output, callback, html
 from dash.exceptions import PreventUpdate
 
 logger = logging.getLogger(__name__)
@@ -32,8 +32,9 @@ def update_individual_runs_data_store(start_date, end_date, n_clicks):
 @callback(
     Output("weekly-runs-container", "children"),
     Input("individual-runs-data-store", "data"),
+    Input("size-by-toggle", "value"),
 )
-def update_weekly_runs_charts(data):
+def update_weekly_runs_charts(data, size_by):
     if not data:
         return []
 
@@ -51,7 +52,16 @@ def update_weekly_runs_charts(data):
 
     charts = []
     for week_start, week_data in sorted(weeks, key=lambda x: x[0], reverse=True):
-        charts.append(create_weekly_runs_chart(week_start, week_data))
+        week_chart = create_weekly_runs_chart(week_start, week_data, size_by)
+        # Wrap each week's chart in a div with an HR below it
+        charts.append(
+            html.Div(
+                [
+                    week_chart,
+                    html.Hr(style={"margin": "20px 0", "borderColor": "#E5E5E5"}),
+                ]
+            )
+        )
 
     return charts
 
