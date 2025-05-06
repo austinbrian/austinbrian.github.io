@@ -79,9 +79,7 @@ def create_weekly_runs_chart(week_start, week_data, size_by="distance"):
             marker=dict(
                 size=sizes,
                 sizemode="area",
-                sizeref=2.0 * max(sizes) / (30.0**2.5)
-                if max(sizes) > 0
-                else 1,  # Increased size variation
+                sizeref=2.0 * max(sizes) / 3200.0 if max(sizes) > 0 else 1,
                 sizemin=4,
                 color="#E67E22",  # Burnt orange color
                 opacity=0.7,

@@ -253,6 +253,8 @@ def update_pace_chart(data, x_axis_type):
 def update_pace_distribution(data, x_axis_type):
     if not data:
         return go.Figure()
+    if not x_axis_type:
+        return go.Figure()
 
     df = pd.DataFrame.from_records(data).query("distance >=1.0")
     df["start_date"] = pd.to_datetime(df["start_date"])
