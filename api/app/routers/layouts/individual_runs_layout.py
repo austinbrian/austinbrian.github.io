@@ -36,15 +36,15 @@ layout = html.Div(
                             inputClassName="btn-check",
                             labelClassName="btn btn-outline-primary",
                             labelCheckedClassName="active",
-                            style={"marginLeft": "20px"},
+                            style={"marginLeft": "10px"},
                         ),
                     ],
                     style={
                         "display": "flex",
                         "justifyContent": "space-between",
                         "alignItems": "center",
-                        "marginLeft": "20px",
-                        "marginRight": "20px",
+                        "marginLeft": "10px",
+                        "marginRight": "10px",
                     },
                 ),
                 html.Div(

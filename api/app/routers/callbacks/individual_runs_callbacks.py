@@ -2,6 +2,7 @@ import logging
 
 import dash
 import pandas as pd
+import plotly.graph_objects as go
 from app.routers.components.weekly_runs_chart import create_weekly_runs_chart
 from dash import Input, Output, callback, html
 from dash.exceptions import PreventUpdate
@@ -10,22 +11,98 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 
+def convert_decimal_minutes_to_minutes_seconds(decimal_minutes):
+    if pd.isna(decimal_minutes):
+        return ""
+    minutes = int(decimal_minutes)
+    seconds = int((decimal_minutes - minutes) * 60)
+    return f"{minutes}:{seconds:02d}"
+
+
 @callback(
-    Output("individual-runs-data-store", "data"),
+    Output("date-range-store", "data"),
     Input("individual-runs-date-range-picker", "start_date"),
     Input("individual-runs-date-range-picker", "end_date"),
+    Input("pace-chart-date-range-picker", "start_date"),
+    Input("pace-chart-date-range-picker", "end_date"),
+    Input("cumulative-total-date-range-picker", "start_date"),
+    Input("cumulative-total-date-range-picker", "end_date"),
+    prevent_initial_call=True,
+)
+def update_date_range_store(
+    individual_start,
+    individual_end,
+    pace_start,
+    pace_end,
+    cumulative_start,
+    cumulative_end,
+):
+    # Get the trigger that caused the callback
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        raise PreventUpdate
+
+    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    # Use the dates from the triggering picker
+    if "individual-runs" in trigger_id:
+        return {"start_date": individual_start, "end_date": individual_end}
+    elif "pace-chart" in trigger_id:
+        return {"start_date": pace_start, "end_date": pace_end}
+    elif "cumulative-total" in trigger_id:
+        return {"start_date": cumulative_start, "end_date": cumulative_end}
+
+    raise PreventUpdate
+
+
+@callback(
+    [
+        Output("individual-runs-date-range-picker", "start_date"),
+        Output("individual-runs-date-range-picker", "end_date"),
+        Output("pace-chart-date-range-picker", "start_date"),
+        Output("pace-chart-date-range-picker", "end_date"),
+        Output("cumulative-total-date-range-picker", "start_date"),
+        Output("cumulative-total-date-range-picker", "end_date"),
+    ],
+    Input("date-range-store", "data"),
+)
+def sync_date_pickers(date_range):
+    if not date_range:
+        raise PreventUpdate
+
+    return [
+        date_range["start_date"],
+        date_range["end_date"],
+        date_range["start_date"],
+        date_range["end_date"],
+        date_range["start_date"],
+        date_range["end_date"],
+    ]
+
+
+@callback(
+    Output("individual-runs-data-store", "data"),
+    Input("date-range-store", "data"),
     Input("refresh-button", "n_clicks"),
 )
-def update_individual_runs_data_store(start_date, end_date, n_clicks):
+def update_individual_runs_data_store(date_range, n_clicks):
+    if not date_range:
+        raise PreventUpdate
+
     # This will be implemented in the running.py router
     from asyncio import run
 
     from app.routers import running
 
     data = run(
-        running.get_individual_runs_data(start_date=start_date, end_date=end_date)
+        running.get_individual_runs_data(
+            start_date=date_range["start_date"],
+            end_date=date_range["end_date"],
+        )
     )
-    logger.info(f"Loading data for {start_date} to {end_date}: {len(data)} records")
+    logger.info(
+        f"Loading data for {date_range['start_date']} to {date_range['end_date']}: {len(data)} records"
+    )
     return data
 
 
@@ -94,3 +171,217 @@ def handle_chart_click(click_data):
                 raise PreventUpdate
 
     raise PreventUpdate
+
+
+@callback(
+    Output("pace-chart", "figure"),
+    Input("individual-runs-data-store", "data"),
+    Input("pace-chart-x-axis-toggle", "value"),
+)
+def update_pace_chart(data, x_axis_type):
+    if not data:
+        return go.Figure()
+
+    df = pd.DataFrame.from_records(data).query("distance >=1.0")
+
+    # Calculate pace in minutes per mile
+    df["pace"] = df["moving_time"] / 60 / df["distance"]  # Convert to minutes per mile
+
+    # Create hover text
+    hover_text = []
+    for _, run in df.iterrows():
+        hover_text.append(
+            f"<b>{run['name']}</b><br>"
+            f"Distance: {run['distance']:.2f} miles<br>"
+            f"Pace: {convert_decimal_minutes_to_minutes_seconds(run['pace'])} min/mile<br>"
+            f"Date: {run['start_date']}<br>"
+            f"Elevation: {run['total_elevation_gain']:.0f} ft"
+        )
+
+    # Create the figure
+    fig = go.Figure()
+
+    # Add scatter plot
+    fig.add_trace(
+        go.Scatter(
+            x=df["distance"] if x_axis_type == "distance" else df["start_date"],
+            y=df["pace"],
+            mode="markers",
+            marker=dict(
+                size=df["distance"] * 2,  # Scale size by distance
+                sizemode="area",
+                sizeref=2.0 * max(df["distance"]) / (30.0**2),
+                sizemin=4,
+                color="#E67E22",  # Burnt orange color
+                opacity=0.7,
+            ),
+            text=hover_text,
+            hoverinfo="text",
+            customdata=df["id"],  # Store activity IDs for click handling
+        )
+    )
+
+    # Update layout
+    fig.update_layout(
+        title="Pace Analysis",
+        xaxis_title="Distance (miles)" if x_axis_type == "distance" else "Date",
+        yaxis_title="Pace (minutes/mile)",
+        yaxis=dict(
+            autorange="reversed",  # Reverse y-axis so faster paces are higher
+            gridcolor="lightgray",
+        ),
+        xaxis=dict(
+            gridcolor="lightgray",
+        ),
+        plot_bgcolor="white",
+        hovermode="closest",
+        hoverlabel=dict(
+            bgcolor="white",
+            font_size=12,
+            font_family="Arial, sans-serif",
+        ),
+    )
+
+    return fig
+
+
+@callback(
+    Output("pace-chart-distribution", "figure"),
+    Input("individual-runs-data-store", "data"),
+    Input("pace-chart-x-axis-toggle", "value"),
+)
+def update_pace_distribution(data, x_axis_type):
+    if not data:
+        return go.Figure()
+
+    df = pd.DataFrame.from_records(data).query("distance >=1.0")
+    df["start_date"] = pd.to_datetime(df["start_date"])
+    df["normalized_start_date"] = df[
+        "start_date"
+    ].dt.normalize()  # Normalize timestamps
+
+    if x_axis_type == "distance":
+        # Create distance bins in half-mile increments
+        max_distance = df["distance"].max()
+        bins = [
+            i * 0.5 for i in range(int(max_distance * 2) + 2)
+        ]  # Half-mile increments
+        labels = [f"{bins[i]:.1f}-{bins[i + 1]:.1f}" for i in range(len(bins) - 1)]
+
+        # Count runs in each bin
+        df["distance_bin"] = pd.cut(df["distance"], bins=bins, labels=labels)
+        counts = df["distance_bin"].value_counts().sort_index()
+
+        # Create bar chart
+        fig = go.Figure()
+        fig.add_trace(
+            go.Bar(
+                x=counts.index,
+                y=counts.values,
+                marker_color="#E67E22",
+                opacity=0.7,
+                text=None,  # Remove bar labels
+                textposition="none",  # Ensure no text is shown
+            )
+        )
+
+        # Add hover text
+        hover_text = []
+        for bin_label, count in counts.items():
+            runs_in_bin = df[df["distance_bin"] == bin_label]
+            avg_pace = (
+                runs_in_bin["moving_time"] / 60 / runs_in_bin["distance"]
+            ).mean()
+            hover_text.append(
+                f"<b>{bin_label} miles</b><br>"
+                f"Number of runs: {count}<br>"
+                f"Average pace: {convert_decimal_minutes_to_minutes_seconds(avg_pace)} min/mile"
+            )
+
+        fig.update_traces(
+            hovertemplate="%{text}<extra></extra>",
+            text=hover_text,
+        )
+
+        fig.update_layout(
+            title="Run Distance Distribution",
+            xaxis_title="Distance Range (miles)",
+            yaxis_title="Number of Runs",
+            xaxis=dict(
+                gridcolor="lightgray",
+                tickangle=45,  # Angle the labels for better readability
+            ),
+            yaxis=dict(
+                gridcolor="lightgray",
+                tickmode="auto",  # Let Plotly determine optimal tick spacing
+            ),
+            plot_bgcolor="white",
+            hovermode="closest",
+            hoverlabel=dict(
+                bgcolor="white",
+                font_size=12,
+                font_family="Arial, sans-serif",
+            ),
+        )
+    else:
+        # Group by week and sum distances
+        df["week_start"] = df["normalized_start_date"] - pd.to_timedelta(
+            df["normalized_start_date"].dt.dayofweek, unit="D"
+        )
+        weekly_distances = df.groupby("week_start")["distance"].sum().reset_index()
+        weekly_distances = weekly_distances.sort_values("week_start")  # Sort by date
+
+        # Create bar chart
+        fig = go.Figure()
+        fig.add_trace(
+            go.Bar(
+                x=weekly_distances["week_start"],
+                y=weekly_distances["distance"],
+                marker_color="#E67E22",
+                opacity=0.7,
+                # width=0.8,  # Make bars wider
+                text=None,  # Remove bar labels
+                textposition="none",  # Ensure no text is shown
+            )
+        )
+
+        # Add hover text
+        hover_text = []
+        for _, row in weekly_distances.iterrows():
+            week_runs = df[df["week_start"] == row["week_start"]]
+            avg_pace = (week_runs["moving_time"] / 60 / week_runs["distance"]).mean()
+            hover_text.append(
+                f"<b>Week of {row['week_start'].strftime('%Y-%m-%d')}</b><br>"
+                f"Total distance: {row['distance']:.1f} miles<br>"
+                f"Number of runs: {len(week_runs)}<br>"
+                f"Average pace: {convert_decimal_minutes_to_minutes_seconds(avg_pace)} min/mile"
+            )
+
+        fig.update_traces(
+            hovertemplate="%{text}<extra></extra>",
+            text=hover_text,
+        )
+
+        fig.update_layout(
+            title="Weekly Running Distance",
+            xaxis_title="Week",
+            yaxis_title="Total Distance (miles)",
+            xaxis=dict(
+                gridcolor="lightgray",
+                tickformat="%Y-%m-%d",
+                tickangle=45,  # Angle the labels for better readability
+            ),
+            yaxis=dict(
+                gridcolor="lightgray",
+                tickmode="auto",  # Let Plotly determine optimal tick spacing
+            ),
+            plot_bgcolor="white",
+            hovermode="closest",
+            hoverlabel=dict(
+                bgcolor="white",
+                font_size=12,
+                font_family="Arial, sans-serif",
+            ),
+        )
+
+    return fig
