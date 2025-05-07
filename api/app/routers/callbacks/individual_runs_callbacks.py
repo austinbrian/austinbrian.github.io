@@ -1,4 +1,5 @@
 import logging
+from datetime import date
 
 import dash
 import pandas as pd
@@ -23,61 +24,90 @@ def convert_decimal_minutes_to_minutes_seconds(decimal_minutes):
     Output("date-range-store", "data"),
     Input("individual-runs-date-range-picker", "start_date"),
     Input("individual-runs-date-range-picker", "end_date"),
+    prevent_initial_call=True,
+)
+def update_individual_runs_date_range_store(start_date, end_date):
+    if not start_date or not end_date:
+        raise PreventUpdate
+    return {"start_date": start_date, "end_date": end_date}
+
+
+@callback(
+    Output("date-range-store", "data", allow_duplicate=True),
     Input("pace-chart-date-range-picker", "start_date"),
     Input("pace-chart-date-range-picker", "end_date"),
+    prevent_initial_call=True,
+)
+def update_pace_chart_date_range_store(start_date, end_date):
+    if not start_date or not end_date:
+        raise PreventUpdate
+    return {"start_date": start_date, "end_date": end_date}
+
+
+@callback(
+    Output("date-range-store", "data", allow_duplicate=True),
     Input("cumulative-total-date-range-picker", "start_date"),
     Input("cumulative-total-date-range-picker", "end_date"),
     prevent_initial_call=True,
 )
-def update_date_range_store(
-    individual_start,
-    individual_end,
-    pace_start,
-    pace_end,
-    cumulative_start,
-    cumulative_end,
-):
-    # Get the trigger that caused the callback
-    ctx = dash.callback_context
-    if not ctx.triggered:
+def update_cumulative_total_date_range_store(start_date, end_date):
+    if not start_date or not end_date:
         raise PreventUpdate
-
-    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
-
-    # Use the dates from the triggering picker
-    if "individual-runs" in trigger_id:
-        return {"start_date": individual_start, "end_date": individual_end}
-    elif "pace-chart" in trigger_id:
-        return {"start_date": pace_start, "end_date": pace_end}
-    elif "cumulative-total" in trigger_id:
-        return {"start_date": cumulative_start, "end_date": cumulative_end}
-
-    raise PreventUpdate
+    return {"start_date": start_date, "end_date": end_date}
 
 
 @callback(
     [
-        Output("individual-runs-date-range-picker", "start_date"),
-        Output("individual-runs-date-range-picker", "end_date"),
-        Output("pace-chart-date-range-picker", "start_date"),
-        Output("pace-chart-date-range-picker", "end_date"),
-        Output("cumulative-total-date-range-picker", "start_date"),
-        Output("cumulative-total-date-range-picker", "end_date"),
+        Output("individual-runs-date-range-picker", "start_date", allow_duplicate=True),
+        Output("individual-runs-date-range-picker", "end_date", allow_duplicate=True),
     ],
     Input("date-range-store", "data"),
+    prevent_initial_call=True,
 )
-def sync_date_pickers(date_range):
+def sync_individual_runs_date_picker(date_range):
     if not date_range:
         raise PreventUpdate
 
     return [
         date_range["start_date"],
         date_range["end_date"],
-        date_range["start_date"],
-        date_range["end_date"],
-        date_range["start_date"],
-        date_range["end_date"],
     ]
+
+
+@callback(
+    [
+        Output("pace-chart-date-range-picker", "start_date", allow_duplicate=True),
+        Output("pace-chart-date-range-picker", "end_date", allow_duplicate=True),
+    ],
+    Input("quick-date-range-dropdown", "value"),
+    Input("date-range-store", "data"),
+    prevent_initial_call="initial_duplicate",
+)
+def update_pace_chart_date_range(quick_range, date_range):
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        raise PreventUpdate
+
+    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    if trigger_id == "quick-date-range-dropdown":
+        if not quick_range:
+            raise PreventUpdate
+
+        today = date.today()
+
+        if quick_range == "ytd":
+            return date(today.year, 1, 1), today
+        elif quick_range == "1y":
+            return date(today.year - 1, today.month, today.day), today
+        elif quick_range == "2y":
+            return date(today.year - 2, today.month, today.day), today
+        elif quick_range == "2020":
+            return date(2020, 1, 1), today
+    elif trigger_id == "date-range-store" and date_range:
+        return date_range["start_date"], date_range["end_date"]
+
+    raise PreventUpdate
 
 
 @callback(
@@ -387,3 +417,39 @@ def update_pace_distribution(data, x_axis_type):
         )
 
     return fig
+
+
+@callback(
+    [
+        Output("individual-runs-date-range-picker", "start_date", allow_duplicate=True),
+        Output("individual-runs-date-range-picker", "end_date", allow_duplicate=True),
+    ],
+    Input("quick-date-range-dropdown", "value"),
+    Input("date-range-store", "data"),
+    prevent_initial_call="initial_duplicate",
+)
+def update_date_range(quick_range, date_range):
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        raise PreventUpdate
+
+    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    if trigger_id == "quick-date-range-dropdown":
+        if not quick_range:
+            raise PreventUpdate
+
+        today = date.today()
+
+        if quick_range == "ytd":
+            return date(today.year, 1, 1), today
+        elif quick_range == "1y":
+            return date(today.year - 1, today.month, today.day), today
+        elif quick_range == "2y":
+            return date(today.year - 2, today.month, today.day), today
+        elif quick_range == "2020":
+            return date(2020, 1, 1), today
+    elif trigger_id == "date-range-store" and date_range:
+        return date_range["start_date"], date_range["end_date"]
+
+    raise PreventUpdate

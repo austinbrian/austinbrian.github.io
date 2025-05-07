@@ -1,6 +1,8 @@
 from datetime import date
 
 import dash_bootstrap_components as dbc
+from app.routers.layouts.individual_runs_layout import layout as individual_runs_layout
+from app.routers.layouts.pace_analysis_layout import layout as pace_analysis_layout
 from dash import dcc, html
 
 layout = html.Div(
@@ -112,126 +114,11 @@ layout = html.Div(
                     label="Cumulative Data",
                 ),
                 dbc.Tab(
-                    html.Div(
-                        [
-                            html.H2("Weekly Run Breakdown"),
-                            html.Hr(),
-                            html.Div(
-                                [
-                                    dcc.DatePickerRange(
-                                        id="individual-runs-date-range-picker",
-                                        min_date_allowed=date(2010, 1, 1),
-                                        max_date_allowed=date(
-                                            date.today().year, 12, 31
-                                        ),
-                                        initial_visible_month=date(
-                                            date.today().year, 1, 1
-                                        ),
-                                        start_date=date(date.today().year, 1, 1),
-                                        end_date=date(date.today().year, 12, 31),
-                                        start_date_placeholder_text="Start Date",
-                                        end_date_placeholder_text="End Date",
-                                        display_format="YYYY-MM-DD",
-                                    ),
-                                    dbc.RadioItems(
-                                        id="size-by-toggle",
-                                        options=[
-                                            {"label": "Distance", "value": "distance"},
-                                            {
-                                                "label": "Elevation",
-                                                "value": "elevation",
-                                            },
-                                        ],
-                                        value="distance",
-                                        inline=True,
-                                        className="btn-group",
-                                        inputClassName="btn-check",
-                                        labelClassName="btn btn-outline-primary",
-                                        labelCheckedClassName="active",
-                                        style={"marginLeft": "20px"},
-                                    ),
-                                ],
-                                style={
-                                    "display": "flex",
-                                    "justify-content": "space-between",
-                                    "align-items": "center",
-                                    "margin-left": "20px",
-                                    "margin-right": "20px",
-                                },
-                            ),
-                            html.Div(
-                                id="weekly-runs-container",
-                                children=[],
-                                style={"margin-top": "20px"},
-                            ),
-                        ],
-                    ),
+                    individual_runs_layout,
                     label="Individual Runs",
                 ),
                 dbc.Tab(
-                    html.Div(
-                        [
-                            html.H2("Pace Analysis"),
-                            html.Hr(),
-                            html.Div(
-                                [
-                                    dcc.DatePickerRange(
-                                        id="pace-chart-date-range-picker",
-                                        min_date_allowed=date(2010, 1, 1),
-                                        max_date_allowed=date(
-                                            date.today().year, 12, 31
-                                        ),
-                                        initial_visible_month=date(
-                                            date.today().year, 1, 1
-                                        ),
-                                        start_date=date(date.today().year, 1, 1),
-                                        end_date=date(date.today().year, 12, 31),
-                                        start_date_placeholder_text="Start Date",
-                                        end_date_placeholder_text="End Date",
-                                        display_format="YYYY-MM-DD",
-                                    ),
-                                    dbc.RadioItems(
-                                        id="pace-chart-x-axis-toggle",
-                                        options=[
-                                            {"label": "Distance", "value": "distance"},
-                                            {"label": "Date", "value": "date"},
-                                        ],
-                                        value="distance",
-                                        inline=True,
-                                        className="btn-group",
-                                        inputClassName="btn-check",
-                                        labelClassName="btn btn-outline-primary",
-                                        labelCheckedClassName="active",
-                                        style={"marginLeft": "20px"},
-                                    ),
-                                ],
-                                style={
-                                    "display": "flex",
-                                    "justify-content": "space-between",
-                                    "align-items": "center",
-                                    "margin-left": "20px",
-                                    "margin-right": "20px",
-                                },
-                            ),
-                            html.Div(
-                                [
-                                    dcc.Graph(
-                                        id="pace-chart",
-                                        style={"height": "600px"},
-                                    ),
-                                    dcc.Graph(
-                                        id="pace-chart-distribution",
-                                        style={"height": "600px"},
-                                    ),
-                                ],
-                                style={
-                                    "display": "flex",
-                                    "flex-direction": "column",
-                                    "gap": "20px",
-                                },
-                            ),
-                        ],
-                    ),
+                    pace_analysis_layout,
                     label="Pace Chart",
                 ),
             ],

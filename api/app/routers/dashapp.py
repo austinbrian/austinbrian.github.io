@@ -21,8 +21,9 @@ app = dash.Dash(
         dbc.themes.FLATLY,
     ],
     use_pages=True,
-    assets_folder="frontend/jekyll_site",
+    assets_folder="assets",
     suppress_callback_exceptions=True,
+    prevent_initial_callbacks="initial_duplicate",
 )
 
 # Define the layout with page container
@@ -58,7 +59,17 @@ navbar = dbc.NavbarSimple(
         ],
     ]
 )
-app.layout = html.Div([navbar, dash.page_container])
+
+# Set the app layout
+app.layout = html.Div(
+    [
+        navbar,
+        dash.page_container,  # Use page_container instead of direct layouts
+    ]
+)
+
+# Register the callbacks
+from app.routers.callbacks import *  # noqa
 
 if __name__ == "__main__":
     app.run_server(debug=True)
