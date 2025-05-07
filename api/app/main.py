@@ -29,13 +29,12 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-
 # Mount the Dash app with WSGIMiddleware
-app.mount("/app", WSGIMiddleware(dashapp_app.server))
+app.mount("/running", WSGIMiddleware(dashapp_app.server))
 
 # Import and include Strava routes first
-app.include_router(strava.router, prefix="/strava", tags=["strava"])
-app.include_router(running.router, prefix="/running", tags=["running"])
+app.include_router(strava.router, prefix="/api/strava", tags=["strava"])
+app.include_router(running.router, prefix="/api/running", tags=["running"])
 
 # Get Jekyll site path from environment variable or use default
 # In Railway, the path will be relative to the project root

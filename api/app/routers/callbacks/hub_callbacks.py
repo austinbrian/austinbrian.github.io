@@ -5,6 +5,9 @@ import dash
 import pandas as pd
 import plotly.graph_objects as go
 from app.routers import running, strava
+from app.routers.callbacks.individual_runs_callbacks import (
+    convert_decimal_minutes_to_minutes_seconds,
+)
 from dash import Input, Output, callback, html
 
 logger = logging.getLogger(__name__)
@@ -28,24 +31,27 @@ def update_info_boxes(data, target, start_date, end_date):
         total_runs = df.shape[0]
         total_miles = df["distance"].sum()
         total_days_run = len(df)
-
+        total_minutes_run = df["moving_time"].sum() / 60
         max_day_run = df["start_date"].max()
         end_date = pd.to_datetime(end_date)
         max_day_run_date = pd.to_datetime(max_day_run)
         max_day_run_miles = df.loc[df.start_date == max_day_run, "distance"].sum()
-        max_day_run_miles_rounded = round(max_day_run_miles, 1)
         avg_miles_run = total_miles / total_days_run
         miles_remaining = target - total_miles
         days_remaining = end_date.dayofyear - max_day_run_date.dayofyear
         miles_per_day_remaining = miles_remaining / days_remaining
         miles_per_week_remaining = miles_per_day_remaining * 7
-        on_pace_miles = (target * total_days_run) / total_runs
+        on_pace_miles = (total_miles / total_days_run) * (days_remaining + 1)
+        avg_pace = total_minutes_run / total_miles
 
         div1 = html.Div(
             [
                 html.H4("Totals"),
                 html.P(f"{total_runs} runs"),
-                html.P(f"{round(total_miles, 1)} miles"),
+                html.P(f"{round(total_miles, 1):,.1f} miles"),
+                html.P(
+                    f"Average pace: {convert_decimal_minutes_to_minutes_seconds(avg_pace)}"
+                ),
             ],
             style={
                 "display": "flex",
@@ -59,7 +65,7 @@ def update_info_boxes(data, target, start_date, end_date):
         div2 = html.Div(
             [
                 html.H4("Max"),
-                html.P(f"Longest run: {round(max_day_run_miles, 2)}"),
+                html.P(f"Longest run: {round(max_day_run_miles, 2):,.2f}"),
                 html.P(f"Last run: {max_day_run_date.date().strftime('%Y-%m-%d')}"),
             ],
             style={
@@ -74,8 +80,9 @@ def update_info_boxes(data, target, start_date, end_date):
             [
                 html.H4("Progress to Target"),
                 html.P(f"{round(avg_miles_run, 2)} avg miles per run"),
+                html.P(f"On pace for {round(on_pace_miles, 1):,.1f} miles"),
                 html.P(
-                    f"{round(miles_per_week_remaining, 2)} miles per week remaining"
+                    f"{round(miles_per_week_remaining, 2):,.1f} miles per week remaining"
                 ),
             ],
             style={

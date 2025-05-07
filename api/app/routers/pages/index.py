@@ -51,7 +51,7 @@ left_jumbotron = dbc.Col(
                     outline=True,
                     size="lg",
                 ),
-                href="/app/hub/",
+                href="/running/hub/",
                 refresh=True,
             ),
         ],

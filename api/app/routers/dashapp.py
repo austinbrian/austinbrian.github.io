@@ -1,4 +1,5 @@
 import logging
+import os
 
 import dash
 import dash_bootstrap_components as dbc
@@ -11,17 +12,20 @@ logger.setLevel(logging.DEBUG)
 # Create Flask server
 server = Flask(__name__)
 
+# Get the absolute path to the assets directory
+assets_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets")
+
 # Create the Dash app
 app = dash.Dash(
     __name__,
     server=server,
-    requests_pathname_prefix="/app/",
+    requests_pathname_prefix="/running/",
     external_stylesheets=[
         # dbc.themes.BOOTSTRAP,
         dbc.themes.FLATLY,
     ],
     use_pages=True,
-    assets_folder="assets",
+    assets_folder=assets_path,
     suppress_callback_exceptions=True,
     prevent_initial_callbacks="initial_duplicate",
 )
@@ -33,7 +37,7 @@ navbar = dbc.NavbarSimple(
             dbc.NavItem(
                 dbc.NavLink(
                     page["name"],
-                    href="/app" + page["path"],
+                    href="/running" + page["path"],
                 )
             )
             for page in dash.page_registry.values()

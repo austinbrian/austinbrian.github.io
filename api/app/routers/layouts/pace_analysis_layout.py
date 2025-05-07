@@ -5,15 +5,16 @@ from dash import dcc, html
 
 layout = html.Div(
     [
-        html.H1("Pace Analysis"),
-        dcc.Store(id="individual-runs-data-store", data={}),
-        dcc.Store(
-            id="date-range-store",
-            data={
-                "start_date": date(date.today().year, 1, 1).isoformat(),
-                "end_date": date(date.today().year, 12, 31).isoformat(),
+        html.A(
+            html.H2("Pace Analysis"),
+            href="/running/pace-analysis",
+            style={
+                "textDecoration": "none",
+                "color": "inherit",
             },
+            className="hover-border",
         ),
+        dcc.Store(id="individual-runs-data-store", data={}),
         html.Hr(),
         html.Div(
             [
@@ -51,14 +52,14 @@ layout = html.Div(
                             style={"display": "flex", "alignItems": "center"},
                         ),
                         dcc.Dropdown(
-                            id="quick-date-range-dropdown",
+                            id="pace-chart-quick-date-range-dropdown",
                             options=[
                                 {"label": "Year to Date", "value": "ytd"},
                                 {"label": "Last 1 Year", "value": "1y"},
                                 {"label": "Last 2 Years", "value": "2y"},
                                 {"label": "Since 2020", "value": "2020"},
                             ],
-                            value=None,
+                            value="ytd",
                             placeholder="Quick Date Range",
                             clearable=True,
                             style={"width": "200px"},

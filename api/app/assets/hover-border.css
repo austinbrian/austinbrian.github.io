@@ -1,0 +1,23 @@
+.hover-border {
+	position: relative;
+	display: inline-block;
+}
+
+.hover-border:hover::before,
+.hover-border:hover::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background-color: #6c757d;
+	transition: all 0.2s ease;
+}
+
+.hover-border:hover::before {
+	left: -8px;
+}
+
+.hover-border:hover::after {
+	right: -8px;
+}

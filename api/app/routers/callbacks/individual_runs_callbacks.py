@@ -22,56 +22,125 @@ def convert_decimal_minutes_to_minutes_seconds(decimal_minutes):
 
 @callback(
     Output("date-range-store", "data"),
-    Input("individual-runs-date-range-picker", "start_date"),
-    Input("individual-runs-date-range-picker", "end_date"),
-    prevent_initial_call=True,
+    [
+        Input("individual-runs-quick-date-range-dropdown", "value"),
+        Input("pace-chart-quick-date-range-dropdown", "value"),
+    ],
+    # prevent_initial_call=True,
 )
-def update_individual_runs_date_range_store(start_date, end_date):
-    if not start_date or not end_date:
+def update_date_range_store(individual_runs_quick_range, pace_chart_quick_range):
+    # Get the trigger that caused this callback
+    ctx = dash.callback_context
+    if not ctx.triggered:
         raise PreventUpdate
-    return {"start_date": start_date, "end_date": end_date}
+
+    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    # Get the value from the triggering dropdown
+    quick_range = (
+        individual_runs_quick_range
+        if trigger_id == "individual-runs-quick-date-range-dropdown"
+        else pace_chart_quick_range
+    )
+
+    # If quick_range is None, return the current store value instead of raising PreventUpdate
+    if not quick_range:
+        return dash.no_update
+
+    today = date.today()
+
+    if quick_range == "ytd":
+        result = {
+            "start_date": date(today.year, 1, 1).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    elif quick_range == "1y":
+        result = {
+            "start_date": date(today.year - 1, today.month, today.day).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    elif quick_range == "2y":
+        result = {
+            "start_date": date(today.year - 2, today.month, today.day).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    elif quick_range == "2020":
+        result = {
+            "start_date": date(2020, 1, 1).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    else:
+        return dash.no_update
+
+    return result
 
 
-@callback(
-    Output("date-range-store", "data", allow_duplicate=True),
-    Input("pace-chart-date-range-picker", "start_date"),
-    Input("pace-chart-date-range-picker", "end_date"),
-    prevent_initial_call=True,
-)
-def update_pace_chart_date_range_store(start_date, end_date):
-    if not start_date or not end_date:
-        raise PreventUpdate
-    return {"start_date": start_date, "end_date": end_date}
+# @callback(
+#     Output("pace-chart-date-range-store", "data"),
+#     Input("pace-chart-quick-date-range-dropdown", "value"),
+#     prevent_initial_call=True,
+# )
+def update_pace_chart_date_range_store(quick_range):
+    logger.info(
+        f"update_pace_chart_date_range_store called with quick_range: {quick_range}"
+    )
 
+    # If quick_range is None, return the current store value instead of raising PreventUpdate
+    if not quick_range:
+        logger.info("No quick_range value, returning current store value")
+        return dash.no_update
 
-@callback(
-    Output("date-range-store", "data", allow_duplicate=True),
-    Input("cumulative-total-date-range-picker", "start_date"),
-    Input("cumulative-total-date-range-picker", "end_date"),
-    prevent_initial_call=True,
-)
-def update_cumulative_total_date_range_store(start_date, end_date):
-    if not start_date or not end_date:
-        raise PreventUpdate
-    return {"start_date": start_date, "end_date": end_date}
+    today = date.today()
+
+    if quick_range == "ytd":
+        result = {
+            "start_date": date(today.year, 1, 1).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    elif quick_range == "1y":
+        result = {
+            "start_date": date(today.year - 1, today.month, today.day).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    elif quick_range == "2y":
+        result = {
+            "start_date": date(today.year - 2, today.month, today.day).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    elif quick_range == "2020":
+        result = {
+            "start_date": date(2020, 1, 1).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    else:
+        logger.info(
+            f"Unknown quick_range value: {quick_range}, returning current store value"
+        )
+        return dash.no_update
+
+    logger.info(f"Returning date range: {result}")
+    return result
 
 
 @callback(
     [
-        Output("individual-runs-date-range-picker", "start_date", allow_duplicate=True),
-        Output("individual-runs-date-range-picker", "end_date", allow_duplicate=True),
+        Output("individual-runs-date-range-picker", "start_date"),
+        Output("individual-runs-date-range-picker", "end_date"),
     ],
     Input("date-range-store", "data"),
-    prevent_initial_call=True,
+    # prevent_initial_call=True,
 )
-def sync_individual_runs_date_picker(date_range):
+def update_individual_runs_date_picker(date_range):
+    logger.info(
+        f"update_individual_runs_date_picker called with date_range: {date_range}"
+    )
     if not date_range:
+        logger.info("No date_range value, raising PreventUpdate")
         raise PreventUpdate
-
-    return [
-        date_range["start_date"],
-        date_range["end_date"],
-    ]
+    logger.info(
+        f"Returning dates: {date_range['start_date']}, {date_range['end_date']}"
+    )
+    return date_range["start_date"], date_range["end_date"]
 
 
 @callback(
@@ -79,45 +148,74 @@ def sync_individual_runs_date_picker(date_range):
         Output("pace-chart-date-range-picker", "start_date", allow_duplicate=True),
         Output("pace-chart-date-range-picker", "end_date", allow_duplicate=True),
     ],
-    Input("quick-date-range-dropdown", "value"),
     Input("date-range-store", "data"),
-    prevent_initial_call="initial_duplicate",
+    prevent_initial_call=True,
 )
-def update_pace_chart_date_range(quick_range, date_range):
-    ctx = dash.callback_context
-    if not ctx.triggered:
+def update_pace_chart_date_picker(date_range):
+    logger.info(f"update_pace_chart_date_picker called with date_range: {date_range}")
+    if not date_range:
+        logger.info("No date_range value, raising PreventUpdate")
         raise PreventUpdate
-
-    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
-
-    if trigger_id == "quick-date-range-dropdown":
-        if not quick_range:
-            raise PreventUpdate
-
-        today = date.today()
-
-        if quick_range == "ytd":
-            return date(today.year, 1, 1), today
-        elif quick_range == "1y":
-            return date(today.year - 1, today.month, today.day), today
-        elif quick_range == "2y":
-            return date(today.year - 2, today.month, today.day), today
-        elif quick_range == "2020":
-            return date(2020, 1, 1), today
-    elif trigger_id == "date-range-store" and date_range:
-        return date_range["start_date"], date_range["end_date"]
-
-    raise PreventUpdate
+    logger.info(
+        f"Returning dates: {date_range['start_date']}, {date_range['end_date']}"
+    )
+    return date_range["start_date"], date_range["end_date"]
 
 
 @callback(
-    Output("individual-runs-data-store", "data"),
-    Input("date-range-store", "data"),
-    Input("refresh-button", "n_clicks"),
+    [
+        Output("individual-runs-data-store", "data"),
+        Output("individual-runs-date-range-picker", "start_date", allow_duplicate=True),
+        Output("individual-runs-date-range-picker", "end_date", allow_duplicate=True),
+        Output("pace-chart-date-range-picker", "start_date", allow_duplicate=True),
+        Output("pace-chart-date-range-picker", "end_date", allow_duplicate=True),
+    ],
+    [
+        Input("date-range-store", "data"),
+        Input("refresh-button", "n_clicks"),
+        Input("individual-runs-date-range-picker", "start_date"),
+        Input("individual-runs-date-range-picker", "end_date"),
+        Input("pace-chart-date-range-picker", "start_date"),
+        Input("pace-chart-date-range-picker", "end_date"),
+    ],
+    prevent_initial_call="initial_duplicate",
 )
-def update_individual_runs_data_store(date_range, n_clicks):
-    if not date_range:
-        raise PreventUpdate
+def update_individual_runs_data_store(
+    date_range, n_clicks, runs_start_date, runs_end_date, pace_start_date, pace_end_date
+):
+    # Get the trigger that caused this callback
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        # Initial load - use year to date
+        today = date.today()
+        date_range = {
+            "start_date": date(today.year, 1, 1).isoformat(),
+            "end_date": today.isoformat(),
+        }
+    else:
+        trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+        # Determine which date range to use based on the trigger
+        if trigger_id == "individual-runs-date-range-picker":
+            if runs_start_date and runs_end_date:
+                date_range = {
+                    "start_date": runs_start_date,
+                    "end_date": runs_end_date,
+                }
+        elif trigger_id == "pace-chart-date-range-picker":
+            if pace_start_date and pace_end_date:
+                date_range = {
+                    "start_date": pace_start_date,
+                    "end_date": pace_end_date,
+                }
+        elif trigger_id == "date-range-store":
+            if not date_range:
+                raise PreventUpdate
+        elif trigger_id == "refresh-button":
+            if not date_range:
+                raise PreventUpdate
+        else:
+            raise PreventUpdate
 
     # This will be implemented in the running.py router
     from asyncio import run
@@ -130,10 +228,15 @@ def update_individual_runs_data_store(date_range, n_clicks):
             end_date=date_range["end_date"],
         )
     )
-    logger.info(
-        f"Loading data for {date_range['start_date']} to {date_range['end_date']}: {len(data)} records"
+
+    # Return the data and update both date pickers
+    return (
+        data,
+        date_range["start_date"],
+        date_range["end_date"],
+        date_range["start_date"],
+        date_range["end_date"],
     )
-    return data
 
 
 @callback(
@@ -417,39 +520,3 @@ def update_pace_distribution(data, x_axis_type):
         )
 
     return fig
-
-
-@callback(
-    [
-        Output("individual-runs-date-range-picker", "start_date", allow_duplicate=True),
-        Output("individual-runs-date-range-picker", "end_date", allow_duplicate=True),
-    ],
-    Input("quick-date-range-dropdown", "value"),
-    Input("date-range-store", "data"),
-    prevent_initial_call="initial_duplicate",
-)
-def update_date_range(quick_range, date_range):
-    ctx = dash.callback_context
-    if not ctx.triggered:
-        raise PreventUpdate
-
-    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
-
-    if trigger_id == "quick-date-range-dropdown":
-        if not quick_range:
-            raise PreventUpdate
-
-        today = date.today()
-
-        if quick_range == "ytd":
-            return date(today.year, 1, 1), today
-        elif quick_range == "1y":
-            return date(today.year - 1, today.month, today.day), today
-        elif quick_range == "2y":
-            return date(today.year - 2, today.month, today.day), today
-        elif quick_range == "2020":
-            return date(2020, 1, 1), today
-    elif trigger_id == "date-range-store" and date_range:
-        return date_range["start_date"], date_range["end_date"]
-
-    raise PreventUpdate

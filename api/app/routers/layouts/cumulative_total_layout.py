@@ -5,16 +5,8 @@ from dash import dcc, html
 
 layout = html.Div(
     [
-        html.H1("Running Data"),
+        html.H2("Cumulative Distance Data"),
         dcc.Store(id="cumulative-data-store", data={}),
-        dcc.Store(
-            id="date-range-store",
-            data={
-                "start_date": date(date.today().year, 1, 1).isoformat(),
-                "end_date": date(date.today().year, 12, 31).isoformat(),
-            },
-        ),
-        html.Hr(),
         html.Div(
             [
                 html.Div(
@@ -57,6 +49,7 @@ layout = html.Div(
                 "marginRight": "10px",
             },
         ),
+        html.Hr(),
         html.Div(
             id="running-data-totals",
             children="Totals",
@@ -94,6 +87,8 @@ layout = html.Div(
                 "display": "flex",
                 "flexDirection": "row",
                 "gap": "10px",
+                "alignItems": "center",
+                "justifyContent": "center",
             },
         ),
         html.Div(
