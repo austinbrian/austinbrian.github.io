@@ -25,21 +25,33 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 ---
 ## Toolkit
 ### Technologies    
-Python, STATA, PostgreSQL, mySQL, UNIX, AWS, Google Cloud, Flask, Bootstrap, JavaScript, React.js, Node.js, Neo4j
-### Machine Learning Libraries
-Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, urllib, BeautifulSoup, selenium, NLTK, Gensim, PyMC, TensorFlow, Keras, PyTorch
-### Polling
-Survey sampling methodology, A/B testing, Catalist, SSI, VAN
+Python, STATA, PostgreSQL, mySQL, MongoDB, UNIX, Git, JavaScript, React.js, Node.js, Neo4j
+### Deployment   
+AWS, Google Cloud, Flask, FastAPI, Docker
+### Certifications   
+Certified ScrumMaster, AWS Web Services Cloud Practitioner, AWS Certified Machine Learning - Specialty, AWS Certified Data Analytics - Specialty
+### Machine Learning Libraries   
+Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, NLTK, Gensim, PyMC3, TensorFlow, Keras
 ### Presentation & Visualization   
-Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, HTML, CSS
+Jupyter, Matplotlib, Bokeh, Plotly Dash, Tableau, Powerpoint, HTML/CSS
+### Polling   
+Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 
 ----
 ## Experience
+### OneGlobe
+**Reston, VA**   
+*Technical firm supporting DoD and other federal contracts*   
+**Data Scientist** *May 2020 - present*
+* Aligned to [Kessel Run](https://kesselrun.af.mil/), a software factory within the US Air Force
+* Serve as technical lead for the development of a user analytics platform within the Enterprise AI product portfolio.
+
 ### U.Group
 **Arlington, VA**   
 *Technical consulting and design firm working with DoD and corporate clients*   
-**Data Scientist** *November 2018 - present*
-* Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database. Wrote machine learning and heuristic algorithms to draw insights from the data and pass them to front-end developers using a custom API.
+**Data Scientist** *November 2018 - May 2020*
+* Wrote machine learning and graph data mining algorithms to perform entity resolution and draw insights from military intelligence data, maintaining a custom API also developed for the prototype.
+* Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database as an implementation of a knowledge graph for proprietary data.
 * Deployed prototype pipeline as microservices architecture using Docker on a client-owned AWS instance.
 
 ### Excella Consulting
@@ -91,6 +103,10 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 * Developed innovative sampling methodology for mobile phones, web panels and traditional landlines, improving response rates by 25% among targeted demographics.
 
 ---
+## Speaking and Presentation
+- ***[How and Why to Put Your Jupyter Notebooks into Docker Containers](https://www.youtube.com/watch?v=f6zoRrJhHXA)*** -- [PyData NYC](https://pydata.org/nyc2019/schedule/presentation/72/how-and-why-to-put-your-jupyter-notebooks-in-docker-containers/) -- November 2019
+
+---
 ## Education
 ### General Assembly
 **Data Science Immersive** *March – May 2017*   
@@ -99,8 +115,9 @@ Tableau, Powerpoint, Matplotlib, Seaborn, mplD3, pySAL, geoPandas, Plotly Dash, 
 * Other programming tools included: PostgreSQL, mySQL
 
 ### University of North Carolina at Chapel Hill
-**B.A. Economics, Political Science, Minor in Creative Writing** *May 2010*   
-* Certificate in Business Journalism, Minor in Creative Writing         
+**B.A. Economics, Political Science** *May 2010*   
+* Minor in Creative Writing
+* Certificate in Business Journalism
 * Albert Ludwig University of Freiburg; Freiburg, Germany (August – December 2008)
 
 ---
