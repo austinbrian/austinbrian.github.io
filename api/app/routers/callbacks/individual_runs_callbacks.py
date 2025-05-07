@@ -75,12 +75,12 @@ def update_date_range_store(individual_runs_quick_range, pace_chart_quick_range)
     return result
 
 
-# @callback(
-#     Output("pace-chart-date-range-store", "data"),
-#     Input("pace-chart-quick-date-range-dropdown", "value"),
-#     prevent_initial_call=True,
-# )
-def update_pace_chart_date_range_store(quick_range):
+@callback(
+    Output("pace-analysis-date-range-store", "data"),
+    Input("pace-chart-quick-date-range-dropdown", "value"),
+    prevent_initial_call=True,
+)
+def update_pace_analysis_date_range_store(quick_range):
     logger.info(
         f"update_pace_chart_date_range_store called with quick_range: {quick_range}"
     )
