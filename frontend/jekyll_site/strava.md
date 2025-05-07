@@ -6,4 +6,4 @@ permalink: /strava/
 
 Rebuilding the Strava premium graphs, one at a time.
 
-[Dash App](/app/)
+[Dash App](/running/)

@@ -9,8 +9,8 @@ main:
     url: /about/
   - title: "Blog Archives"
     url: /archives/
-  - title: "App"
-    url: /app/
+  - title: "Running"
+    url: /running/
   - title: <h2 class="fa fa-twitter"></h2>
     url: https://www.twitter.com/bda
   - title: <h2 class="fa fa-linkedin"></h2>

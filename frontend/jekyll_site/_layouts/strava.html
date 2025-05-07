@@ -103,8 +103,8 @@ layout: default
     // Wait for DOM to be ready
     document.addEventListener('DOMContentLoaded', function() {
       // Fetch and display both charts
-      displayChart('/running/weekly_running_chart', 'weekly-running-chart');
-      displayChart('/running/cumulative_mileage?target=1000', 'cumulative-mileage-chart');
+      displayChart('/api/running/weekly_running_chart', 'weekly-running-chart');
+      displayChart('/api/running/cumulative_mileage?target=1000', 'cumulative-mileage-chart');
       displayCumulativeMiles('cumulative-mileage-data');
     });
   </script>
