@@ -1,5 +1,5 @@
 import logging
-from datetime import date
+from datetime import date, datetime
 
 import dash
 import pandas as pd
@@ -162,6 +162,15 @@ def update_pace_chart_date_picker(date_range):
     return date_range["start_date"], date_range["end_date"]
 
 
+def ensure_end_of_day(date_str):
+    # If already has time, return as is
+    if "T" in date_str:
+        return date_str
+    dt = datetime.strptime(date_str, "%Y-%m-%d")
+    dt = dt.replace(hour=23, minute=59, second=59)
+    return dt.isoformat()
+
+
 @callback(
     [
         Output("individual-runs-data-store", "data"),
@@ -190,7 +199,9 @@ def update_individual_runs_data_store(
         today = date.today()
         date_range = {
             "start_date": date(today.year, 1, 1).isoformat(),
-            "end_date": today.isoformat(),
+            "end_date": datetime(
+                today.year, today.month, today.day, 23, 59, 59
+            ).isoformat(),
         }
     else:
         trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
@@ -216,6 +227,9 @@ def update_individual_runs_data_store(
                 raise PreventUpdate
         else:
             raise PreventUpdate
+
+    # Ensure end_date is always at end of day
+    date_range["end_date"] = ensure_end_of_day(date_range["end_date"])
 
     # This will be implemented in the running.py router
     from asyncio import run

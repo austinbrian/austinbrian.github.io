@@ -403,21 +403,29 @@ def get_totals(start_date: Optional[str] = None, end_date: Optional[str] = None)
     return len(df)
 
 
+now = datetime.now()
+
+
 def convert_start_end_to_datetime(
     start_date: Optional[str] = None, end_date: Optional[str] = None
 ) -> tuple[datetime, datetime]:
-    now = datetime.now()
-    start = (
-        datetime.strptime(start_date, "%Y-%m-%d")
-        if start_date
-        else datetime(now.year, 1, 1)
-    )
-    end = (
-        datetime.strptime(end_date, "%Y-%m-%d")
-        if end_date
-        else datetime(now.year, 12, 31)
-    )
-    end = end.replace(hour=23, minute=59, second=59)
+    # Handle both date and datetime strings for start_date
+    if start_date:
+        try:
+            start = datetime.strptime(start_date, "%Y-%m-%d")
+        except ValueError:
+            start = datetime.fromisoformat(start_date)
+    else:
+        start = datetime(now.year, 1, 1)
+    # Handle both date and datetime strings for end_date
+    if end_date:
+        try:
+            end = datetime.strptime(end_date, "%Y-%m-%d")
+            end = end.replace(hour=23, minute=59, second=59)
+        except ValueError:
+            end = datetime.fromisoformat(end_date)
+    else:
+        end = datetime(now.year, 12, 31, 23, 59, 59)
     return start, end
 
 
