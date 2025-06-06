@@ -15,7 +15,9 @@ layout = html.Div(
                             id="cumulative-total-date-range-picker",
                             min_date_allowed=date(2010, 1, 1),
                             max_date_allowed=date(date.today().year, 12, 31),
-                            initial_visible_month=date(date.today().year, 1, 1),
+                            initial_visible_month=date(
+                                date.today().year, date.today().month, 1
+                            ),
                             start_date=date(date.today().year, 1, 1),
                             end_date=date(date.today().year, 12, 31),
                             start_date_placeholder_text="Start Date",
@@ -99,7 +101,7 @@ layout = html.Div(
                     max=8000,
                     step=500,
                     value=1000,
-                    marks={n: str(n) for n in range(0, 10000, 1000)},
+                    marks={n: str(n) for n in range(0, 8000, 1000)},
                 ),
                 html.Div(id="cumulative-total-chart-info", children=""),
                 dcc.Graph(
