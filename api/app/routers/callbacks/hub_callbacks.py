@@ -32,7 +32,23 @@ def update_info_boxes(data, target, start_date, end_date):
         total_miles = df["distance"].sum()
         total_days_run = len(df)
         total_minutes_run = df["moving_time"].sum() / 60
+        df["minutes_run"] = df["moving_time"] / 60
+        df["pace_in_minutes"] = df["minutes_run"] / df["distance"]
         max_day_run = df["start_date"].max()
+        max_day_run_pace = df.loc[df.start_date == max_day_run, "pace_in_minutes"].max()
+        longest_run = df["distance"].max()
+        longest_run_date = pd.to_datetime(
+            df.loc[df.distance == longest_run, "start_date"].max()
+        )
+
+        longest_run_pace = df.loc[df.distance == longest_run, "pace_in_minutes"].max()
+        fastest_run = df["pace_in_minutes"].min()
+        fastest_run_date = pd.to_datetime(
+            df.loc[df.pace_in_minutes == fastest_run, "start_date"].max()
+        )
+        fastest_run_pace = df.loc[
+            df.pace_in_minutes == fastest_run, "pace_in_minutes"
+        ].max()
         end_date = pd.to_datetime(end_date)
         max_day_run_date = pd.to_datetime(max_day_run)
         max_day_run_miles = df.loc[df.start_date == max_day_run, "distance"].sum()
@@ -65,15 +81,56 @@ def update_info_boxes(data, target, start_date, end_date):
         div2 = html.Div(
             [
                 html.H4("Max"),
-                html.P(f"Longest run: {round(max_day_run_miles, 2):,.2f}"),
-                html.P(f"Last run: {max_day_run_date.date().strftime('%Y-%m-%d')}"),
+                html.Div(
+                    [
+                        html.B("Last run:"),
+                        html.Div(
+                            [
+                                html.P(
+                                    f"{max_day_run_date.date().strftime('%Y-%m-%d')}, \n"
+                                    f"{round(max_day_run_miles, 2):,.2f} miles, \n"
+                                    f"pace: {convert_decimal_minutes_to_minutes_seconds(max_day_run_pace)}"
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                html.Div(
+                    [
+                        html.B("Longest run:"),
+                        html.Div(
+                            [
+                                html.P(
+                                    f"{longest_run_date.date().strftime('%Y-%m-%d')}, \n"
+                                    f"{round(longest_run, 2):,.2f} miles, \n"
+                                    f"pace: {convert_decimal_minutes_to_minutes_seconds(longest_run_pace)}"
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                html.Div(
+                    [
+                        html.B("Fastest run:"),
+                        html.Div(
+                            [
+                                html.P(
+                                    f"{fastest_run_date.date().strftime('%Y-%m-%d')}, \n"
+                                    f"{round(fastest_run, 2):,.2f} miles, \n"
+                                    f"pace: {convert_decimal_minutes_to_minutes_seconds(fastest_run_pace)}"
+                                )
+                            ]
+                        ),
+                    ]
+                ),
             ],
             style={
                 "display": "flex",
                 "flex-direction": "column",
-                "gap": "10px",
+                "gap": "5px",
                 "align-items": "center",
                 "justify-content": "center",
+                "padding": "5px",
             },
         )
         div3 = html.Div(
