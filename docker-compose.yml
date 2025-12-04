@@ -15,9 +15,10 @@ services:
       - STRAVA_CLIENT_SECRET=${STRAVA_CLIENT_SECRET}
       - STRAVA_REFRESH_TOKEN=${STRAVA_REFRESH_TOKEN}
       - JEKYLL_SITE_PATH=/app/static
+      - PORT=${PORT}
     command: >
       sh -c "while [ ! -d /app/static ]; do sleep 1; done &&
-             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+             uvicorn app.main:app --host 0.0.0.0 --port $PORT --reload"
     depends_on:
       - jekyll
 
