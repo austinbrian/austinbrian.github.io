@@ -54,11 +54,17 @@ def create_weekly_runs_chart(week_start, week_data, size_by="distance"):
             # Create hover text for all runs that day
             runs_text = []
             for _, run in day_data.iterrows():
+                # Calculate pace only if distance is greater than 0
+                if run['distance'] > 0:
+                    pace_str = f"Pace: {convert_decimal_minutes_to_minutes_seconds(run['moving_time'] / run['distance'] / 60)} min/mile"
+                else:
+                    pace_str = "Pace: N/A"
+
                 run_text = [
                     f'<a href="https://www.strava.com/activities/{run["id"]}" target="_blank">{run["name"]}</a>',
                     f"Distance: {run['distance']:.2f} miles",
                     f"Time: {convert_decimal_minutes_to_minutes_seconds(run['moving_time'] / 60)} min",
-                    f"Pace: {convert_decimal_minutes_to_minutes_seconds(run['moving_time'] / run['distance'] / 60)} min/mile",
+                    pace_str,
                     f"Elevation: {run['total_elevation_gain']:.0f} ft",
                     f"Start: {run['start_date'].to_pydatetime().astimezone(pytz.timezone('America/New_York')).strftime('%Y-%m-%d %I:%M %p')}",
                 ]
