@@ -46,18 +46,27 @@ def update_info_boxes(data, target, start_date, end_date):
         fastest_run_date = pd.to_datetime(
             df.loc[df.pace_in_minutes == fastest_run, "start_date"].max()
         )
+        fastest_run_distance = df.loc[df.pace_in_minutes == fastest_run, "distance"].max()
         fastest_run_pace = df.loc[
             df.pace_in_minutes == fastest_run, "pace_in_minutes"
         ].max()
         end_date = pd.to_datetime(end_date)
+        start_date = pd.to_datetime(start_date)
         max_day_run_date = pd.to_datetime(max_day_run)
         max_day_run_miles = df.loc[df.start_date == max_day_run, "distance"].sum()
         avg_miles_run = total_miles / total_days_run
         miles_remaining = target - total_miles
-        days_remaining = end_date.dayofyear - max_day_run_date.dayofyear
-        miles_per_day_remaining = miles_remaining / days_remaining
+
+        # Calculate days elapsed and remaining based on calendar days, not run days
+        days_elapsed = (max_day_run_date - start_date).days + 1
+        total_days_in_period = (end_date - start_date).days + 1
+        days_remaining = (end_date - max_day_run_date).days
+
+        # Calculate pace metrics based on actual calendar days
+        avg_miles_per_calendar_day = total_miles / days_elapsed
+        on_pace_miles = avg_miles_per_calendar_day * total_days_in_period
+        miles_per_day_remaining = miles_remaining / days_remaining if days_remaining > 0 else 0
         miles_per_week_remaining = miles_per_day_remaining * 7
-        on_pace_miles = (total_miles / total_days_run) * (days_remaining + 1)
         avg_pace = total_minutes_run / total_miles
 
         div1 = html.Div(
@@ -116,7 +125,7 @@ def update_info_boxes(data, target, start_date, end_date):
                             [
                                 html.P(
                                     f"{fastest_run_date.date().strftime('%Y-%m-%d')}, \n"
-                                    f"{round(fastest_run, 2):,.2f} miles, \n"
+                                    f"{round(fastest_run_distance, 2):,.2f} miles, \n"
                                     f"pace: {convert_decimal_minutes_to_minutes_seconds(fastest_run_pace)}"
                                 )
                             ]
