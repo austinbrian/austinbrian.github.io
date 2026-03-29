@@ -141,13 +141,12 @@ def get_running_activities(
         start_date = datetime.strptime(start_date, "%Y-%m-%d")
     if isinstance(end_date, str):
         end_date = datetime.strptime(end_date, "%Y-%m-%d")
+        # Set to end of day if only date was provided
+        end_date = end_date.replace(hour=23, minute=59, second=59)
 
     if isinstance(after, str):
         after = datetime.strptime(after, "%Y-%m-%d")
 
-    start_date = datetime.strftime(start_date, "%Y-%m-%d") if start_date else None
-    end_date = datetime.strftime(end_date, "%Y-%m-%d") if end_date else None
-    after = datetime.strftime(after, "%Y-%m-%d") if after else None
     with get_db() as conn:
         query = "SELECT * FROM activities WHERE type = 'Run'"
         params = []
