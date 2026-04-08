@@ -30,6 +30,11 @@ exclude:
   - jekyll-whiteglass.gemspec
   - screenshot.png
   - vendor
+  - scripts
+
+# Strava data URL (Cloudflare R2 public bucket)
+# Update this after creating your R2 bucket and enabling public access
+r2_data_url: "https://strava-data.austinbrian.workers.dev/activities.json"
 
 
 # Social media
