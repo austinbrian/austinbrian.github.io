@@ -137,6 +137,14 @@ spec = json.loads(combined.to_json())
 spec["config"] = theme["config"]
 spec["autosize"] = theme.get("autosize", "pad")
 
+# bermuda pads the ATA x scale by 10, which at this width renders a -10 tick and
+# implies negative development lag. Clamp the domain to the lags that exist.
+lags = sorted({float(lag) for lag in triangle.dev_lags()})
+for layer in spec["vconcat"][2].get("layer", []):
+    x_encoding = layer.get("encoding", {}).get("x")
+    if x_encoding and x_encoding.get("field") == "dev_lag":
+        x_encoding["scale"] = {"domain": [0, lags[-1] + 12], "nice": False}
+
 (OUT / "combined.vg.json").write_text(json.dumps(spec, indent=1))
 
 import vl_convert as vlc

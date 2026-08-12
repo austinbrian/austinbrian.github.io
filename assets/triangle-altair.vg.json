@@ -1213,7 +1213,11 @@
       "x": {
        "field": "dev_lag",
        "scale": {
-        "padding": 10
+        "domain": [
+         0,
+         96.0
+        ],
+        "nice": false
        },
        "title": "Dev Lag (months)",
        "type": "quantitative"
@@ -1275,7 +1279,11 @@
       "x": {
        "field": "dev_lag",
        "scale": {
-        "padding": 10
+        "domain": [
+         0,
+         96.0
+        ],
+        "nice": false
        },
        "title": "Dev Lag (months)",
        "type": "quantitative"
