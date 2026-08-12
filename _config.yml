@@ -17,7 +17,7 @@ title: Brian Austin
 author: Brian Austin
 description: Long on data science. The website and portfolio page of Brian Austin.
 baseurl:   # the subpath of your site, e.g. /blog
-url: "https://austinbrian.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://austinbrian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: EST
 exclude:
@@ -30,6 +30,18 @@ exclude:
   - jekyll-whiteglass.gemspec
   - screenshot.png
   - vendor
+  # Working files and old experiments — kept in the repo, not published
+  - SITE_REFRESH_PLAN.md
+  - analyses
+  - browser.txt
+  - drafts
+  - get_strava_token.py
+  - index4.html
+  - strava_data.db
+  - style4.css
+  - testfile.py
+  - token.sh
+  - Untitled.ipynb
 
 
 # Social media
@@ -40,12 +52,10 @@ twitter_image:
 github_image:
 facebook_app_id:
 facebook_image:
-google_analytics: UA-NNNNNNNN-N
 
 # Plugins
-gems:
+plugins:
   - jekyll-archives
-  - jekyll-paginate
   - jekyll-sitemap
 
 # Build settings
@@ -54,8 +64,6 @@ excerpt_separator: "<!-- more -->"
 
 # Outputting
 permalink: /:title/
-paginate_path: /posts/:num/
-paginate: 5
 
 # Markdown settings
 kramdown:

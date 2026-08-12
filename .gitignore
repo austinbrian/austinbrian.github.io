@@ -87,3 +87,29 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Jekyll build output and local gem install
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+.bundle/
+
+# Local tooling
+.venv/
+.vercel/
+.DS_Store
+
+# Strava scratch files — token.sh contains a live client secret
+token.sh
+browser.txt
+get_strava_token.py
+strava_data.db
+
+# Planning doc, not for publication
+SITE_REFRESH_PLAN.md
+
+# Demo recordings made from real client data. Do not publish.
+# Replace with the synthetic-data re-record before committing anything here.
+assets/triangle-plugin.mp4
+assets/triangle-plugin.gif

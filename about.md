@@ -6,7 +6,7 @@ permalink: /about/
 Brian is a Washington, DC-based data scientist originally from North Carolina. He likes politics, startups, and advanced baseball statistics.
 
 <p align="center">
-  <img src="https://austinbrian.github.io/blog/images/bda_headshot_smaller.png"/>
+  <img src="{{ "/images/bda_headshot_smaller.png" | relative_url }}"/>
 </p>
 
 
@@ -24,14 +24,16 @@ Brian is a Washington, DC-based data scientist originally from North Carolina. H
 
 ---
 ## Toolkit
+### AI & Agents   
+MCP server design, LLM application development, agent evaluation harnesses
 ### Technologies    
 Python, STATA, PostgreSQL, mySQL, MongoDB, UNIX, Git, JavaScript, React.js, Node.js, Neo4j
 ### Deployment   
-AWS, Google Cloud, Flask, FastAPI, Docker
+AWS, Google Cloud, Databricks, Flask, FastAPI, Docker, Kubernetes, Pivotal Cloud Foundry
 ### Certifications   
 Certified ScrumMaster, AWS Web Services Cloud Practitioner, AWS Certified Machine Learning - Specialty, AWS Certified Data Analytics - Specialty
 ### Machine Learning Libraries   
-Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, NLTK, Gensim, PyMC3, TensorFlow, Keras
+Pandas, NumPy, Statsmodels, SciKit-Learn, Scipy, NLTK, Gensim, spaCy, PyMC3, PyStan, PyTorch, TensorFlow, Keras
 ### Presentation & Visualization   
 Jupyter, Matplotlib, Bokeh, Plotly Dash, Tableau, Powerpoint, HTML/CSS
 ### Polling   
@@ -39,12 +41,22 @@ Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 
 ----
 ## Experience
+### Korra (Ledger Investing)
+**New York, NY**   
+*Financial technology brokerage and analysis firm for insurance-linked securities*   
+**Senior Data Scientist / Machine Learning Engineer** *September 2022 - present*
+* Initiated and built MCP server coverage for the platform's transaction and document-extraction functions, arguing to the CEO and head of engineering that agent-accessible interfaces would become table stakes; now prioritized on the delivery roadmap after client demand confirmed the thesis.
+* Rebuilt 150+ historical transactions through automated skill harnesses to test whether agents could compose the platform's bordereau tools correctly, reconciling extracted triangles against hand-verified records (97% agreement on contract key terms). Attributed all 428 divergences to cause, zero unexplained — most tracing to prior-build defects or deliberate methodology changes rather than extraction error.
+* Built an MCP server for [Bermuda](https://github.com/LedgerInvesting/bermuda-ledger), the firm's open-source actuarial library, enabling live conference demo use by attendees whose IT controls prevented local installation.
+* Previously applied the firm's Bayesian valuation models to price prospective deals and renewals, contributed to backtesting infrastructure, and owned Databricks pipelines for bordereau processing.
+
 ### OneGlobe
 **Reston, VA**   
-*Technical firm supporting DoD and other federal contracts*   
-**Data Scientist** *May 2020 - present*
-* Aligned to [Kessel Run](https://kesselrun.af.mil/), a software factory within the US Air Force
-* Serve as technical lead for the development of a user analytics platform within the Enterprise AI product portfolio.
+*Federal technology contractor staffing [Kessel Run](https://kesselrun.af.mil/), a US Air Force software factory*   
+**Data Scientist / Technical Lead** *May 2020 - September 2022*
+* Emerged as technical lead for a user analytics platform deployed to classified Air Force networks, within the Enterprise AI product portfolio of Kessel Run's All-Domain Common Platform (ADCP) division, directing engineering decisions for a team of 4–7 and reviewing code across the stack.
+* Forked and extended a JavaScript analytics library to fit Air Force frontend standards, and contributed to a companion Java library for backend services; both were made available for integration across other product teams.
+* Led Python analysis of event data against a Postgres warehouse, and replaced an initial Grafana-based approach after it proved undeployable on airgapped networks — learning React to build custom dashboards alongside teammates, delivered on Kubernetes.
 
 ### U.Group
 **Arlington, VA**   
@@ -104,6 +116,8 @@ Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 
 ---
 ## Speaking and Presentation
+- ***[Bermuda actuarial library demo](https://ledgerinvesting.github.io/bermuda-clrs-workshop-2025/)*** -- Casualty Loss Reserve Seminar (CLRS) -- 2025
+- ***User Analytics for DoD Software*** -- DoD Digital and AI Symposium -- 2022
 - ***[How and Why to Put Your Jupyter Notebooks into Docker Containers](https://www.youtube.com/watch?v=f6zoRrJhHXA)*** -- [PyData NYC](https://pydata.org/nyc2019/schedule/presentation/72/how-and-why-to-put-your-jupyter-notebooks-in-docker-containers/) -- November 2019
 
 ---

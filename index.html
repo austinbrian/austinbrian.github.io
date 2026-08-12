@@ -1,6 +1,60 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit whiteglass' home layout instead if you want to make some changes.
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
+layout: default
+title: Brian Austin
 ---
+
+<div class="home">
+
+  <p>
+    I'm a data scientist in Washington, DC. Right now I build MCP servers and other
+    agent-accessible interfaces for insurance-linked securities data at Ledger Investing,
+    where I make the case internally that agent-accessible interfaces are becoming table
+    stakes. Before that I was the technical lead on a user analytics platform for
+    <a href="https://kesselrun.af.mil/">Kessel Run</a>, a software factory inside the US
+    Air Force, deployed to classified networks.
+  </p>
+
+  <p>
+    The thing I keep coming back to is the setup tax &mdash; the distance between a person
+    and a tool they ought to be able to reach. In 2019 that meant a PyData talk on
+    <a href="https://www.youtube.com/watch?v=f6zoRrJhHXA">putting Jupyter notebooks into
+    Docker containers</a>. More recently it meant putting an MCP server in front of
+    <a href="https://github.com/LedgerInvesting/bermuda-ledger">Bermuda</a>, our
+    open-source actuarial library, so that attendees at a conference demo could use it live
+    even though their IT controls wouldn't let them install it. It's the same problem each
+    time: the work is ready before the environment is.
+  </p>
+
+  <h2>A reinsurance loss triangle, drawn in a terminal</h2>
+
+  <figure>
+    <!-- TODO: swap this <img> for the video once the synthetic-data re-record is done:
+    <video autoplay loop muted playsinline poster="/assets/triangle-plugin-poster.png"
+           style="max-width:100%">
+      <source src="/assets/triangle-plugin.mp4" type="video/mp4">
+    </video>
+    -->
+    <img src="{{ "/assets/triangle-plugin-poster.png" | relative_url }}"
+         alt="A terminal-rendered scatter plot of paid age-to-age factors by development lag, shown inside a Claude Code selection drawer"
+         style="max-width:100%">
+  </figure>
+
+  <p>
+    This is a Claude Code plugin that repurposes the user-input drawer as a live preview
+    surface. Arrowing through the options list re-renders the same reinsurance loss
+    triangle four ways &mdash; paid loss heatmap, data completeness, paid age-to-age
+    factors, and a paid-versus-reported scatter &mdash; all drawn with glyphs, because it's
+    a terminal. When there are more periods than columns to draw them in, it says so rather
+    than quietly dropping the ones that don't fit.
+  </p>
+
+  <p>
+    Elsewhere: <a href="https://github.com/austinbrian">GitHub</a>,
+    <a href="https://www.linkedin.com/in/briandaustin/">LinkedIn</a>,
+    <a href="{{ "/assets/brian-austin-resume.pdf" | relative_url }}">r&eacute;sum&eacute;</a>,
+    <a href="{{ "/about/" | relative_url }}">a longer work history</a>, and
+    <a href="{{ "/blog/" | relative_url }}">some older writing</a> from a stretch in 2017
+    when I was posting analyses regularly.
+  </p>
+
+</div>
