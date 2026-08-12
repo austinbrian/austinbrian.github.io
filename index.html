@@ -48,31 +48,38 @@ title: Brian Austin
     than quietly dropping the ones that don't fit.
   </p>
 
-  <h2>The same four views, drawn in a browser</h2>
+  <h2>The same views, drawn in a browser</h2>
 
   <p>
-    The glyphs are a constraint of the medium, not the goal. Those same four views come out
-    of <a href="https://github.com/LedgerInvesting/bermuda-ledger">bermuda</a>'s plotting
-    helpers as Vega-Lite, and this is what they look like with pixels available &mdash;
-    interactive, on a
-    <a href="{{ "/assets/triangle-synthetic.json" | relative_url }}">synthetic triangle</a>
-    built to have the shape a real one does: a ragged lower-right edge where evaluations
-    haven't happened yet, and age-to-age factors decaying toward 1.0 as development lag
-    grows.
+    The glyphs are a constraint of the medium, not the goal. Every view the plugin offers
+    comes out of <a href="https://github.com/LedgerInvesting/bermuda-ledger">bermuda</a>'s
+    plotting helpers as Vega-Lite too, and this is what they look like with pixels
+    available &mdash; grouped the way the plugin groups them. Pick one:
   </p>
 
   <figure>
+    <div class="view-picker">
+      <button type="button" id="view-prev" aria-label="Previous view">&lsaquo;</button>
+      <label class="visually-hidden" for="triangle-view">Triangle view</label>
+      <select id="triangle-view"></select>
+      <button type="button" id="view-next" aria-label="Next view">&rsaquo;</button>
+    </div>
+
     <div id="triangle-altair" class="vega-embed-target">
       <noscript>
-        <img src="{{ "/assets/triangle-altair.png" | relative_url }}"
-             alt="Four Altair charts of the same loss triangle: paid loss heatmap, data completeness, paid age-to-age factors, and a ballistic paid-versus-reported plot"
+        <img src="{{ "/assets/triangle-views-fallback.png" | relative_url }}"
+             alt="A paid loss heatmap of a reinsurance triangle, rendered by bermuda"
              style="max-width:100%">
       </noscript>
     </div>
+
     <figcaption style="font-size:14px;color:#828282;margin-top:6px">
-      Rendered by bermuda from
-      <a href="{{ "/assets/triangle-synthetic-generator.py" | relative_url }}">this generator</a>.
-      Hover any mark for its underlying values.
+      Drawn by bermuda from a
+      <a href="{{ "/assets/triangle-synthetic.json" | relative_url }}">synthetic triangle</a>
+      shaped like a real one &mdash; ragged lower-right edge where evaluations haven't
+      happened yet, age-to-age factors decaying toward 1.0. Built by
+      <a href="{{ "/assets/triangle-synthetic-generator.py" | relative_url }}">this generator</a>;
+      hover any mark for its values.
     </figcaption>
   </figure>
 
@@ -98,6 +105,47 @@ title: Brian Austin
 <style>
   .vega-embed-target { min-height: 40px; overflow-x: auto; }
   .vega-embed-target .vega-embed { width: 100%; }
+
+  .view-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .view-picker select {
+    font: inherit;
+    font-size: 15px;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    max-width: 320px;
+  }
+
+  .view-picker button {
+    font: inherit;
+    font-size: 18px;
+    line-height: 1;
+    padding: 5px 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .view-picker button:hover { background: #f5f5f5; }
+  .view-picker button:disabled { opacity: 0.4; cursor: default; background: #fff; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 </style>
 
 <script>
@@ -129,22 +177,70 @@ title: Brian Austin
       }, Promise.resolve());
     }
 
+    var picker = document.getElementById('triangle-view');
+    var prev = document.getElementById('view-prev');
+    var next = document.getElementById('view-next');
+    var payload = null;
+
+    function buildOptions() {
+      var currentGroup = null;
+      var parent = picker;
+      payload.order.forEach(function (key) {
+        var view = payload.views[key];
+        if (view.group !== currentGroup) {
+          currentGroup = view.group;
+          parent = document.createElement('optgroup');
+          parent.label = currentGroup;
+          picker.appendChild(parent);
+        }
+        var option = document.createElement('option');
+        option.value = key;
+        option.textContent = view.label;
+        parent.appendChild(option);
+      });
+    }
+
+    function show(key) {
+      picker.value = key;
+      var index = payload.order.indexOf(key);
+      prev.disabled = index <= 0;
+      next.disabled = index >= payload.order.length - 1;
+      return vegaEmbed(target, payload.views[key].spec, {
+        actions: { export: true, source: false, compiled: false, editor: false },
+        renderer: 'canvas'
+      });
+    }
+
+    function step(delta) {
+      var index = payload.order.indexOf(picker.value) + delta;
+      if (index >= 0 && index < payload.order.length) show(payload.order[index]);
+    }
+
     var started = false;
     function render() {
       if (started) return;
       started = true;
-      loadSequentially(SCRIPTS)
-        .then(function () {
-          return vegaEmbed(target, '{{ "/assets/triangle-altair.vg.json" | relative_url }}', {
-            actions: { export: true, source: false, compiled: false, editor: false },
-            renderer: 'canvas'
-          });
+      Promise.all([
+        loadSequentially(SCRIPTS),
+        fetch('{{ "/assets/triangle-views.json" | relative_url }}').then(function (response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json();
+        })
+      ])
+        .then(function (results) {
+          payload = results[1];
+          buildOptions();
+          picker.addEventListener('change', function () { show(picker.value); });
+          prev.addEventListener('click', function () { step(-1); });
+          next.addEventListener('click', function () { step(1); });
+          return show(payload.order[0]);
         })
         .catch(function (error) {
           console.error('Could not render the triangle charts:', error);
+          document.querySelector('.view-picker').style.display = 'none';
           target.innerHTML =
             '<p style="color:#828282;font-size:14px">The interactive charts could not load. ' +
-            'The <a href="/assets/triangle-altair.vg.json">Vega-Lite spec</a> is still here.</p>';
+            'The <a href="/assets/triangle-views.json">Vega-Lite specs</a> are still here.</p>';
         });
     }
 
