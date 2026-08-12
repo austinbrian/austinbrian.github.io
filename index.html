@@ -48,6 +48,40 @@ title: Brian Austin
     than quietly dropping the ones that don't fit.
   </p>
 
+  <h2>The same four views, drawn in a browser</h2>
+
+  <p>
+    The glyphs are a constraint of the medium, not the goal. Those same four views come out
+    of <a href="https://github.com/LedgerInvesting/bermuda-ledger">bermuda</a>'s plotting
+    helpers as Vega-Lite, and this is what they look like with pixels available &mdash;
+    interactive, on a
+    <a href="{{ "/assets/triangle-synthetic.json" | relative_url }}">synthetic triangle</a>
+    built to have the shape a real one does: a ragged lower-right edge where evaluations
+    haven't happened yet, and age-to-age factors decaying toward 1.0 as development lag
+    grows.
+  </p>
+
+  <figure>
+    <div id="triangle-altair" class="vega-embed-target">
+      <noscript>
+        <img src="{{ "/assets/triangle-altair.png" | relative_url }}"
+             alt="Four Altair charts of the same loss triangle: paid loss heatmap, data completeness, paid age-to-age factors, and a ballistic paid-versus-reported plot"
+             style="max-width:100%">
+      </noscript>
+    </div>
+    <figcaption style="font-size:14px;color:#828282;margin-top:6px">
+      Rendered by bermuda from
+      <a href="{{ "/assets/triangle-synthetic-generator.py" | relative_url }}">this generator</a>.
+      Hover any mark for its underlying values.
+    </figcaption>
+  </figure>
+
+  <p>
+    The comparison is the point. The terminal version is what you can have when the
+    environment won't give you a browser &mdash; an airgapped network, a locked-down laptop,
+    an agent session with nowhere to put an image. It gives up resolution and gains reach.
+  </p>
+
   <p>
     Elsewhere: <a href="https://github.com/austinbrian">GitHub</a>,
     <a href="https://www.linkedin.com/in/briandaustin/">LinkedIn</a>,
@@ -60,3 +94,64 @@ title: Brian Austin
   </p>
 
 </div>
+
+<style>
+  .vega-embed-target { min-height: 40px; overflow-x: auto; }
+  .vega-embed-target .vega-embed { width: 100%; }
+</style>
+
+<script>
+  // Vega is ~800KB across three files. Defer it until after the page has finished
+  // loading so it never delays first paint, then render unconditionally — an
+  // IntersectionObserver would save the download for visitors who never scroll this
+  // far, but its failure mode is a figure that silently never appears.
+  (function () {
+    var target = document.getElementById('triangle-altair');
+    if (!target) return;
+
+    var SCRIPTS = [
+      'https://cdn.jsdelivr.net/npm/vega@5.30.0',
+      'https://cdn.jsdelivr.net/npm/vega-lite@6.4.1',
+      'https://cdn.jsdelivr.net/npm/vega-embed@6.26.0'
+    ];
+
+    function loadSequentially(urls) {
+      return urls.reduce(function (chain, url) {
+        return chain.then(function () {
+          return new Promise(function (resolve, reject) {
+            var script = document.createElement('script');
+            script.src = url;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        });
+      }, Promise.resolve());
+    }
+
+    var started = false;
+    function render() {
+      if (started) return;
+      started = true;
+      loadSequentially(SCRIPTS)
+        .then(function () {
+          return vegaEmbed(target, '{{ "/assets/triangle-altair.vg.json" | relative_url }}', {
+            actions: { export: true, source: false, compiled: false, editor: false },
+            renderer: 'canvas'
+          });
+        })
+        .catch(function (error) {
+          console.error('Could not render the triangle charts:', error);
+          target.innerHTML =
+            '<p style="color:#828282;font-size:14px">The interactive charts could not load. ' +
+            'The <a href="/assets/triangle-altair.vg.json">Vega-Lite spec</a> is still here.</p>';
+        });
+    }
+
+    if (document.readyState === 'complete') {
+      render();
+    } else {
+      window.addEventListener('load', render);
+    }
+  })();
+</script>
