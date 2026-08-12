@@ -6,6 +6,34 @@ happened yet, and paid age-to-age factors decaying toward 1.0.
 
 Deliberately synthetic but domain-plausible: random numbers render fine but do
 not read as real to anyone who knows the shape of a triangle.
+
+Outputs, all copied into /assets and served by the site:
+    triangle.json / triangle.csv  the data, so the terminal demo can be
+                                  re-recorded against the same triangle
+    combined.vg.json              the Vega-Lite spec the landing page embeds
+    combined.png                  static fallback for the noscript case
+
+Running it
+----------
+bermuda's own checkout venv is missing dependencies, and bermuda calls
+`np.NaN`, removed in NumPy 2, so it needs the pins its pyproject already
+declares. Build an isolated environment rather than repairing that one:
+
+    uv venv bermudaenv --python 3.12
+    UV_INDEX_URL=https://pypi.org/simple uv pip install \
+        --python bermudaenv/bin/python \
+        ~/ldgr/bermuda-ledger/dist/bermuda_ledger-*.whl \
+        vl-convert-python "numpy<2" "scipy<1.14" "pandas<2.3"
+    ./bermudaenv/bin/python triangle-synthetic-generator.py
+
+UV_INDEX_URL is needed because the default pip config points at Ledger's
+CodeArtifact, which 401s for public packages.
+
+Adding a view
+-------------
+Add the bermuda plotter to `charts`, then add it to the `vconcat`. Keep the
+charts one per row: two across overflows the site's ~740px content column once
+axis labels and legends are counted.
 """
 
 import datetime as dt
