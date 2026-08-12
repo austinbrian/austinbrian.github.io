@@ -20,6 +20,8 @@ baseurl:   # the subpath of your site, e.g. /blog
 url: "https://austinbrian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: EST
+# Required by jekyll-github-metadata when building outside the legacy Pages builder
+repository: austinbrian/austinbrian.github.io
 exclude:
   - Gemfile
   - Gemfile.lock
