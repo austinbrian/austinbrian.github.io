@@ -1,12 +1,15 @@
 # Header navigation. An entry with `children` renders as a dropdown instead of
 # a link; see _includes/header.html.
+# Order is intentional: About, Writing, More, then the social icons. The running
+# dashboard lives in a separate repo (austinbrian/running) and carries a hand
+# maintained copy of this nav — keep the two in sync.
 # Note: /blog/ is NOT available — it is served by the separate austinbrian/blog
 # repo's Pages site, which shadows any /blog/* path here.
 main:
-  - title: "Writing"
-    url: /writing/
   - title: "About"
     url: /about/
+  - title: "Writing"
+    url: /writing/
   - title: "More"
     children:
       - title: "Running"
