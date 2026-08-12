@@ -29,6 +29,10 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+          # Without these, jekyll-github-metadata cannot resolve the repo and
+          # guesses a /pages/<owner> baseurl, which breaks every asset path.
+          PAGES_REPO_NWO: ${{ github.repository }}
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

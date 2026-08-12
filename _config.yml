@@ -16,7 +16,7 @@
 title: Brian Austin
 author: Brian Austin
 description: Long on data science. The website and portfolio page of Brian Austin.
-baseurl:   # the subpath of your site, e.g. /blog
+baseurl: "" # must be an explicit empty string; a nil value lets jekyll-github-metadata guess a subpath
 url: "https://austinbrian.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: EST
