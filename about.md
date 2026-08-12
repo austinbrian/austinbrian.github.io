@@ -3,7 +3,7 @@ layout: page
 title: "About"
 permalink: /about/
 ---
-Brian is a Washington, DC-based data scientist originally from North Carolina. He likes politics, startups, and advanced baseball statistics.
+Brian is a data scientist based in Chapel Hill, North Carolina, after a long stretch in Washington, DC. He likes politics, startups, and advanced baseball statistics.
 
 <p align="center">
   <img src="{{ "/images/bda_headshot_smaller.png" | relative_url }}"/>
