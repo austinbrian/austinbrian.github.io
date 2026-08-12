@@ -23,13 +23,15 @@ layout: default
         </header>
 
         <div class="post-content">
-          {{ post.excerpt }}
+          {% comment %}
+            These posts predate the excerpt separator, so post.excerpt is the whole
+            body. Truncate rather than print eleven full posts on one page.
+          {% endcomment %}
+          <p>{{ post.excerpt | strip_html | normalize_whitespace | truncatewords: 45 }}</p>
         </div>
-        {% if post.content contains site.excerpt_separator %}
-          <p class="post-continue">
-            <a href="{{ post.url | relative_url }}">Read on &rarr;</a>
-          </p>
-        {% endif %}
+        <p class="post-continue">
+          <a href="{{ post.url | relative_url }}">Read on &rarr;</a>
+        </p>
       </li>
     {% endfor %}
   </ul>
