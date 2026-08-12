@@ -6,7 +6,7 @@ meta: "CFPB, civic engagement, complaints database"
 
 *Find the full code and data for this project at [GitHub here](https://github.com/austinbrian/portfolio/tree/master/cfpb)*.    
 
-The [Consumer Financial Protection Bureau](https://www.consumerfinance.gov/) (CFPB) collects consumer complaints against financial companies, as I've [discussed in this space](https://austinbrian.github.io/blog/cfpb-complaints-inauguration/). In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it's important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.
+The [Consumer Financial Protection Bureau](https://www.consumerfinance.gov/) (CFPB) collects consumer complaints against financial companies, as I've [discussed in this space](/cfpb-complaints-inauguration/). In trying to meet the problems identified in these complaints, whether by the CFPB or the company itself, it's important to understand what type of product is causing the problem. Teams work on products, and the issues across different types of financial products can vary significantly.
 
 But the distinction between "My bank is opening up credit card applications I didn't ask for" and "my credit card company keeps calling my house, but I haven't missed a payment" is subtle, and the sort of thing that doesn't lend itself to easy product classifications.    
 
