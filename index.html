@@ -28,24 +28,24 @@ title: Brian Austin
   <h2>A reinsurance loss triangle, drawn in a terminal</h2>
 
   <figure>
-    <!-- TODO: swap this <img> for the video once the synthetic-data re-record is done:
-    <video autoplay loop muted playsinline poster="/assets/triangle-plugin-poster.png"
+    <!-- Placeholder until the re-recorded session lands. Swap for:
+    <video autoplay loop muted playsinline poster="/assets/triangle-terminal-heatmap.png"
            style="max-width:100%">
-      <source src="/assets/triangle-plugin.mp4" type="video/mp4">
+      <source src="/assets/triangle-plugin-v2.mp4" type="video/mp4">
     </video>
     -->
-    <img src="{{ "/assets/triangle-plugin-poster.png" | relative_url }}"
-         alt="A terminal-rendered scatter plot of paid age-to-age factors by development lag, shown inside a Claude Code selection drawer"
+    <img src="{{ "/assets/triangle-terminal-heatmap.png" | relative_url }}"
+         alt="A loss triangle drawn in a terminal: cumulative paid loss by accident year and development lag, each cell a coloured block with its dollar value"
          style="max-width:100%">
   </figure>
 
   <p>
     This is a Claude Code plugin that repurposes the user-input drawer as a live preview
     surface. Arrowing through the options list re-renders the same reinsurance loss
-    triangle four ways &mdash; paid loss heatmap, data completeness, paid age-to-age
-    factors, and a paid-versus-reported scatter &mdash; all drawn with glyphs, because it's
-    a terminal. When there are more periods than columns to draw them in, it says so rather
-    than quietly dropping the ones that don't fit.
+    triangle eight ways &mdash; heatmap, completeness, right edge, age-to-age factors,
+    growth curve, sunset, mountain, and a paid-versus-reported scatter &mdash; all drawn
+    with glyphs, because it's a terminal. When there are more periods than columns to draw
+    them in, it says so rather than quietly dropping the ones that don't fit.
   </p>
 
   <h2>The same views, drawn in a browser</h2>
