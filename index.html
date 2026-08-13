@@ -5,56 +5,60 @@ title: Brian Austin
 
 <div class="home">
 
-  <p>
-    I'm a data scientist in Chapel Hill, North Carolina. Right now I build MCP servers and other
-    agent-accessible interfaces for insurance-linked securities data at Ledger Investing,
-    where I make the case internally that agent-accessible interfaces are becoming table
-    stakes. Before that I was the technical lead on a user analytics platform for
-    <a href="https://kesselrun.af.mil/">Kessel Run</a>, a software factory inside the US
-    Air Force, deployed to classified networks.
-  </p>
+
 
   <p>
-    The thing I keep coming back to is the setup tax &mdash; the distance between a person
-    and a tool they ought to be able to reach. In 2019 that meant a PyData talk on
-    <a href="https://www.youtube.com/watch?v=f6zoRrJhHXA">putting Jupyter notebooks into
-    Docker containers</a>. More recently it meant putting an MCP server in front of
-    <a href="https://github.com/LedgerInvesting/bermuda-ledger">Bermuda</a>, our
-    open-source actuarial library, so that attendees at a conference demo could use it live
-    even though their IT controls wouldn't let them install it. It's the same problem each
-    time: the work is ready before the environment is.
+    I'm a data scientist in Chapel Hill, North Carolina. Right now I work in the financial tech
+    space building MCP servers and analytics tools for insurance-linked securities data at <a href="https://www.korra.com">Korra</a> 
+    (formerly <a href="https://www.ledgerinvesting.com/" title="Korra Tech, LLC is a wholly owned subsidiary of Ledger Investing, Inc.">Ledger Investing</a>).
   </p>
+
+
+
+  <h1>Some cool stuff I've worked on recently</h1>
+  <p> 
+    As a part of building out the MCP capabilities for Korra, I often find that I wish I could just take a quick look at the insurance triangles in 
+    a transaction. It's useful to see what you're uploading and understand if there are any trends that you can spot in the moment, as an ongoing check for reasonableness.
+    There are other ways to do this same thing, but they all require some loss of context – switching to the web UI, opening a Jupyter notebook, whatever, they all kind of bring you out of the flow.
+  </p>
+
 
   <h2>A reinsurance loss triangle, drawn in a terminal</h2>
+  <p> 
+    So instead, I wondered if we could just draw the triangles in the terminal itself. To do that, I made a Claude Code plugin, and built a <code>/bermuda</code> slash command to run it, which you can see below.
+    The experience I wanted to create was of flipping through several different charts to find one that was useful for the situation. 
+    Because of that I knew I couldn't just keep passing the whole JSON dataset into Claude Code's context, and a hook is only useful if you know which chart you want to look at.
+    If the whole point is to find what looks weird, that's not especially helpful. 
+  </p>
+  
 
   <figure>
-    <!-- Placeholder until the re-recorded session lands. Swap for:
-    <video autoplay loop muted playsinline poster="/assets/triangle-terminal-heatmap.png"
+    <video autoplay loop muted playsinline
+           poster="{{ "/assets/triangle-plugin-v2-poster.png" | relative_url }}"
            style="max-width:100%">
-      <source src="/assets/triangle-plugin-v2.mp4" type="video/mp4">
+      <source src="{{ "/assets/triangle-plugin-v2.mp4" | relative_url }}" type="video/mp4">
+      <img src="{{ "/assets/triangle-plugin-v2-poster.png" | relative_url }}"
+           alt="A Claude Code session showing a reinsurance loss triangle drawn in the terminal, with a tabbed drawer for choosing between chart views"
+           style="max-width:100%">
     </video>
-    -->
-    <img src="{{ "/assets/triangle-terminal-heatmap.png" | relative_url }}"
-         alt="A loss triangle drawn in a terminal: cumulative paid loss by quarterly experience period and development lag, each cell a coloured block with its dollar value"
-         style="max-width:100%">
   </figure>
-
-  <p>
-    This is a Claude Code plugin that repurposes the user-input drawer as a live preview
-    surface. Arrowing through the options list re-renders the same reinsurance loss
-    triangle eight ways &mdash; heatmap, completeness, right edge, age-to-age factors,
-    growth curve, sunset, mountain, and a paid-versus-reported scatter &mdash; all drawn
-    with glyphs, because it's a terminal. When there are more periods than columns to draw
-    them in, it says so rather than quietly dropping the ones that don't fit.
+  <p> 
+    You can see how the Claude Code client uses the MCP connection to help a user select from among their triangles and then pass the data through to a renderer.
+    What I decided to do was repurpose the user-input drawer native to Claude Code and pass the glyph-creating hooks through as components of each of the questions. 
+    Arrowing through the options list re-renders the same triangle's data eight ways: heatmap, completeness, right edge, age-to-age factors,
+    growth curve, sunset, mountain, and a paid-versus-reported scatter. Those are grouped into three sections, in pages in the drawer: Shape and Coverage, Development, and Paid vs. Reported.
+  </p>
+  <p> 
+    The hook structure means the charts themselves don't cost the user and agent tokens or context until they decide on one to expand (or just escape to exit without expanding). 
+    In fact it takes <span style="font-style: italic">two</span> hooks: <code>PreToolUse</code> expands the placeholder into glyph art, but when the user picks an option <code>AskUserQuestion</code> echoes the entire question structure back to the model. To avoid that, a script runs on <code>PostToolUse</code> to blank them back out.
   </p>
 
-  <h2>The same views, drawn in a browser</h2>
 
+
+  <h2>The same views, drawn in a browser</h2>
   <p>
-    The glyphs are a constraint of the medium, not the goal. Every view the plugin offers
-    comes out of <a href="https://github.com/LedgerInvesting/bermuda-ledger">bermuda</a>'s
-    plotting helpers as Vega-Lite too, and this is what they look like with pixels
-    available &mdash; grouped the way the plugin groups them. Pick one:
+    The composed glyphs here are derived from the <a href="https://github.com/LedgerInvesting/bermuda-ledger">bermuda</a> library's 
+    native charts, which come with Vega-Lite via Altair in the Python library. You can check out these fully rendered versions:
   </p>
 
   <figure>
@@ -73,35 +77,59 @@ title: Brian Austin
       </noscript>
     </div>
 
-    <figcaption style="font-size:14px;color:#828282;margin-top:6px">
-      Drawn by bermuda from a
-      <a href="{{ "/assets/triangle-synthetic.json" | relative_url }}">synthetic triangle</a>
-      shaped like a real one &mdash; quarterly periods, a ragged lower-right edge where
-      evaluations haven't happened yet, age-to-age factors decaying toward 1.0, and
-      claim counts that only start arriving partway through. Built by
-      <a href="{{ "/assets/triangle-synthetic-generator.py" | relative_url }}">this generator</a>;
-      hover any mark for its values.
-    </figcaption>
   </figure>
 
-  <p>
-    The comparison is the point. The terminal version is what you can have when the
-    environment won't give you a browser &mdash; an airgapped network, a locked-down laptop,
-    an agent session with nowhere to put an image. It gives up resolution and gains reach.
+  <p> 
+    Sometimes the environment won't give you a browser: an airgapped network, a locked-down laptop,
+    an agent session with nowhere to put an image. It's there for a low-resolution look at what's in the ballpark before you commit to doing heavier analytical tasks.
   </p>
-
+  <p> 
+    I had fun making this. 
+  </p>
+  <h1>Elsewhere</h1>
   <p>
-    Elsewhere: <a href="https://github.com/austinbrian">GitHub</a>,
+    I'm on <a href="https://github.com/austinbrian">GitHub</a>,
     <a href="https://www.linkedin.com/in/briandaustin/">LinkedIn</a>,
     <a href="{{ "/assets/brian-austin-resume.pdf" | relative_url }}">r&eacute;sum&eacute;</a>,
     <a href="{{ "/about/" | relative_url }}">a longer work history</a>,
     <a href="{{ "/writing/" | relative_url }}">some older writing</a> from a stretch in 2017
     when I was posting analyses regularly, and
-    <a href="{{ "/running/" | relative_url }}">a decade of running data</a> pulled nightly
+    {% comment %}
+    Restore once /oscar-picks-2026/ exists — the page isn't in the repo yet, so this link 404s:
+    <a href="{{ "/oscar-picks-2026/" | relative_url }}">Oscar selection</a> guesses and scores from the 98th Academy Awards, and
+    {% endcomment %}
+    <a href="{{ "/running/" | relative_url }}">charts of my running data</a> pulled nightly
     from Strava.
   </p>
-
 </div>
+
+  <!-- <h1>Graveyard</h1> -->
+  <!-- <p> -->
+  <!--   I'm a data scientist in Chapel Hill, North Carolina. Right now I build MCP servers and other -->
+  <!--   agent-accessible interfaces for insurance-linked securities data at Ledger Investing, -->
+  <!--   where I make the case internally that agent-accessible interfaces are becoming table -->
+  <!--   stakes. Before that I was the technical lead on a user analytics platform for -->
+  <!--   <a href="https://kesselrun.af.mil/">Kessel Run</a>, a software factory inside the US -->
+  <!--   Air Force, deployed to classified networks. -->
+  <!-- </p> -->
+  <!-- <p> -->
+  <!--   The thing I keep coming back to is the setup tax &mdash; the distance between a person -->
+  <!--   and a tool they ought to be able to reach. In 2019 that meant a PyData talk on -->
+  <!--   <a href="https://www.youtube.com/watch?v=f6zoRrJhHXA">putting Jupyter notebooks into -->
+  <!--   Docker containers</a>. More recently it meant putting an MCP server in front of -->
+  <!--   <a href="https://github.com/LedgerInvesting/bermuda-ledger">Bermuda</a>, our -->
+  <!--   open-source actuarial library, so that attendees at a conference demo could use it live -->
+  <!--   even though their IT controls wouldn't let them install it. It's the same problem each -->
+  <!--   time: the work is ready before the environment is. -->
+  <!-- </p> -->
+
+
+  <!-- <p> -->
+  <!--   The glyphs are a constraint of the medium, not the goal. Every view the plugin offers -->
+  <!--   comes out of <a href="https://github.com/LedgerInvesting/bermuda-ledger">bermuda</a>'s -->
+  <!--   plotting helpers as Vega-Lite too, and this is what they look like with pixels -->
+  <!--   available &mdash; grouped the way the plugin groups them. Pick one: -->
+  <!-- </p> -->
 
 <style>
   .vega-embed-target { min-height: 40px; overflow-x: auto; }
