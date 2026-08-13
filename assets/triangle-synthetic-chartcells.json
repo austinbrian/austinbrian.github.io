@@ -1,36 +1,37 @@
 [
  {
-  "periodStart": "2018-01-01",
-  "evaluationDate": "2019-12-31",
-  "devLag": 12,
-  "experienceResolution": 12,
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2023-06-30",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 1736014.03,
+   "metric": 698350.21,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 3353572.17,
+   "metric": 2212561.48,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 9731868.18,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 17.83844579366261,
+   "metric": 6.149352494466323,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 34.45969579501641,
+   "metric": 19.482804274087783,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.8093740348400293,
+   "metric": 5.416572939814825,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -41,37 +42,38 @@
   ]
  },
  {
-  "periodStart": "2018-01-01",
-  "evaluationDate": "2020-12-31",
-  "devLag": 24,
-  "experienceResolution": 12,
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2023-09-30",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 3141098.71,
+   "metric": 1556738.09,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 4613559.87,
+   "metric": 3340749.68,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 9731868.18,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 32.27642064095447,
+   "metric": 13.707923502983181,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 47.406723813638834,
+   "metric": 29.417113482496944,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.3206614350556338,
+   "metric": 2.7571552707366465,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -82,119 +84,38 @@
   ]
  },
  {
-  "periodStart": "2018-01-01",
-  "evaluationDate": "2021-12-31",
-  "devLag": 36,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 4148327.93,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5166131.9,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 9731868.18,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 42.62622400214221,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 53.08468841179886,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.1547090950449523,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2018-01-01",
-  "evaluationDate": "2022-12-31",
-  "devLag": 48,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 4790111.99,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5627847.87,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 9731868.18,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 49.220888542697054,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 57.82905980545248,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.0874842114077587,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2018-01-01",
+  "periodStart": "2023-01-01",
   "evaluationDate": "2023-12-31",
-  "devLag": 60,
-  "experienceResolution": 12,
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 5209171.16,
+   "metric": 2321777.97,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 5764004.65,
+   "metric": 4159001.55,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 9731868.18,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 53.526939161644094,
+   "metric": 20.44451472480614,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 59.228141435840946,
+   "metric": 36.62226514685491,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.0398896606806831,
+   "metric": 2.147863182628096,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -205,119 +126,38 @@
   ]
  },
  {
-  "periodStart": "2018-01-01",
-  "evaluationDate": "2024-12-31",
-  "devLag": 72,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5416963.23,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5847969.11,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 9731868.18,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 55.66211060207764,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 60.09091987104988,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.0515175400221424,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2018-01-01",
-  "evaluationDate": "2025-12-31",
-  "devLag": 84,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5696031.85,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 6059673.97,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 9731868.18,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 58.529685612737104,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 62.26629726092324,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": null,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2019-01-01",
-  "evaluationDate": "2020-12-31",
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2024-03-31",
   "devLag": 12,
-  "experienceResolution": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 2171968.25,
+   "metric": 3157866.03,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 4160964.67,
+   "metric": 4779562.57,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 10629834.43,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 20.43275710739363,
+   "metric": 27.80672371927971,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 39.144209605530044,
+   "metric": 42.086641618232456,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.845710115698054,
+   "metric": 1.7342762606050137,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -328,37 +168,38 @@
   ]
  },
  {
-  "periodStart": "2019-01-01",
-  "evaluationDate": "2021-12-31",
-  "devLag": 24,
-  "experienceResolution": 12,
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2024-06-30",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 4008823.77,
+   "metric": 3782664.85,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 5799316.78,
+   "metric": 5203957.86,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 10629834.43,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 37.71294648471773,
+   "metric": 33.30841631890908,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 54.55698127934059,
+   "metric": 45.82367240569547,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.2659366590215562,
+   "metric": 1.5611532779595845,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -369,652 +210,38 @@
   ]
  },
  {
-  "periodStart": "2019-01-01",
-  "evaluationDate": "2022-12-31",
-  "devLag": 36,
-  "experienceResolution": 12,
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2024-09-30",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 5074916.97,
+   "metric": 4292168.63,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 6621762.92,
+   "metric": 5641731.91,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 10629834.43,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 47.742201474722314,
+   "metric": 37.794873537104834,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 62.294130389385565,
+   "metric": 49.678510433710265,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.18158168999561,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2019-01-01",
-  "evaluationDate": "2023-12-31",
-  "devLag": 48,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5996428.97,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 7039993.2,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10629834.43,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 56.41131110261329,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 66.22862516213246,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.1052957723936818,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2019-01-01",
-  "evaluationDate": "2024-12-31",
-  "devLag": 60,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 6627827.59,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 7357724.43,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10629834.43,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 62.35118367690324,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 69.21767670467845,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.0415755579423573,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2019-01-01",
-  "evaluationDate": "2025-12-31",
-  "devLag": 72,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 6903383.22,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 7407049.34,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10629834.43,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 64.9434689266369,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 69.68170001872738,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": null,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2020-01-01",
-  "evaluationDate": "2021-12-31",
-  "devLag": 12,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 2150721.3,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 4279190.91,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10666523.3,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 20.163283194628182,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 40.11795399162536,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.9026270395889975,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2020-01-01",
-  "evaluationDate": "2022-12-31",
-  "devLag": 24,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 4092020.5,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5661258.0,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10666523.3,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 38.36320781299001,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 53.07500711126745,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.2994983162963138,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2020-01-01",
-  "evaluationDate": "2023-12-31",
-  "devLag": 36,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5317573.75,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 6564479.27,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10666523.3,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 49.85292396070611,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 61.5428203302195,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.1066549589462675,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2020-01-01",
-  "evaluationDate": "2024-12-31",
-  "devLag": 48,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5884719.36,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 7020110.31,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10666523.3,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 55.169985519086616,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 65.81441874317191,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.1055291258613222,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2020-01-01",
-  "evaluationDate": "2025-12-31",
-  "devLag": 60,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 6505728.65,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 7209897.71,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 10666523.3,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 60.99202586469763,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 67.59369953281778,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": null,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2021-01-01",
-  "evaluationDate": "2022-12-31",
-  "devLag": 12,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 2190132.49,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 4181173.87,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11642455.32,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 18.811603135274048,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 35.913162258972704,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.769032644230578,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2021-01-01",
-  "evaluationDate": "2023-12-31",
-  "devLag": 24,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 3874415.87,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5677111.16,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11642455.32,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 33.278340036610075,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 48.76214684927818,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.3429719587639413,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2021-01-01",
-  "evaluationDate": "2024-12-31",
-  "devLag": 36,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5203231.87,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 6465848.25,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11642455.32,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 44.69187750337873,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 55.53680965296588,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.151540004308899,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2021-01-01",
-  "evaluationDate": "2025-12-31",
-  "devLag": 48,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 5991729.65,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 6941422.27,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11642455.32,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 51.464484812813524,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 59.62163546443397,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": null,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2022-01-01",
-  "evaluationDate": "2023-12-31",
-  "devLag": 12,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 2024682.68,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 3818121.31,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11824833.45,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 17.122293422238435,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 32.289007081110306,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.8004531999058737,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2022-01-01",
-  "evaluationDate": "2024-12-31",
-  "devLag": 24,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 3645346.41,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5246829.8,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11824833.45,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 30.827887981796483,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 44.37127865001769,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": 1.3114945556024673,
-   "unit": "",
-   "field": "Paid ATA"
-  },
-  "fields": [
-   "paidLoss",
-   "reportedLoss",
-   "earnedPremium"
-  ]
- },
- {
-  "periodStart": "2022-01-01",
-  "evaluationDate": "2025-12-31",
-  "devLag": 36,
-  "experienceResolution": 12,
-  "paidLoss": {
-   "metric": 4780851.97,
-   "unit": "USD",
-   "field": "Paid Loss"
-  },
-  "reportedLoss": {
-   "metric": 5952398.45,
-   "unit": "USD",
-   "field": "Reported Loss"
-  },
-  "earnedPremium": {
-   "metric": 11824833.45,
-   "unit": "USD",
-   "field": "Earned Premium"
-  },
-  "paidLossRatio": {
-   "metric": 40.43060724884882,
-   "unit": "%",
-   "field": "Paid LR"
-  },
-  "reportedLossRatio": {
-   "metric": 50.33811660154926,
-   "unit": "%",
-   "field": "Reported LR"
-  },
-  "paidAta": {
-   "metric": null,
+   "metric": 1.4246256862466282,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -1027,35 +254,36 @@
  {
   "periodStart": "2023-01-01",
   "evaluationDate": "2024-12-31",
-  "devLag": 12,
-  "experienceResolution": 12,
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 2372921.58,
+   "metric": 4986861.42,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 4643230.12,
+   "metric": 6104243.58,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 12541503.06,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 18.920551776351438,
+   "metric": 43.91202046410908,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 37.022915816280154,
+   "metric": 53.75117662741598,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
-   "metric": 1.8708568447508493,
+   "metric": 1.3039621582265666,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -1067,36 +295,1909 @@
  },
  {
   "periodStart": "2023-01-01",
-  "evaluationDate": "2025-12-31",
+  "evaluationDate": "2025-03-31",
   "devLag": 24,
-  "experienceResolution": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 4439396.58,
+   "metric": 5476612.09,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 6486973.67,
+   "metric": 6231529.7,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 12541503.06,
+   "metric": 11356483.64,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 35.39764379724993,
+   "metric": 48.224540831549156,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 51.724052842514716,
+   "metric": 54.87199997410466,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.1877033963893544,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 412.0,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 48.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 27,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5905319.63,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6406822.26,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 11356483.64,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 51.999543319907424,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 56.41554607126612,
    "unit": "%",
    "field": "Reported LR"
   },
   "paidAta": {
    "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 426.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 35.2,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 30,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6114733.68,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6683957.24,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 11356483.64,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 53.8435476494025,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 58.85586993193608,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 436.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 23.9,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 33,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6502678.58,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6752204.22,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 11356483.64,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 57.25961297646883,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 59.45682161877353,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 432.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 17.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-01-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 36,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6504590.78,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6734159.97,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 11356483.64,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 57.27645093494802,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 59.29793220747333,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 450.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 18.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2023-09-30",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 914232.05,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2806232.49,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 7.399281064371621,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 22.71207066683062,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.451330261283227,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2023-12-31",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1998707.66,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4256621.69,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 16.17641794755775,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 34.45070676422964,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.7785126164974026,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2024-03-31",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2942385.48,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5318992.11,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 23.814016546724655,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 43.048936646954196,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.1133218037767096,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2024-06-30",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3954868.01,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6051970.58,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 32.00848184930957,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 48.98125297043364,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.7388783070917204,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2024-09-30",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4983780.84,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6857031.8,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 40.33592477794898,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 55.49696661316353,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.489508039843903,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2024-12-31",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5553434.45,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7162547.34,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 44.946381357024215,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 57.96963791143323,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.395582904557377,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6218207.39,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7734816.68,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 50.32668040369256,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 62.601264740948174,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.3277948453887125,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 404.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 64.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 24,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6877034.19,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7981481.15,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 55.65885473070347,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 64.59762851109194,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.228687084657347,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 432.4,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 50.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 27,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 7423381.63,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 8393321.05,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 60.0806842512939,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 67.93082950051547,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 468.6,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 38.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 30,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 7750278.18,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 8551905.68,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 62.72640144357939,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 69.21432448393831,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 458.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 25.1,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 33,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 8256503.72,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 8565179.46,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 66.82350682554812,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 69.32175500883255,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 474.9,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 19.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-04-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 36,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 8449723.09,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 8680377.28,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12355687.56,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 68.38731595443483,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 70.2541015046515,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 474.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 19.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2023-12-31",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 708814.13,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2292106.71,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 5.489548705514632,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 17.751665620410108,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.6660594788086405,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2024-03-31",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1608033.68,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3479504.92,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 12.453729169405706,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 26.947701690734906,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.743981114873166,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2024-06-30",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2500271.73,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4263043.99,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 19.36384005050284,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 33.01597220819572,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.046768240666385,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2024-09-30",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3294889.18,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4895176.77,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 25.51790923367056,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 37.91164730451803,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.6860694173635302,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2024-12-31",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4016183.02,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5475193.62,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 31.10410947726288,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 42.403700458275246,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.4595192078671753,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4412414.05,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5858211.53,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 34.17279765059434,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 45.37005705733094,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.4798063024026498,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 484.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 100.6,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5117476.77,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6288061.62,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 39.63329283271299,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 48.699114570793384,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.3162096952713673,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 496.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 78.9,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 24,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5555411.88,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6412194.01,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 43.02496635395037,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 49.66048197586605,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 540.9,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 63.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 27,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5861696.26,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6830254.8,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 45.39704522566862,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 52.89823496559683,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 573.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 47.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 30,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6529518.12,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6930004.19,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 50.569121334079966,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 53.67076349116442,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 590.3,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 32.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-07-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 33,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6735672.54,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7088702.93,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12912065.6,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 52.16572428194603,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 54.8998367077689,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 602.1,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 24.1,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2024-03-31",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 704704.08,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2276221.51,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 5.6378781898915316,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 18.210565215673174,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.618514497603022,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2024-06-30",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1558519.83,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3417018.4,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 12.468701696846225,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 27.337337839477325,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.84275718840228,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2024-09-30",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2443987.93,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4301738.69,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 19.5527550328716,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 34.415408434932814,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.000798494123496,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2024-12-31",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3140245.16,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4855365.35,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 25.123055479509134,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 38.844614622807434,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.8064782432464601,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3959390.09,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5343352.43,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 31.676500345625453,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 42.74868129896582,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.5318481286596342,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 366.8,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 94.5,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4430493.45,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5882594.6,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 35.44549137875331,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 47.06280655465156,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.4378122847693184,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 384.0,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 79.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4889927.37,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6177388.05,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 39.1211228257351,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 49.42125687365337,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 424.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 67.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 24,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5672784.56,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6496669.37,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 45.38425312760702,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 51.975618685305975,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 450.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 52.8,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 27,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6065184.3,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6649225.84,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 48.5235877769326,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 53.19612360268894,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 446.4,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 36.9,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2023-10-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 30,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6370217.91,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6768567.7,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12499455.58,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 50.96396294405648,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 54.15090006664114,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 461.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 25.2,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2024-06-30",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 732454.27,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2343535.44,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 5.752057162227893,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 18.40408386531339,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.606918463319219,
    "unit": "",
    "field": "Paid ATA"
   },
@@ -1108,31 +2209,224 @@
  },
  {
   "periodStart": "2024-01-01",
-  "evaluationDate": "2025-12-31",
-  "devLag": 12,
-  "experienceResolution": 12,
+  "evaluationDate": "2024-09-30",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
   "paidLoss": {
-   "metric": 2446271.72,
+   "metric": 1557188.16,
    "unit": "USD",
    "field": "Paid Loss"
   },
   "reportedLoss": {
-   "metric": 4855811.74,
+   "metric": 3550711.3,
    "unit": "USD",
    "field": "Reported Loss"
   },
   "earnedPremium": {
-   "metric": 13112614.14,
+   "metric": 12733779.4,
    "unit": "USD",
    "field": "Earned Premium"
   },
   "paidLossRatio": {
-   "metric": 18.655865976698376,
+   "metric": 12.228797995353995,
    "unit": "%",
    "field": "Paid LR"
   },
   "reportedLossRatio": {
-   "metric": 37.03160703240216,
+   "metric": 27.884190454877835,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.912823778470034,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2024-12-31",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2417791.16,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4450053.42,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 18.987223541818228,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 34.94683927067246,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.1109949835369566,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3237690.95,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4990749.65,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 25.42600156870944,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 39.192995993004246,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.8023046362717232,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 357.1,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 114.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4106811.37,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5455989.29,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 32.251315504963124,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 42.846582452967574,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.4572147101073212,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 399.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 102.8,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4535814.7,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6024843.3,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 35.6203335829738,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 47.31386582682593,
    "unit": "%",
    "field": "Reported LR"
   },
@@ -1141,10 +2435,2038 @@
    "unit": "",
    "field": "Paid ATA"
   },
+  "reportedClaims": {
+   "metric": 420.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 87.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5103945.01,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6307421.22,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 40.08193364807309,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 49.53298641250217,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 454.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 72.2,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 24,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5835305.41,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6674955.46,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 45.82540050913714,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 52.41927985653654,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 458.1,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 53.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-01-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 27,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5984505.94,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6874738.34,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12733779.4,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 46.99709137414458,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 53.98820039241453,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 490.6,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 40.5,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2024-09-30",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 809278.2,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2500468.13,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 6.149760660681273,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 19.001229168364187,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.3001742664018385,
+   "unit": "",
+   "field": "Paid ATA"
+  },
   "fields": [
    "paidLoss",
    "reportedLoss",
    "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2024-12-31",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1769105.65,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3815596.96,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 13.443555418839866,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 28.994983531773197,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.7416824540693767,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2682544.25,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4669136.52,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 20.384838117703836,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 35.481089309024085,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.1268695008479357,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 342.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 134.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3552868.82,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5486741.26,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 26.998494339520196,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 41.69412391941955,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 1.6851652350057775,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 403.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 129.6,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4289315.49,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6018407.91,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 32.59480319827325,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 45.734295332372724,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 449.4,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 115.8,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4850325.92,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6556502.79,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 36.85796001214255,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 49.823315306885824,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 485.2,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 100.8,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5705421.55,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6918579.6,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 43.355890472266736,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 52.574761870358024,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 484.4,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 76.9,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-04-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 24,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5987171.02,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7049623.41,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13159507.25,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 45.49692405845971,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 53.57057278873417,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 506.0,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 59.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2024-12-31",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 970009.34,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3024830.6,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 7.505018665977734,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 23.40329023473179,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.44518447626494,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2098582.6,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4573861.75,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 16.236855600891516,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 35.388234312621755,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.8647066072119345,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 303.3,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 143.1,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3342307.43,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5830690.72,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 25.859626928526346,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 45.112393133393084,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.083026159565459,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 373.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 146.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4373867.61,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6613625.62,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 33.84086802253412,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 51.17000597941517,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 408.6,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 131.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5281879.8,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7109645.19,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 40.86621113406056,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 55.00773823417908,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 470.9,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 121.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6011823.44,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 7881087.87,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 46.51382752022003,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 60.97643510583177,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 501.9,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 104.2,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-07-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 21,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 6962113.81,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 8346691.04,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 12924809.16,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 53.86627936872377,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 64.57883390519632,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 525.6,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 83.5,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-10-01",
+  "evaluationDate": "2025-03-31",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 826036.3,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2629451.96,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13299976.54,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 6.210810203429126,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 19.77035036183605,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.566755674054518,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 177.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 98.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-10-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1813943.63,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3961054.96,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13299976.54,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 13.638697967207092,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 29.78242065380365,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 2.925311135495429,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 271.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 128.1,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-10-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2868219.08,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4932017.1,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13299976.54,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 21.565595032245074,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 37.082900749236956,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 346.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 136.1,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-10-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3669357.18,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5711756.6,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13299976.54,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 27.589200394183553,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 42.94561409805314,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 396.6,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 127.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-10-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4598342.26,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6296124.84,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13299976.54,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 34.574062940414784,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 47.339368013652155,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 428.4,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 110.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2024-10-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 18,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 5306349.5,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6604811.26,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13299976.54,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 39.897435037129775,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 49.66032263392248,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 478.6,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 99.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-01-01",
+  "evaluationDate": "2025-06-30",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 777922.88,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 2484852.78,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13250969.02,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 5.870686731105194,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 18.752234468660767,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": 5.474768347217142,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 184.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 102.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-01-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1720979.34,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3791526.89,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13250969.02,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 12.987573492945952,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 28.613204696783754,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 289.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 136.6,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-01-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2684139.58,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4634596.31,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13250969.02,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 20.25617580079438,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 34.97552747278251,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 337.0,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 132.3,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-01-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3397256.14,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5286451.01,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13250969.02,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 25.637793997347977,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 39.89482582006671,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 397.3,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 127.6,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-01-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 15,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4258947.56,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5857630.15,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13250969.02,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 32.1406498918824,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 44.20529654215432,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 430.0,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 110.8,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-04-01",
+  "evaluationDate": "2025-09-30",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1016463.94,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3171558.87,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 14122897.39,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 7.1972762523908695,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 22.45685699200566,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 187.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 103.5,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-04-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2126142.24,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4711357.93,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 14122897.39,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 15.054575426607983,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 33.35971224527887,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 280.7,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 132.4,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-04-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3467438.07,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5895698.34,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 14122897.39,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 24.55188885288644,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 41.74567142415526,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 344.3,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 135.2,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-04-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 12,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 4388770.85,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 6823865.48,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 14122897.39,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 31.075569897629904,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 48.3177445219688,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 398.5,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 128.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-07-01",
+  "evaluationDate": "2025-12-31",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 995490.18,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3151522.99,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13943758.05,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 7.139324824988626,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 22.601675808624634,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 204.1,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 112.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-07-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 2145643.67,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4819447.47,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13943758.05,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 15.387843523288902,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 34.56347602072742,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 313.1,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 147.7,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-07-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 9,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 3482268.75,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 5991713.2,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 13943758.05,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 24.97367451094004,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 42.97057635764126,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 387.8,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 152.2,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-10-01",
+  "evaluationDate": "2026-03-31",
+  "devLag": 3,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 933639.83,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 3014040.57,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 15404384.15,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 6.060870859287159,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 19.56612183032322,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 210.1,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 116.0,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
+  ]
+ },
+ {
+  "periodStart": "2025-10-01",
+  "evaluationDate": "2026-06-30",
+  "devLag": 6,
+  "experienceResolution": 3,
+  "evaluationResolution": 3,
+  "paidLoss": {
+   "metric": 1985097.3,
+   "unit": "USD",
+   "field": "Paid Loss"
+  },
+  "reportedLoss": {
+   "metric": 4443367.81,
+   "unit": "USD",
+   "field": "Reported Loss"
+  },
+  "earnedPremium": {
+   "metric": 15404384.15,
+   "unit": "USD",
+   "field": "Earned Premium"
+  },
+  "paidLossRatio": {
+   "metric": 12.886573592752164,
+   "unit": "%",
+   "field": "Paid LR"
+  },
+  "reportedLossRatio": {
+   "metric": 28.844826036099594,
+   "unit": "%",
+   "field": "Reported LR"
+  },
+  "paidAta": {
+   "metric": null,
+   "unit": "",
+   "field": "Paid ATA"
+  },
+  "reportedClaims": {
+   "metric": 328.8,
+   "unit": "N",
+   "field": "reportedClaims"
+  },
+  "openClaims": {
+   "metric": 155.1,
+   "unit": "N",
+   "field": "openClaims"
+  },
+  "fields": [
+   "paidLoss",
+   "reportedLoss",
+   "earnedPremium",
+   "reportedClaims",
+   "openClaims"
   ]
  }
 ]

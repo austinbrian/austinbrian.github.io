@@ -31,9 +31,10 @@ OUT.mkdir(exist_ok=True)
 
 # Sized to fit the site's ~740px content column once axis labels and legends
 # are accounted for.
-WIDTH, HEIGHT = 380, 200
+# One chart shows at a time, so it can use most of the ~740px column.
+WIDTH, HEIGHT = 410, 300
 
-triangle = Triangle.from_json(str(SITE / "assets" / "triangle-synthetic.json"))
+triangle = Triangle.from_json(str(pathlib.Path(__file__).parent / "out" / "triangle.json"))
 
 # group / label / builder, in the order the plugin presents them.
 VIEWS = [

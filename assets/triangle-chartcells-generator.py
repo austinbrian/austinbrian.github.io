@@ -13,7 +13,7 @@ sys.path.insert(0, str(pathlib.Path.home() / "ldgr/korra-plugins/plugins/korra/r
 import termviz  # noqa: E402
 
 SITE = pathlib.Path("/Users/austinbrian/dev/austinbrian.github.io")
-raw = json.loads((SITE / "assets" / "triangle-synthetic.json").read_text())
+raw = json.loads((pathlib.Path(__file__).parent / "out" / "triangle.json").read_text())
 
 VIEWS = ["heatmap", "completeness", "right_edge", "atas",
          "growth_curve", "sunset", "mountain", "ballistic"]
@@ -53,7 +53,8 @@ for period_start, lags in sorted(by_period.items()):
             "periodStart": period_start,
             "evaluationDate": cell_in["evaluation_date"],
             "devLag": lag,
-            "experienceResolution": 12,
+            "experienceResolution": 3,   # quarterly periods
+            "evaluationResolution": 3,
             "paidLoss": field(paid, "USD", "Paid Loss"),
             "reportedLoss": field(reported, "USD", "Reported Loss"),
             "earnedPremium": field(premium, "USD", "Earned Premium"),
@@ -63,8 +64,14 @@ for period_start, lags in sorted(by_period.items()):
                 next_paid / paid if next_paid and paid else None, "", "Paid ATA"
             ),
         }
-        cell["fields"] = [k for k in ("paidLoss", "reportedLoss", "earnedPremium")
-                          if cell[k]["metric"] is not None]
+        for name, key in (("reportedClaims", "reported_claims"),
+                          ("openClaims", "open_claims")):
+            if key in values:
+                cell[name] = field(values[key], "N", name)
+        cell["fields"] = [k for k in ("paidLoss", "reportedLoss", "earnedPremium",
+                                      "reportedClaims", "openClaims")
+                          if isinstance(cell.get(k), dict)
+                          and cell[k]["metric"] is not None]
         chart_cells.append(cell)
 
 print(f"{len(chart_cells)} chart cells, "

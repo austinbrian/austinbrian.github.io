@@ -35,7 +35,7 @@ title: Brian Austin
     </video>
     -->
     <img src="{{ "/assets/triangle-terminal-heatmap.png" | relative_url }}"
-         alt="A loss triangle drawn in a terminal: cumulative paid loss by accident year and development lag, each cell a coloured block with its dollar value"
+         alt="A loss triangle drawn in a terminal: cumulative paid loss by quarterly experience period and development lag, each cell a coloured block with its dollar value"
          style="max-width:100%">
   </figure>
 
@@ -76,8 +76,9 @@ title: Brian Austin
     <figcaption style="font-size:14px;color:#828282;margin-top:6px">
       Drawn by bermuda from a
       <a href="{{ "/assets/triangle-synthetic.json" | relative_url }}">synthetic triangle</a>
-      shaped like a real one &mdash; ragged lower-right edge where evaluations haven't
-      happened yet, age-to-age factors decaying toward 1.0. Built by
+      shaped like a real one &mdash; quarterly periods, a ragged lower-right edge where
+      evaluations haven't happened yet, age-to-age factors decaying toward 1.0, and
+      claim counts that only start arriving partway through. Built by
       <a href="{{ "/assets/triangle-synthetic-generator.py" | relative_url }}">this generator</a>;
       hover any mark for its values.
     </figcaption>
