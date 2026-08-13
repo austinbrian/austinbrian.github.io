@@ -69,11 +69,17 @@ lags = sorted({float(lag) for lag in triangle.dev_lags()})
 
 
 def clamp_dev_lag_axis(spec: dict) -> None:
-    """bermuda pads dev-lag scales by 10, which renders a negative-lag tick."""
+    """bermuda pads dev-lag scales by 10, which renders a negative-lag tick.
+
+    Only continuous axes: heatmap and completeness encode dev_lag as nominal,
+    and forcing a numeric domain on a band scale collapses their cells into
+    full-width bars.
+    """
     def walk(node):
         if isinstance(node, dict):
             x = node.get("encoding", {}).get("x")
-            if isinstance(x, dict) and x.get("field") == "dev_lag":
+            if (isinstance(x, dict) and x.get("field") == "dev_lag"
+                    and x.get("type") == "quantitative"):
                 x["scale"] = {"domain": [0, lags[-1] + 12], "nice": False}
             for value in node.values():
                 walk(value)
