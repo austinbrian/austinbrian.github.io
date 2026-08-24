@@ -98,6 +98,7 @@ vendor/
 # Local tooling
 .venv/
 .vercel/
+.wrangler/
 .DS_Store
 
 # Strava scratch files — token.sh contains a live client secret
