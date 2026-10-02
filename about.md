@@ -27,7 +27,7 @@ Brian is a data scientist based in Chapel Hill, North Carolina, after a long str
 ### AI & Agents   
 MCP server design, LLM application development, agent evaluation harnesses
 ### Technologies    
-Python, STATA, PostgreSQL, mySQL, MongoDB, UNIX, Git, JavaScript, React.js, Node.js, Neo4j
+Python, TypeScript, STATA, PostgreSQL, mySQL, MongoDB, UNIX, Git, JavaScript, React.js, Node.js, Neo4j
 ### Deployment   
 AWS, Google Cloud, Databricks, Flask, FastAPI, Docker, Kubernetes, Pivotal Cloud Foundry
 ### Certifications   
@@ -45,33 +45,32 @@ Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 **New York, NY**   
 *Financial technology brokerage and analysis firm for insurance-linked securities*   
 **Senior Data Scientist / Machine Learning Engineer** *September 2022 - present*
-* Initiated and built MCP server coverage for the platform's transaction and document-extraction functions, arguing to the CEO and head of engineering that agent-accessible interfaces would become table stakes; now prioritized on the delivery roadmap after client demand confirmed the thesis.
-* Rebuilt 150+ historical transactions through automated skill harnesses to test whether agents could compose the platform's bordereau tools correctly, reconciling extracted triangles against hand-verified records (97% agreement on contract key terms). Attributed all 428 divergences to cause, zero unexplained — most tracing to prior-build defects or deliberate methodology changes rather than extraction error.
-* Built an MCP server for [Bermuda](https://github.com/LedgerInvesting/bermuda-ledger), the firm's open-source actuarial library, enabling live conference demo use by attendees whose IT controls prevented local installation.
-* Previously applied the firm's Bayesian valuation models to price prospective deals and renewals, contributed to backtesting infrastructure, and owned Databricks pipelines for bordereau processing.
+* Proposed and developed MCP interfaces for the platform's transaction and document-extraction services; now lead the initiative and demo new capabilities to clients and prospects.
+* Shipped interactive MCP apps for loss triangles, financial reporting, forecasting, and portfolio insights, with data fetched at render time rather than passed through model context.
+* Developed workflows for ingestion, validation, valuation, and reporting as the firm turned bespoke analytics for casualty insurance transactions into a generalized platform for insurance and reinsurance counterparties.
+* Own the bordereau pipeline end to end in the platform's TypeScript and Python codebases, from Excel ingestion and validation through client-facing interfaces; previously applied the firm's Bayesian valuation models to price prospective deals and renewals and contributed to backtesting infrastructure.
 
 ### OneGlobe
 **Reston, VA**   
 *Federal technology contractor staffing [Kessel Run](https://kesselrun.af.mil/), a US Air Force software factory*   
 **Data Scientist / Technical Lead** *May 2020 - September 2022*
-* Emerged as technical lead for a user analytics platform deployed to classified Air Force networks, within the Enterprise AI product portfolio of Kessel Run's All-Domain Common Platform (ADCP) division, directing engineering decisions for a team of 4–7 and reviewing code across the stack.
-* Forked and extended a JavaScript analytics library to fit Air Force frontend standards, and contributed to a companion Java library for backend services; both were made available for integration across other product teams.
-* Led Python analysis of event data against a Postgres warehouse, and replaced an initial Grafana-based approach after it proved undeployable on airgapped networks — learning React to build custom dashboards alongside teammates, delivered on Kubernetes.
+* Took on technical leadership for a user analytics platform deployed to classified Air Force networks, directing engineering decisions for a team of 4–7 and reviewing code across the stack.
+* Extended a JavaScript analytics library to fit Air Force frontend standards and contributed to a companion Java library for backend services; both made available for integration across other product teams.
+* Analyzed event data in Python against a Postgres warehouse and replaced an initial Grafana-based approach after it proved undeployable on airgapped networks, learning React to build custom dashboards deployed on Kubernetes.
 
 ### U.Group
-**Arlington, VA**   
-*Technical consulting and design firm working with DoD and corporate clients*   
+**Washington, DC**   
+*Design and technology firm staffing Defense Intelligence Agency and DHS*   
 **Data Scientist** *November 2018 - May 2020*
-* Wrote machine learning and graph data mining algorithms to perform entity resolution and draw insights from military intelligence data, maintaining a custom API also developed for the prototype.
+* Implemented NLP and graph algorithms for entity resolution and analysis of military intelligence data, along with a custom API to serve results.
 * Led development of data pipeline for military intelligence product prototype to ingest, transform, and build relationships in a graph database as an implementation of a knowledge graph for proprietary data.
 * Deployed prototype pipeline as microservices architecture using Docker on a client-owned AWS instance.
 
 ### Excella Consulting
 **Arlington, VA**   
-*Agile technology and consulting firm working in corporate and government sectors*   
-**Data Scientist** *August 2017 - November 2018*
-* Analyzed changes to the loyalty program of a large hospitality corporation, making recommendations based on a simulation model programmed in Python, working cross-functionally with finance, loyalty, and marketing teams.
-* Maintained and updated simulation programming, cutting model run time by 70% while reducing errors by 90%.
+*Agile transformation firm consulting for corporate and government clients*   
+**Data Scientist – Senior Consultant** *August 2017 - November 2018*
+* Restructured Monte Carlo simulation in Python to estimate a $100M change for a corporate hospitality client's customer rewards program – improved model reduced run time by 70% and errors by 90%.
 * Developed reporting and quality assurance mechanisms to delivery impact to financial and loyalty stakeholders.
 * Built application layer using Reactjs, MongoDB, and Flask to serve dashboard that uses deep learning to identify fraud in OIG audits.
 
@@ -116,7 +115,7 @@ Survey sampling methodology, A/B testing, Catalist, SSI, VAN
 
 ---
 ## Speaking and Presentation
-- ***[Bermuda actuarial library demo](https://ledgerinvesting.github.io/bermuda-clrs-workshop-2025/)*** -- Casualty Loss Reserve Seminar (CLRS) -- 2025
+- ***[The Bermuda Actuarial Library](https://ledgerinvesting.github.io/bermuda-clrs-workshop-2025/)*** -- Casualty Loss Reserve Seminar (CLRS) -- 2025
 - ***User Analytics for DoD Software*** -- DoD Digital and AI Symposium -- 2022
 - ***[How and Why to Put Your Jupyter Notebooks into Docker Containers](https://www.youtube.com/watch?v=f6zoRrJhHXA)*** -- [PyData NYC](https://pydata.org/nyc2019/schedule/presentation/72/how-and-why-to-put-your-jupyter-notebooks-in-docker-containers/) -- November 2019
 
