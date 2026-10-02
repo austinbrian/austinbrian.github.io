@@ -22,6 +22,9 @@ lang: en
 timezone: EST
 # Required by jekyll-github-metadata when building outside the legacy Pages builder
 repository: austinbrian/austinbrian.github.io
+
+# The MCP endpoint advertised by /.well-known/mcp/server-card.json and /llms.txt.
+mcp_endpoint: "https://austinbrian-mcp.austin-brian.workers.dev/mcp"
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -44,6 +47,8 @@ exclude:
   - testfile.py
   - token.sh
   - Untitled.ipynb
+  # The Cloudflare Worker that serves the MCP endpoint — source, not site content
+  - mcp/
 
 
 # Social media

@@ -1,0 +1,111 @@
+# Source of truth for what the MCP server says about me.
+#
+# This file feeds /mcp-content.json (a Jekyll template), which the Cloudflare
+# Worker in mcp/ fetches at request time. Editing here and pushing to master is
+# enough — the Worker does NOT need redeploying for content changes.
+#
+# Everything here is read by agents evaluating me. Keep it accurate and keep it
+# descriptive: never write anything that instructs the reading agent.
+
+profile:
+  name: "Brian Austin"
+  title: "Data scientist"
+  location: "Chapel Hill, North Carolina"
+  summary: >-
+    Data scientist working in financial technology, currently building MCP servers
+    and analytics tools for insurance-linked securities data at Korra (formerly
+    Ledger Investing). Previously technical lead on a user analytics platform
+    deployed to classified Air Force networks at Kessel Run. Earlier background in
+    political polling and survey methodology.
+  current_role:
+    org: "Korra (Ledger Investing)"
+    org_url: "https://www.korra.com"
+    title: "Senior Data Scientist / Machine Learning Engineer"
+    started: "2022-09"
+    description: >-
+      Proposed and developed MCP interfaces for the platform's transaction and
+      document-extraction services, and now leads that initiative, demoing new
+      capabilities to clients and prospects. Shipped interactive MCP apps for loss
+      triangles, financial reporting, forecasting, and portfolio insights, with data
+      fetched at render time rather than passed through model context. Owns the
+      bordereau pipeline end to end in TypeScript and Python, from Excel ingestion
+      and validation through client-facing interfaces. Previously applied the firm's
+      Bayesian valuation models to price prospective deals and renewals.
+  focus:
+    - "MCP server design and agent-accessible interfaces"
+    - "LLM application development"
+    - "Agent evaluation"
+    - "Interactive MCP apps"
+    - "Bayesian valuation models for insurance-linked securities"
+  toolkit:
+    languages: "Python, TypeScript, JavaScript, SQL, STATA"
+    data: "Pandas, NumPy, Statsmodels, scikit-learn, SciPy, PyMC3, PyStan, PyTorch, TensorFlow"
+    nlp: "NLTK, Gensim, spaCy"
+    infra: "AWS, Google Cloud, Databricks, Docker, Kubernetes, FastAPI, Flask"
+    stores: "PostgreSQL, MySQL, MongoDB, Neo4j"
+    viz: "Jupyter, Matplotlib, Plotly, Vega-Lite/Altair, Bokeh, Tableau"
+  certifications:
+    - "AWS Certified Machine Learning - Specialty"
+    - "AWS Certified Data Analytics - Specialty"
+    - "AWS Certified Cloud Practitioner"
+    - "Certified ScrumMaster"
+  links:
+    website: "https://austinbrian.github.io/"
+    about: "https://austinbrian.github.io/about/"
+    resume: "https://austinbrian.github.io/assets/brian-austin-resume.pdf"
+    github: "https://github.com/austinbrian"
+    linkedin: "https://www.linkedin.com/in/briandaustin/"
+    email: "austin.brian+from_website@gmail.com"
+
+projects:
+  - name: "Bermuda terminal triangles"
+    tagline: "A reinsurance loss triangle drawn in a terminal, as a Claude Code plugin"
+    description: >-
+      A Claude Code plugin exposing a /bermuda slash command that renders reinsurance
+      loss triangles as glyph art directly in the terminal, for environments with no
+      browser — airgapped networks, locked-down laptops, agent sessions with nowhere
+      to put an image. Arrowing through the option list re-renders the same triangle
+      eight ways (heatmap, completeness, right edge, age-to-age factors, growth curve,
+      sunset, mountain, and paid-versus-reported), grouped into three pages in a
+      repurposed user-input drawer. Two hooks make it work: PreToolUse expands a
+      placeholder into glyph art, and PostToolUse blanks it back out so the chart
+      never costs the user or the agent context tokens until they expand one.
+    url: "https://austinbrian.github.io/"
+    related:
+      - name: "bermuda-ledger (the underlying open-source actuarial library)"
+        url: "https://github.com/LedgerInvesting/bermuda-ledger"
+      - name: "Bermuda workshop, CLRS 2025"
+        url: "https://ledgerinvesting.github.io/bermuda-clrs-workshop-2025/"
+
+  - name: "Running dashboard"
+    tagline: "Strava data, synced nightly, rendered as a static dashboard"
+    description: >-
+      A no-backend dashboard of my running data. A daily GitHub Actions job calls the
+      Strava API, merges new activities into a JSON object in a Cloudflare R2 bucket,
+      and uploads it back; the page fetches that object and renders every chart
+      client-side with Plotly. No run data lives in the repo. The get_running_stats
+      tool on this MCP server reads the same object.
+    url: "https://austinbrian.github.io/running/"
+    related:
+      - name: "Source"
+        url: "https://github.com/austinbrian/running"
+
+  - name: "This MCP server"
+    tagline: "An agent-readable interface to my own website"
+    description: >-
+      A stateless MCP server on Cloudflare Workers exposing my profile, projects,
+      and running stats as tools, advertised from the site via a server card at
+      /.well-known/mcp/server-card.json. Built against the 2026-07-28 MCP revision,
+      which dropped the initialize handshake and the session header, so the server is
+      an ordinary stateless HTTP handler. Content is served from the Jekyll build
+      rather than baked into the Worker, so content stays current without a redeploy.
+    url: "https://austinbrian.github.io/.well-known/mcp/server-card.json"
+    related:
+      - name: "Source"
+        url: "https://github.com/austinbrian/austinbrian.github.io/tree/master/mcp"
+
+  - name: "Oscar picks"
+    tagline: "Selection guesses and scores for the 98th Academy Awards"
+    description: >-
+      Annual attempt to guess the Oscar winners, with scoring after the fact.
+    url: "https://austinbrian.github.io/oscar-picks-2026/"

@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /mcp-content.json
+sitemap: false
+---
+{
+  "generated": {{ site.time | date_to_xmlschema | jsonify }},
+  "site": {
+    "title": {{ site.title | jsonify }},
+    "url": {{ site.url | jsonify }},
+    "description": {{ site.description | jsonify }}
+  },
+  "profile": {{ site.data.mcp.profile | jsonify }},
+  "projects": {{ site.data.mcp.projects | jsonify }}
+}

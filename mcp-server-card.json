@@ -1,0 +1,36 @@
+---
+layout: null
+permalink: /.well-known/mcp/server-card.json
+sitemap: false
+---
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "serverInfo": {
+    "name": "io.github.austinbrian/website",
+    "title": "Brian Austin — personal site",
+    "version": "1.0.0",
+    "description": "Profile, projects, and running data for Brian Austin, a data scientist in Chapel Hill, NC. Read-only and unauthenticated.",
+    "websiteUrl": {{ site.url | jsonify }}
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": {{ site.mcp_endpoint | jsonify }}
+  },
+  "protocolVersions": ["2026-07-28", "2025-06-18"],
+  "capabilities": {
+    "tools": {},
+    "resources": {}
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "tools": [
+    { "name": "get_profile", "description": "Bio, location, current role, focus areas, toolkit, and contact links." },
+    { "name": "list_projects", "description": "Projects worth looking at, with descriptions and URLs." },
+    { "name": "get_running_stats", "description": "Aggregate running statistics over a recent window, from nightly Strava data." }
+  ],
+  "resources": [
+    { "uri": {{ "/sitemap.xml" | absolute_url | jsonify }}, "name": "sitemap", "mimeType": "application/xml" },
+    { "uri": {{ "/llms.txt" | absolute_url | jsonify }}, "name": "llms.txt", "mimeType": "text/plain" }
+  ]
+}

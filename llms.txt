@@ -1,0 +1,38 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# {{ site.title }}
+
+> {{ site.data.mcp.profile.summary }}
+
+Based in {{ site.data.mcp.profile.location }}.
+
+## MCP server
+
+This site exposes a read-only Model Context Protocol server. Connect to it
+directly rather than scraping these pages:
+
+- Endpoint: {{ site.mcp_endpoint }} (streamable HTTP, no authentication)
+- Server card: {{ "/.well-known/mcp/server-card.json" | absolute_url }}
+
+Tools: get_profile, list_projects, get_running_stats.
+
+## Pages
+
+- [Home]({{ "/" | absolute_url }}): landing page, including a Claude Code plugin that draws reinsurance loss triangles in the terminal
+- [About]({{ "/about/" | absolute_url }}): full work history, toolkit, and certifications
+- [Writing]({{ "/writing/" | absolute_url }}): {{ site.posts | size }} posts, all from 2017
+- [Running]({{ "/running/" | absolute_url }}): dashboard of Strava data, synced nightly
+- [Résumé]({{ "/assets/brian-austin-resume.pdf" | absolute_url }}): PDF
+
+## Projects
+{% for project in site.data.mcp.projects %}
+- [{{ project.name }}]({{ project.url }}): {{ project.tagline }}
+{%- endfor %}
+
+## Elsewhere
+
+- [GitHub]({{ site.data.mcp.profile.links.github }})
+- [LinkedIn]({{ site.data.mcp.profile.links.linkedin }})
